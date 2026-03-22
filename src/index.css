@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f4f2ee;
+  --hero: #0d1b24;
+  --ink: #24323a;
+  --ink-strong: #091117;
+  --teal: #5ab0b9;
+  --teal-deep: #277a84;
+  --silver: #c9c9c9;
+  --line: rgba(14, 28, 37, 0.09);
+  --panel-soft: #eef7f7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.clip-diagonal-left {
+  clip-path: polygon(0 28%, 100% 100%, 0 100%);
+}
+
+.clip-diagonal-right {
+  clip-path: polygon(100% 36%, 100% 100%, 0 100%);
+}
+
+::selection {
+  background: rgba(90, 176, 185, 0.3);
+  color: var(--ink-strong);
+}
