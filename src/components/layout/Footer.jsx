@@ -1,4 +1,4 @@
-export default function Footer({ companyData, navItems }) {
+export default function Footer({ companyData, navItems, onNavigate }) {
   return (
     <footer className="border-t border-white/10 bg-[var(--hero)] px-4 py-10 text-white sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
@@ -27,7 +27,14 @@ export default function Footer({ companyData, navItems }) {
             <p className="mb-2 text-xs uppercase tracking-[0.3em] text-white/45">Navigasi</p>
             <div className="space-y-1">
               {navItems.map((item) => (
-                <p key={item.href}>{item.label}</p>
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(event) => onNavigate(event, item.href)}
+                  className="block transition hover:text-white"
+                >
+                  {item.label}
+                </a>
               ))}
             </div>
           </div>

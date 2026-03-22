@@ -3,9 +3,9 @@ export const companyData = {
   tagline: 'Jasa Periklanan & Konstruksi',
   slogan: 'One Stop Advertising',
   description:
-    'CV KARYA INDAH adalah perusahaan yang bergerak dalam bidang jasa periklanan dan konstruksi. Bermula dari percetakan sablon pada akhir dekade 80 dan tercatat berdiri secara sah pada 11 Desember 1992.',
+    'CV KARYA INDAH adalah perusahaan yang bergerak dalam bidang Jasa Periklanan dan Konstruksi. Bermula dari percetakan sablon (screen printing) pada akhir dekade 80. Kami tercatat berdiri secara sah di Notaris pada tanggal 11 Desember 1992.',
   descriptionLong:
-    'Perusahaan kami memproduksi dan menerima jasa segala jenis exterior goods seperti reklame, shopsign, fasad toko, neonbox, letter timbul, billboard, booth, serta interior goods seperti backwall, display, acrylic, meja, kursi, dan berbagai kebutuhan branding ruang usaha. Kami menggunakan material berkualitas dan menjaga mutu pekerjaan serta kecepatan layanan untuk memberikan hasil terbaik kepada setiap klien.',
+    'Perusahaan kami memproduksi dan menerima jasa segala jenis Exterior goods (reklame, shopsign, fasad toko, neonbox, letter timbul, billboard, booth dll) dan Interior goods (backwall, display, acrylic, meja, kursi dll) dengan jenis bahan yang berkualitas dan berusaha memperhatikan keinginan calon konsumen semaksimal mungkin. Hingga saat ini CV Karya Indah terus berkembang menjadi perusahaan yang mapan dibidangnya.',
   address: 'Jl. Bali No. 33 Kota Tegal 52121',
   phones: ['(0283) 356838', '(0283) 358024'],
   email: 'karya.indah.tg@gmail.com',
@@ -31,11 +31,11 @@ export const companyData = {
 }
 
 export const navItems = [
-  { label: 'Beranda', href: '#beranda' },
-  { label: 'Profil', href: '#profil' },
-  { label: 'Layanan', href: '#layanan' },
-  { label: 'Produksi', href: '#produksi' },
-  { label: 'Kontak', href: '#kontak' },
+  { label: 'Beranda', href: '/beranda' },
+  { label: 'Profil', href: '/profil' },
+  { label: 'Layanan', href: '/layanan' },
+  { label: 'Produksi', href: '/produksi' },
+  { label: 'Kontak', href: '/kontak' },
 ]
 
 export const services = [

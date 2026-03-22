@@ -32,7 +32,7 @@ export default function HeroSection({ companyData, heroImage }) {
       </div>
 
       <div className="relative z-10 px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl rounded-[2rem] bg-[linear-gradient(180deg,#fbfaf8,#f3efe9)] p-5 shadow-[0_18px_48px_rgba(6,18,24,0.08)] sm:p-6 lg:p-7">
+        <div className="mx-auto max-w-6xl rounded-[2rem] bg-[linear-gradient(180deg,#fbfaf8,#f3efe9)] p-5 shadow-[0_30px_76px_rgba(72,155,214,0.16)] sm:p-6 lg:p-7">
           <div className="grid gap-5 text-sm text-slate-600 sm:grid-cols-2 xl:grid-cols-4">
             <StatCard title="Berdiri Resmi" value="11 Des 1992" />
             <StatCard title="Bidang Usaha" value={companyData.businessType} />
