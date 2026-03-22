@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -32,7 +32,7 @@ body {
 }
 
 .font-display {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Arial MT Bold', Arial, 'Helvetica Neue', sans-serif;
   letter-spacing: 0.02em;
 }
 
@@ -47,4 +47,63 @@ body {
 ::selection {
   background: rgba(90, 176, 185, 0.3);
   color: var(--ink-strong);
+}
+
+
+@keyframes heroZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes riseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-image-zoom {
+  animation: heroZoom 18s ease-out forwards;
+  transform-origin: center center;
+}
+
+.motion-fade-up {
+  animation: fadeUp 0.9s ease-out both;
+}
+
+.motion-fade-up-delayed {
+  animation: fadeUp 1s ease-out 0.15s both;
+}
+
+.motion-rise-in {
+  animation: riseIn 1s ease-out 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-zoom,
+  .motion-fade-up,
+  .motion-fade-up-delayed,
+  .motion-rise-in {
+    animation: none;
+    transform: none;
+  }
 }
