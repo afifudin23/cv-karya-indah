@@ -7,6 +7,7 @@ export default function ContactSection({ companyData }) {
   return (
     <SectionShell
       id="kontak"
+      paddingClassName="pb-20 pt-28 sm:pt-32"
       eyebrow="Kontak"
       title="Hubungi Kami"
       intro="Bagian penutup dibuat lebih tegas supaya tetap berfungsi seperti halaman profil perusahaan sekaligus landing page bisnis."

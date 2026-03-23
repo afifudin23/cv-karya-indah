@@ -69,9 +69,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const pageClassName =
-    currentPath === DEFAULT_ROUTE ? '' : 'pt-24 sm:pt-28'
-
   const renderPage = () => {
     switch (currentPath) {
       case '/profil':
@@ -107,7 +104,7 @@ export default function App() {
         onClose={() => setIsOpen(false)}
       />
 
-      <main className={pageClassName}>
+      <main>
         {renderPage()}
       </main>
 

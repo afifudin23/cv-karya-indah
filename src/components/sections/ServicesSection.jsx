@@ -5,6 +5,7 @@ export default function ServicesSection({ services }) {
     <SectionShell
       id="layanan"
       tone="dark"
+      paddingClassName="pb-20 pt-28 sm:pt-32"
       eyebrow="Layanan"
       title="One Stop Advertising"
       intro="Ruang lingkup layanan dirapikan supaya tetap sama dengan isi profil perusahaan, tetapi tampil lebih mudah dipindai dan terasa lebih premium."

@@ -5,6 +5,7 @@ export default function SectionShell({
   intro,
   tone = 'light',
   headerVariant = 'default',
+  paddingClassName = 'py-20',
   children,
 }) {
   const sectionClass =
@@ -22,7 +23,7 @@ export default function SectionShell({
   const isFeaturedHeader = headerVariant === 'feature'
 
   return (
-    <section id={id} className={`px-4 py-20 sm:px-6 lg:px-8 ${sectionClass}`}>
+    <section id={id} className={`px-4 ${paddingClassName} sm:px-6 lg:px-8 ${sectionClass}`}>
       <div className="mx-auto max-w-7xl">
         <div
           className={`mb-12 ${
