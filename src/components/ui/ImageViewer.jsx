@@ -162,6 +162,7 @@ function ImageViewerStage({ currentItem, hasNavigation, itemsLength, onClose, on
         }
 
         const container = scrollRef.current;
+        const isMobile = viewportSize.width < 640;
 
         if (zoomLevel <= 1) {
             container.scrollTo({ left: 0, top: 0 });
@@ -169,11 +170,12 @@ function ImageViewerStage({ currentItem, hasNavigation, itemsLength, onClose, on
         }
 
         const maxScrollLeft = Math.max(container.scrollWidth - container.clientWidth, 0);
+        const maxScrollTop = Math.max(container.scrollHeight - container.clientHeight, 0);
         container.scrollTo({
             left: maxScrollLeft / 2,
-            top: 0,
+            top: isMobile ? maxScrollTop / 2 : 0,
         });
-    }, [zoomLevel, imageMeta]);
+    }, [viewportSize.width, zoomLevel, imageMeta]);
 
     const orientation = imageMeta?.orientation ?? "landscape";
     const naturalWidth = imageMeta?.width ?? 1600;
@@ -190,7 +192,12 @@ function ImageViewerStage({ currentItem, hasNavigation, itemsLength, onClose, on
     const fitScale = Math.min(widthLimit / naturalWidth, heightLimit / naturalHeight);
     const baseWidth = Math.max(naturalWidth * fitScale, 220);
     const baseHeight = Math.max(naturalHeight * fitScale, 220);
+    const isMobile = viewportSize.width < 640;
     const isZoomed = zoomLevel > 1;
+    const imageWidth = baseWidth * zoomLevel;
+    const imageHeight = baseHeight * zoomLevel;
+    const mobileStageWidth = Math.max(imageWidth + 40, viewportSize.width);
+    const mobileStageHeight = Math.max(imageHeight + 168, viewportSize.height);
 
     const zoomIn = () => setZoomLevel((current) => Math.min(current + 0.18, 2.4));
     const zoomOut = () => setZoomLevel((current) => Math.max(current - 0.18, 1));
@@ -202,7 +209,7 @@ function ImageViewerStage({ currentItem, hasNavigation, itemsLength, onClose, on
     return (
         <>
             <div
-                className="absolute bottom-4 right-3 z-20 flex items-center gap-2 sm:bottom-5 sm:right-5"
+                className="absolute bottom-[6.75rem] right-3 z-20 flex items-center gap-2 sm:bottom-[7rem] sm:right-5 md:bottom-5"
                 onClick={(event) => event.stopPropagation()}
             >
                 <button
@@ -225,17 +232,21 @@ function ImageViewerStage({ currentItem, hasNavigation, itemsLength, onClose, on
 
             <div
                 ref={scrollRef}
-                className={`flex h-screen w-screen max-w-none overflow-auto rounded-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:h-[84vh] sm:w-full sm:max-w-[88vw] sm:rounded-[1.5rem] lg:h-[85vh] lg:max-w-[70vw] ${
+                className={`h-screen w-screen max-w-none overflow-auto rounded-none [scrollbar-width:none] [touch-action:pan-x_pan-y] [&::-webkit-scrollbar]:hidden sm:h-[84vh] sm:w-full sm:max-w-[88vw] sm:rounded-[1.5rem] lg:h-[85vh] lg:max-w-[70vw] ${
                     isZoomed ? "items-start justify-start" : "items-center justify-center"
                 }`}
             >
                 <div
-                    className={`flex ${isZoomed ? "items-start justify-center" : "items-center justify-center"}`}
+                    className={`flex ${isMobile ? "items-center justify-center" : isZoomed ? "items-start justify-center" : "items-center justify-center"}`}
                     style={{
-                        width: isZoomed ? `max(${baseWidth * zoomLevel}px, 100%)` : `${baseWidth * zoomLevel}px`,
-                        height: `${baseHeight * zoomLevel}px`,
-                        minWidth: isZoomed ? undefined : "100%",
-                        minHeight: isZoomed ? undefined : "100%",
+                        width: isMobile
+                            ? `${mobileStageWidth}px`
+                            : isZoomed
+                              ? `max(${imageWidth}px, 100%)`
+                              : `${imageWidth}px`,
+                        height: isMobile ? `${mobileStageHeight}px` : `${imageHeight}px`,
+                        minWidth: isMobile ? undefined : isZoomed ? undefined : "100%",
+                        minHeight: isMobile ? undefined : isZoomed ? undefined : "100%",
                     }}
                 >
                     <img
@@ -245,8 +256,8 @@ function ImageViewerStage({ currentItem, hasNavigation, itemsLength, onClose, on
                         onClick={(event) => event.stopPropagation()}
                         className="block object-contain"
                         style={{
-                            width: `${baseWidth * zoomLevel}px`,
-                            height: `${baseHeight * zoomLevel}px`,
+                            width: `${imageWidth}px`,
+                            height: `${imageHeight}px`,
                             maxWidth: "none",
                             userSelect: "none",
                         }}

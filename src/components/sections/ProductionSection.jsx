@@ -57,6 +57,24 @@ const productionGallery = [
     note: 'Contoh polesign yang berfungsi untuk identitas lokasi dan petunjuk arah dengan komposisi visual yang tetap bersih dan jelas.',
     meta: ['Directional sign', 'Outdoor sign', 'Lokasi & arah'],
   },
+  {
+    id: '07',
+    image: '/produksi/produksi7.jpeg',
+    title: 'Premiere Hotel Tegal',
+    category: 'Hospitality Polesign',
+    subtitle: 'Polesign hotel yang tegas dan mudah dikenali',
+    note: 'Polesign area hotel yang dirancang untuk memperjelas identitas properti sekaligus membantu pengunjung menemukan akses masuk dengan lebih cepat.',
+    meta: ['Hospitality sign', 'Akses masuk', 'Outdoor branding'],
+  },
+  {
+    id: '08',
+    image: '/produksi/produksi8.jpeg',
+    title: 'Billboard Tong Tji',
+    category: 'Outdoor Billboard',
+    subtitle: 'Media promosi outdoor dengan skala besar',
+    note: 'Billboard Tong Tji dengan visual produk yang dominan untuk memperkuat awareness merek dan menarik perhatian dari jalur lalu lintas utama.',
+    meta: ['Billboard', 'Brand campaign', 'Outdoor media'],
+  },
 ]
 
 export default function ProductionSection({ portfolioGroups }) {
