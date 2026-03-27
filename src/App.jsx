@@ -5,21 +5,17 @@ import ClientsSection from './components/sections/ClientsSection'
 import ContactSection from './components/sections/ContactSection'
 import HeroSection from './components/sections/HeroSection'
 import InventorySection from './components/sections/InventorySection'
+import OfficeWorkshopSection from './components/sections/OfficeWorkshopSection'
 import ProductionSection from './components/sections/ProductionSection'
 import ProfileSection from './components/sections/ProfileSection'
 import ReviewsSection from './components/sections/ReviewsSection'
 import ServicesSection from './components/sections/ServicesSection'
-import WorkspacesSection from './components/sections/WorkspacesSection'
 import {
   clients,
   companyData,
   heroImage,
-  inventories,
   navItems,
-  portfolioGroups,
-  reviews,
-  services,
-  workspaces,
+  servicesData,
 } from './data/companyProfileData'
 
 const DEFAULT_ROUTE = '/beranda'
@@ -28,6 +24,7 @@ const VALID_ROUTES = new Set([
   '/profil',
   '/layanan',
   '/produksi',
+  '/pelanggan',
   '/kontak',
 ])
 
@@ -72,24 +69,34 @@ export default function App() {
   const renderPage = () => {
     switch (currentPath) {
       case '/profil':
-        return <ProfileSection companyData={companyData} />
-      case '/layanan':
-        return <ServicesSection services={services} />
-      case '/produksi':
         return (
           <>
-            <ProductionSection portfolioGroups={portfolioGroups} />
-            <WorkspacesSection workspaces={workspaces} />
-            <InventorySection inventories={inventories} />
+            <ProfileSection companyData={companyData} />
+            <InventorySection id="inventaris-profile" />
+            <OfficeWorkshopSection id="office-workshop-profile" />
+          </>
+        )
+      case '/layanan':
+        return <ServicesSection servicesData={servicesData} />
+      case '/produksi':
+        return <ProductionSection />
+      case '/pelanggan':
+        return (
+          <>
+            <ReviewsSection />
             <ClientsSection clients={clients} />
-            <ReviewsSection reviews={reviews} />
           </>
         )
       case '/kontak':
         return <ContactSection companyData={companyData} />
       case '/beranda':
       default:
-        return <HeroSection companyData={companyData} heroImage={heroImage} />
+        return (
+          <>
+            <HeroSection companyData={companyData} heroImage={heroImage} />
+            <OfficeWorkshopSection id="office-workshop-home" />
+          </>
+        )
     }
   }
 

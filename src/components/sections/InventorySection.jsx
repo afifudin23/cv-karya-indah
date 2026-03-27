@@ -1,27 +1,29 @@
-import BulletRow from '../ui/BulletRow'
-import InfoPanel from '../ui/InfoPanel'
 import SectionShell from '../ui/SectionShell'
+import ShowcaseGallery from '../ui/ShowcaseGallery'
+import { inventoryShowcaseItems } from '../../data/showcaseData'
 
-export default function InventorySection({ inventories }) {
+export default function InventorySection({
+  id = 'inventaris',
+  tone = 'muted',
+  paddingClassName = 'pb-20 pt-20 sm:pt-24',
+}) {
   return (
     <SectionShell
-      tone="muted"
+      id={id}
+      tone={tone}
+      paddingClassName={paddingClassName}
       eyebrow="Inventaris"
       title="Mesin & Kendaraan"
-      intro="PDF menampilkan inventaris mesin dan kendaraan sebagai bagian penting company profile, jadi aku pertahankan sebagai section terpisah."
+      intro="Inventaris mesin dan kendaraan ditampilkan ulang dalam format visual agar kesiapan produksi dan dukungan operasional CV Karya Indah terasa lebih nyata, rapi, dan profesional."
     >
-      <div className="grid gap-6 lg:grid-cols-2">
-        <InfoPanel title="Inventaris Mesin">
-          {inventories.machines.map((item) => (
-            <BulletRow key={item} value={item} />
-          ))}
-        </InfoPanel>
-        <InfoPanel title="Inventaris Kendaraan">
-          {inventories.vehicles.map((item) => (
-            <BulletRow key={item} value={item} />
-          ))}
-        </InfoPanel>
-      </div>
+      <ShowcaseGallery
+        items={inventoryShowcaseItems}
+        showcaseEyebrow="Inventory Showcase"
+        showcaseIntro="Mesin produksi dan armada operasional ditampilkan dengan pendekatan visual yang sama agar inventaris perusahaan lebih mudah dipindai."
+        counterLabel="Inventaris"
+        metaLabel="Asset No."
+        imageClassName="max-h-[300px] sm:max-h-[380px] lg:max-h-[300px] xl:max-h-[340px]"
+      />
     </SectionShell>
   )
 }

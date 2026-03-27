@@ -35,25 +35,89 @@ export const navItems = [
   { label: 'Profil', href: '/profil' },
   { label: 'Layanan', href: '/layanan' },
   { label: 'Produksi', href: '/produksi' },
+  { label: 'Pelanggan', href: '/pelanggan' },
   { label: 'Kontak', href: '/kontak' },
 ]
 
-export const services = [
+export const servicesData = [
   {
     title: 'Exterior Goods',
-    desc: 'Reklame, shopsign, fasad toko, neonbox, letter timbul, billboard, booth, dan pylon.',
+    description:
+      'Menyediakan berbagai kebutuhan media promosi outdoor seperti signage, billboard, neon box, dan elemen visual eksterior lainnya untuk memperkuat identitas bisnis.',
+    items: [
+      'Reklame',
+      'Shop sign',
+      'Fasad toko',
+      'Neon box',
+      'Letter timbul',
+      'Billboard',
+      'Booth & pylon',
+    ],
+    icon: 'billboard',
+    image:
+      'https://unsplash.com/photos/XyQrfarM_VA/download?force=true&w=1400',
+    imageAlt: 'Storefront facade with exterior signage',
+    highlight:
+      'Cocok untuk meningkatkan visibilitas bisnis di area outdoor.',
+    cta: 'Konsultasi sekarang',
   },
   {
     title: 'Interior Goods',
-    desc: 'Backwall, display, acrylic, meja, kursi, showroom interior, dan kebutuhan branding indoor.',
+    description:
+      'Menyediakan kebutuhan branding dan display interior yang mendukung tampilan ruang usaha agar lebih rapi, menarik, dan profesional.',
+    items: [
+      'Backwall',
+      'Display',
+      'Acrylic',
+      'Meja & kursi',
+      'Showroom interior',
+      'Branding indoor',
+    ],
+    icon: 'interior',
+    image:
+      'https://unsplash.com/photos/W0POSa8LjBk/download?force=true&w=1400',
+    imageAlt: 'Modern retail interior with display lighting',
+    highlight:
+      'Membantu menciptakan tampilan interior yang representatif dan berkelas.',
+    cta: 'Hubungi kami',
   },
   {
     title: 'Digital Printing',
-    desc: 'Digital printing outdoor dan indoor, termasuk screen printing untuk berbagai kebutuhan promosi.',
+    description:
+      'Melayani kebutuhan digital printing indoor dan outdoor untuk berbagai media promosi dengan hasil cetak yang rapi dan berkualitas.',
+    items: [
+      'Printing indoor & outdoor',
+      'Banner & spanduk',
+      'Sticker & cutting',
+      'Screen printing',
+      'Media promosi',
+    ],
+    icon: 'printer',
+    image:
+      'https://unsplash.com/photos/O1U-YfX7XQA/download?force=true&w=1400',
+    imageAlt: 'Printing press machine inside a workshop',
+    highlight:
+      'Hasil cetak tajam, cepat, dan sesuai kebutuhan promosi bisnis.',
+    cta: 'Lihat detail layanan',
   },
   {
     title: 'Konstruksi',
-    desc: 'Konstruksi sarana billboard, baja ringan, struktur penunjang visual branding, dan pekerjaan pendukung lainnya.',
+    description:
+      'Menyediakan layanan konstruksi pendukung media promosi dan visual branding, mulai dari rangka hingga instalasi lapangan.',
+    items: [
+      'Struktur billboard',
+      'Baja ringan',
+      'Rangka signage',
+      'Instalasi branding',
+      'Pekerjaan sipil ringan',
+    ],
+    icon: 'tools',
+    image:
+      'https://unsplash.com/photos/PYBm7NBl6mA/download?force=true&w=1400',
+    imageAlt: 'Construction workers on a building site with crane',
+    highlight:
+      'Dikerjakan dengan perencanaan yang rapi dan material yang sesuai kebutuhan proyek.',
+    cta: 'Hubungi tim kami',
   },
 ]
 
@@ -117,23 +181,23 @@ export const inventories = {
 
 export const clients = [
   {
-    name: 'PT. Yamaha Indonesia Motor Manufacturing',
+    name: 'PT. YAMAHA INDONESIA MOTOR MANUFACTURING',
     address:
-      'Jl. DR. KRT Radjiman Widyodiningrat, Jl. Raya Bekasi Km. 23, Pulogadung, Jakarta Timur 13920',
+      'Jl. DR. KRT Radjiman Widyodiningrat (Jl. Raya Bekasi Km. 23) Pulogadung, Jakarta Timur 13920',
   },
   {
-    name: 'PT. Akur Pratama',
+    name: 'PT. AKUR PRATAMA',
     address:
-      'Jl. Terusan Buah Batu No. 12, Batununggal, Bandung Kidul, Kota Bandung, Jawa Barat 40266',
+      'Jl. Terusan Buah Batu No. 12, Batununggal, Kec. Bandung Kidul, Kota Bandung, Jawa Barat 40266',
   },
   {
-    name: 'PT. Sayap Mas Utama',
+    name: 'PT. SAYAP MAS UTAMA',
     address:
-      'Kawasan Perluasan Utara PT. JIEP, Jl. Tipar Cakung Kav F 5-7, Jakarta 13910',
+      'Kawasan Perluasan Utara PT. JIEP Jl. Tipar Cakung Kav F 5-7 Jakarta 13910',
   },
   {
-    name: 'PT. Tong Tji Tea Indonesia',
-    address: 'Jl. Raya Tegal-Pemalang, Padaharja, Tegal',
+    name: 'PT. TONG TJI TEA INDONESIA',
+    address: 'Jl. Raya Tegal-Pemalang Padaharja-Tegal',
   },
 ]
 

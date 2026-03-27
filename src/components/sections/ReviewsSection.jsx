@@ -1,26 +1,29 @@
 import SectionShell from '../ui/SectionShell'
+import ShowcaseGallery from '../ui/ShowcaseGallery'
+import { reviewShowcaseItems } from '../../data/showcaseData'
 
-export default function ReviewsSection({ reviews }) {
+export default function ReviewsSection({
+  id = 'review-pelanggan',
+  tone = 'muted',
+  paddingClassName = 'pb-20 pt-28 sm:pt-32',
+}) {
   return (
     <SectionShell
-      tone="dark"
+      id={id}
+      tone={tone}
+      paddingClassName={paddingClassName}
       eyebrow="Review Pelanggan"
-      title="Kepercayaan yang Dibangun"
-      intro="Bagian review dibuat singkat sesuai PDF, dengan fokus pada trust dan kepuasan pelanggan."
+      title="Kepercayaan yang dibangun dari pengalaman klien"
+      intro="Tangkapan review pelanggan ditampilkan dalam format visual agar testimoni terasa lebih nyata, mudah dipindai, dan tetap selaras dengan tampilan showcase halaman company profile."
     >
-      <div className="grid gap-6 lg:grid-cols-2">
-        {reviews.map((review, index) => (
-          <blockquote
-            key={index}
-            className="rounded-[1.8rem] border border-white/10 bg-white/5 p-7 text-slate-200"
-          >
-            <p className="mb-4 text-xs uppercase tracking-[0.28em] text-[var(--teal)]">
-              Testimoni
-            </p>
-            <p className="text-lg leading-8">{review}</p>
-          </blockquote>
-        ))}
-      </div>
+      <ShowcaseGallery
+        items={reviewShowcaseItems}
+        showcaseEyebrow="Customer Review Showcase"
+        showcaseIntro="Dokumentasi review pelanggan ditampilkan ulang sebagai bukti kepuasan, trust, dan hubungan kerja yang terus terjaga."
+        counterLabel="Review"
+        metaLabel="Review No."
+        imageClassName="max-h-[320px] sm:max-h-[420px] lg:max-h-[320px] xl:max-h-[360px]"
+      />
     </SectionShell>
   )
 }
