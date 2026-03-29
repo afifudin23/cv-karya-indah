@@ -4,7 +4,7 @@ import ContactItem from "../ui/ContactItem";
 import InfoPanel from "../ui/InfoPanel";
 import InfoRow from "../ui/InfoRow";
 import { servicesData } from "../../data/companyProfileData";
-import { sendContactEmail } from "../../lib/sendContactEmail";
+import { openWhatsAppContact } from "../../lib/openWhatsAppContact";
 import SectionShell from "../ui/SectionShell";
 
 export default function ContactSection({ companyData }) {
@@ -36,32 +36,30 @@ export default function ContactSection({ companyData }) {
 
         setSubmitState({
             status: "loading",
-            message: "Sedang mengirim pesan...",
+            message: "Mengarahkan ke WhatsApp...",
         });
 
-        try {
-            await sendContactEmail(formData);
-            setSubmitState({
-                status: "success",
-                message: "Pesan berhasil dikirim. Kami akan segera menghubungi Anda melalui email atau telepon.",
-            });
-            setFormData({
-                name: "",
-                email: "",
-                phone: "",
-                company: "",
-                service: servicesData[0]?.title || "",
-                message: "",
-            });
-        } catch (error) {
+        const popup = openWhatsAppContact(formData);
+        if (!popup) {
             setSubmitState({
                 status: "error",
-                message:
-                    error instanceof Error
-                        ? error.message
-                        : "Pesan belum berhasil dikirim. Silakan coba beberapa saat lagi.",
+                message: "Gagal membuka WhatsApp. Aktifkan pop-up, lalu coba lagi.",
             });
+            return;
         }
+
+        setSubmitState({
+            status: "success",
+            message: "WhatsApp terbuka. Silakan tekan Send untuk mengirim pesan.",
+        });
+        setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            company: "",
+            service: servicesData[0]?.title || "",
+            message: "",
+        });
     };
 
     const fieldClassName =
