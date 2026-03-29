@@ -45,7 +45,7 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
                                 key={item.href}
                                 href={item.href}
                                 onClick={(event) => onNavigate(event, item.href)}
-                                className={`block rounded-2xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition ${
+                                className={`block rounded-2xl px-4 py-2.5 text-[0.78rem] sm:py-3 sm:text-sm font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] transition ${
                                     currentPath === item.href
                                         ? "bg-white/12 text-white"
                                         : "text-white/80 hover:bg-white/10 hover:text-white"
