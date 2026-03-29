@@ -164,18 +164,36 @@ function ImageViewerStage({ currentItem, hasNavigation, itemsLength, onClose, on
         const container = scrollRef.current;
         const isMobile = viewportSize.width < 640;
 
-        if (zoomLevel <= 1) {
-            container.scrollTo({ left: 0, top: 0 });
-            return;
-        }
+        const center = () => {
+            const maxScrollLeft = Math.max(container.scrollWidth - container.clientWidth, 0);
+            const maxScrollTop = Math.max(container.scrollHeight - container.clientHeight, 0);
 
-        const maxScrollLeft = Math.max(container.scrollWidth - container.clientWidth, 0);
-        const maxScrollTop = Math.max(container.scrollHeight - container.clientHeight, 0);
-        container.scrollTo({
-            left: maxScrollLeft / 2,
-            top: isMobile ? maxScrollTop / 2 : 0,
+            if (zoomLevel <= 1) {
+                // Always start centered (important on mobile where the stage can be taller than the viewport).
+                container.scrollTo({ left: maxScrollLeft / 2, top: maxScrollTop / 2 });
+                return;
+            }
+
+            container.scrollTo({
+                left: maxScrollLeft / 2,
+                top: isMobile ? maxScrollTop / 2 : 0,
+            });
+        };
+
+        // Run after layout so scrollWidth/scrollHeight are final.
+        const raf1 = requestAnimationFrame(() => {
+            const raf2 = requestAnimationFrame(center);
+            // Store raf2 on container so we can cancel on cleanup if needed.
+            container.__imageViewerRaf2 = raf2;
         });
-    }, [viewportSize.width, zoomLevel, imageMeta]);
+
+        return () => {
+            cancelAnimationFrame(raf1);
+            if (container.__imageViewerRaf2) {
+                cancelAnimationFrame(container.__imageViewerRaf2);
+            }
+        };
+    }, [currentItem.src, viewportSize.width, viewportSize.height, zoomLevel, imageMeta]);
 
     const orientation = imageMeta?.orientation ?? "landscape";
     const naturalWidth = imageMeta?.width ?? 1600;
