@@ -1,5 +1,6 @@
 import { createElement, useState } from "react";
 import ImageViewer from "../ui/ImageViewer";
+import { Reveal, RevealStagger } from "../ui/Reveal";
 
 export default function ProfileSection({ companyData }) {
     const [lightboxImage, setLightboxImage] = useState(null);
@@ -101,7 +102,7 @@ export default function ProfileSection({ companyData }) {
             </div>
 
             <div className="relative mx-auto max-w-7xl space-y-12 sm:space-y-14">
-                <div className="mb-10 max-w-3xl sm:mb-12">
+                <Reveal as="div" className="mb-10 max-w-3xl sm:mb-12">
                     <p className="text-xs uppercase tracking-[0.34em] text-[var(--teal-deep)]">Company Profile</p>
                     <h2 className="mt-4 font-display text-[2.55rem] uppercase leading-[0.92] text-[var(--ink-strong)] sm:text-[4.4rem]">
                         Profil yang lebih
@@ -112,9 +113,9 @@ export default function ProfileSection({ companyData }) {
                         Halaman profil dirancang ulang agar terasa lebih premium, mudah dipindai, dan cukup kuat untuk
                         mewakili rekam jejak CV Karya Indah sebagai partner produksi visual branding dan konstruksi.
                     </p>
-                </div>
+                </Reveal>
 
-                <div className="grid gap-6 sm:gap-8 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
+                <Reveal as="div" className="grid gap-6 sm:gap-8 xl:grid-cols-[0.88fr_1.12fr] xl:items-start" delay={60}>
                     <div className="space-y-6 xl:sticky xl:top-28">
                         <GlowCard
                             tone="dark"
@@ -199,9 +200,9 @@ export default function ProfileSection({ companyData }) {
                             </div>
                         </div>
                     </GlowCard>
-                </div>
+            </Reveal>
 
-            <section className="rounded-[2.35rem] border border-white/70 bg-[linear-gradient(180deg,rgba(249,252,254,0.96),rgba(242,247,250,0.94))] p-5 shadow-[0_28px_68px_rgba(72,155,214,0.1)] sm:rounded-[2.6rem] sm:p-8">
+            <Reveal as="section" className="rounded-[2.35rem] border border-white/70 bg-[linear-gradient(180deg,rgba(249,252,254,0.96),rgba(242,247,250,0.94))] p-5 shadow-[0_28px_68px_rgba(72,155,214,0.1)] sm:rounded-[2.6rem] sm:p-8">
                 <div className="mb-8 max-w-2xl">
                     <p className="text-xs uppercase tracking-[0.34em] text-[var(--teal-deep)]">Company Snapshot</p>
                     <h3 className="mt-4 font-display text-[2.1rem] uppercase leading-[0.96] text-[var(--ink-strong)] sm:text-[3.2rem]">
@@ -211,14 +212,14 @@ export default function ProfileSection({ companyData }) {
                     </h3>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                <RevealStagger as="div" className="grid gap-4 md:grid-cols-2 xl:grid-cols-4" stagger={70}>
                     {profileHighlights.map((item) => (
                         <MetricCard key={item.label} {...item} />
                     ))}
-                </div>
-            </section>
+                </RevealStagger>
+            </Reveal>
 
-            <section className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(180deg,rgba(248,252,254,0.96),rgba(241,247,250,0.95))] p-5 shadow-[0_32px_78px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-8 lg:p-10">
+            <Reveal as="section" className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(180deg,rgba(248,252,254,0.96),rgba(241,247,250,0.95))] p-5 shadow-[0_32px_78px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-8 lg:p-10">
                 <div className="max-w-3xl">
                     <p className="text-xs uppercase tracking-[0.34em] text-[var(--teal-deep)]">Detail Perusahaan</p>
                     <h3 className="mt-4 font-display text-[2.15rem] uppercase leading-[0.94] text-[var(--ink-strong)] sm:text-[3.8rem]">
@@ -292,9 +293,9 @@ export default function ProfileSection({ companyData }) {
                         </div>
                     </div>
                 </div>
-            </section>
+            </Reveal>
 
-            <section className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(135deg,rgba(10,30,41,0.98),rgba(21,63,79,0.96)_58%,rgba(36,92,108,0.94))] p-5 text-white shadow-[0_36px_90px_rgba(17,43,57,0.24)] sm:rounded-[2.8rem] sm:p-8 lg:p-10">
+            <Reveal as="section" className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(135deg,rgba(10,30,41,0.98),rgba(21,63,79,0.96)_58%,rgba(36,92,108,0.94))] p-5 text-white shadow-[0_36px_90px_rgba(17,43,57,0.24)] sm:rounded-[2.8rem] sm:p-8 lg:p-10">
                 <div className="grid gap-6 sm:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:items-start">
                     <div className="max-w-3xl">
                         <p className="text-xs uppercase tracking-[0.34em] text-cyan-100/82">Struktur Organisasi</p>
@@ -359,9 +360,11 @@ export default function ProfileSection({ companyData }) {
                         </div>
                     </GlowCard>
                 </div>
-            </section>
+            </Reveal>
 
-            <LegalitiesShowcase items={legalityShowcaseItems} onOpenImage={setLightboxImage} />
+            <Reveal as="div" delay={60}>
+              <LegalitiesShowcase items={legalityShowcaseItems} onOpenImage={setLightboxImage} />
+            </Reveal>
 
             </div>
 

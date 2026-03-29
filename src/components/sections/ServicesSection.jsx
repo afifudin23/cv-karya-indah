@@ -1,4 +1,5 @@
 import SectionShell from '../ui/SectionShell'
+import { RevealStagger } from '../ui/Reveal'
 
 function getIconLabel(icon) {
   switch (icon) {
@@ -25,7 +26,7 @@ export default function ServicesSection({ servicesData }) {
       title="Layanan Utama"
       intro="Empat kategori layanan utama kami disusun agar lebih rapi, mudah dipindai, dan tetap mencerminkan karakter premium CV Karya Indah."
     >
-      <div className="grid gap-6 lg:grid-cols-2">
+      <RevealStagger as="div" className="grid gap-6 lg:grid-cols-2" stagger={90}>
         {servicesData.map((service) => (
           <article
             key={service.title}
@@ -77,7 +78,7 @@ export default function ServicesSection({ servicesData }) {
             </div>
           </article>
         ))}
-      </div>
+      </RevealStagger>
     </SectionShell>
   )
 }
