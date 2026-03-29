@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 import ImageViewer from './ImageViewer'
 import { Reveal, RevealStagger } from './Reveal'
@@ -139,11 +140,16 @@ export default function ShowcaseGallery({
         </div>
       </Reveal>
 
-      <ImageViewer
-        key={activeImage?.index ?? `${counterLabel}-viewer`}
-        image={activeImage}
-        onClose={() => setActiveImage(null)}
-      />
+      {typeof document !== 'undefined' && activeImage
+        ? createPortal(
+            <ImageViewer
+              key={activeImage?.index ?? `${counterLabel}-viewer`}
+              image={activeImage}
+              onClose={() => setActiveImage(null)}
+            />,
+            document.body,
+          )
+        : null}
     </>
   )
 }
