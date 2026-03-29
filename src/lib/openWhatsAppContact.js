@@ -5,8 +5,6 @@ export function buildWhatsAppContactMessage(formData) {
     "Halo CV Karya Indah, saya ingin menghubungi melalui form kontak.",
     "",
     `Nama: ${formData?.name || "-"}`,
-    `Email: ${formData?.email || "-"}`,
-    `Telepon: ${formData?.phone || "-"}`,
     `Perusahaan: ${formData?.company || "-"}`,
     `Layanan: ${formData?.service || "-"}`,
     "",

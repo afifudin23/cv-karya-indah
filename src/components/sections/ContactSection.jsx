@@ -10,8 +10,6 @@ import SectionShell from "../ui/SectionShell";
 export default function ContactSection({ companyData }) {
     const [formData, setFormData] = useState({
         name: "",
-        email: "",
-        phone: "",
         company: "",
         service: servicesData[0]?.title || "",
         message: "",
@@ -54,8 +52,6 @@ export default function ContactSection({ companyData }) {
         });
         setFormData({
             name: "",
-            email: "",
-            phone: "",
             company: "",
             service: servicesData[0]?.title || "",
             message: "",
@@ -99,38 +95,6 @@ export default function ContactSection({ companyData }) {
 
                             <label className="space-y-2">
                                 <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
-                                    Email
-                                </span>
-                                <input
-                                    className={fieldClassName}
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    placeholder="email@perusahaan.com"
-                                    required
-                                />
-                            </label>
-                        </div>
-
-                        <div className="grid gap-4 sm:grid-cols-2">
-                            <label className="space-y-2">
-                                <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
-                                    Telepon
-                                </span>
-                                <input
-                                    className={fieldClassName}
-                                    type="tel"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                    placeholder="08xxxxxxxxxx"
-                                    required
-                                />
-                            </label>
-
-                            <label className="space-y-2">
-                                <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
                                     Perusahaan
                                 </span>
                                 <input
@@ -140,6 +104,7 @@ export default function ContactSection({ companyData }) {
                                     value={formData.company}
                                     onChange={handleChange}
                                     placeholder="Nama perusahaan"
+                                    required
                                 />
                             </label>
                         </div>
