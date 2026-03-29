@@ -30,33 +30,59 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
                 <button
                     type="button"
                     onClick={onToggle}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white shadow-sm backdrop-blur md:hidden"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white shadow-sm backdrop-blur transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/12 active:scale-[0.98] md:hidden"
                     aria-label="Toggle navigation"
+                    aria-expanded={isOpen}
+                    aria-controls="mobile-nav"
                 >
-                    <span className="text-xl">{isOpen ? "x" : "="}</span>
+                    <span className="relative block h-4 w-5">
+                        <span
+                            className={`absolute left-0 top-[1px] block h-0.5 w-5 rounded-full bg-white transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                                isOpen ? "translate-y-[6px] rotate-45" : "translate-y-0 rotate-0"
+                            }`}
+                        />
+                        <span
+                            className={`absolute left-0 top-[7px] block h-0.5 w-5 rounded-full bg-white transition-opacity duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                                isOpen ? "opacity-0" : "opacity-100"
+                            }`}
+                        />
+                        <span
+                            className={`absolute left-0 top-[13px] block h-0.5 w-5 rounded-full bg-white transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                                isOpen ? "-translate-y-[6px] -rotate-45" : "translate-y-0 rotate-0"
+                            }`}
+                        />
+                    </span>
                 </button>
             </div>
 
-            {isOpen && (
-                <div className="border-t border-white/10 bg-[color:rgba(24,35,44,0.92)] md:hidden">
-                    <div className="space-y-1 px-4 py-4">
-                        {navItems.map((item) => (
-                            <a
-                                key={item.href}
-                                href={item.href}
-                                onClick={(event) => onNavigate(event, item.href)}
-                                className={`block rounded-2xl px-4 py-2.5 text-[0.78rem] sm:py-3 sm:text-sm font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] transition ${
-                                    currentPath === item.href
-                                        ? "bg-white/12 text-white"
-                                        : "text-white/80 hover:bg-white/10 hover:text-white"
-                                }`}
-                            >
-                                {item.label}
-                            </a>
-                        ))}
-                    </div>
+            <div
+                id="mobile-nav"
+                aria-hidden={!isOpen}
+                className={`md:hidden overflow-hidden border-t border-white/10 bg-[color:rgba(24,35,44,0.92)] transition-[max-height,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                    isOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
+                }`}
+            >
+                <div
+                    className={`space-y-1 px-4 py-4 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                        isOpen ? "translate-y-0" : "-translate-y-2"
+                    }`}
+                >
+                    {navItems.map((item) => (
+                        <a
+                            key={item.href}
+                            href={item.href}
+                            onClick={(event) => onNavigate(event, item.href)}
+                            className={`block rounded-2xl px-4 py-2.5 text-[0.78rem] sm:py-3 sm:text-sm font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] transition ${
+                                currentPath === item.href
+                                    ? "bg-white/12 text-white"
+                                    : "text-white/80 hover:bg-white/10 hover:text-white"
+                            }`}
+                        >
+                            {item.label}
+                        </a>
+                    ))}
                 </div>
-            )}
+            </div>
         </nav>
     );
 }
