@@ -50,18 +50,20 @@ export default function HeroSection({ companyData, heroImage }) {
 
                 <div className="relative mx-auto flex min-h-screen max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col items-center text-center">
-                        <img
-                            src="/logo.png"
-                            alt="Logo CV Karya Indah"
-                            className="w-full max-w-[150px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)] sm:max-w-[180px] lg:max-w-[220px]"
-                        />
-                        <div className="mt-6 rounded-[1.8rem] bg-white/92 px-6 py-5 shadow-[0_18px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:px-8">
+                        <Reveal as="div" className="flex justify-center" duration={820}>
+                            <img
+                                src="/logo.png"
+                                alt="Logo CV Karya Indah"
+                                className="w-full max-w-[150px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)] sm:max-w-[180px] lg:max-w-[220px]"
+                            />
+                        </Reveal>
+                        <Reveal as="div" delay={120} duration={880} className="mt-6 rounded-[1.8rem] bg-white/92 px-6 py-5 shadow-[0_18px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:px-8">
                             <h1 className="font-display text-3xl uppercase leading-none text-white sm:text-4xl lg:text-[4rem]">
                                 {companyData.name}
                             </h1>
                             <div className="mx-auto my-4 h-[4px] w-full max-w-[520px] bg-[var(--teal)]" />
                             <p className="text-base text-white sm:text-lg lg:text-[2rem]">{companyData.tagline}</p>
-                        </div>
+                        </Reveal>
                     </div>
                 </div>
             </div>
