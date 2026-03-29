@@ -1,5 +1,6 @@
 import { FiBriefcase, FiMapPin } from 'react-icons/fi'
 import SectionShell from '../ui/SectionShell'
+import { RevealStagger } from '../ui/Reveal'
 
 export default function ClientsSection({ clients }) {
   return (
@@ -39,7 +40,7 @@ export default function ClientsSection({ clients }) {
             </div>
           </div>
 
-          <div className="relative mt-6 grid gap-4 lg:grid-cols-2 lg:gap-5">
+          <RevealStagger as="div" className="relative mt-6 grid gap-4 lg:grid-cols-2 lg:gap-5" stagger={70}>
             {clients.map((client, index) => (
               <article
                 key={client.name}
@@ -73,7 +74,7 @@ export default function ClientsSection({ clients }) {
                 </div>
               </article>
             ))}
-          </div>
+          </RevealStagger>
 
           <div className="relative mt-6 grid gap-4 lg:grid-cols-[0.8fr_1.2fr] lg:gap-5">
             <div className="rounded-[1.8rem] border border-[rgba(118,212,227,0.22)] bg-[linear-gradient(180deg,rgba(8,23,31,0.96),rgba(14,39,50,0.94))] px-6 py-7 text-white shadow-[0_24px_60px_rgba(5,18,25,0.24),0_0_34px_rgba(88,182,197,0.08)] sm:rounded-[2rem] sm:px-7 sm:py-8">

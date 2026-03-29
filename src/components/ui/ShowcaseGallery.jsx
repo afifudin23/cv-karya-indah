@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 import ImageViewer from './ImageViewer'
+import { Reveal, RevealStagger } from './Reveal'
 
 export default function ShowcaseGallery({
   items,
@@ -42,7 +43,7 @@ export default function ShowcaseGallery({
 
   return (
     <>
-      <div className="mx-auto max-w-6xl rounded-[2.2rem] border border-[rgba(196,223,235,0.8)] bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.94))] p-4 shadow-[0_34px_90px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-6 lg:p-7">
+      <Reveal as="div" className="mx-auto max-w-6xl rounded-[2.2rem] border border-[rgba(196,223,235,0.8)] bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.94))] p-4 shadow-[0_34px_90px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-6 lg:p-7">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--teal-deep)]">
@@ -123,7 +124,7 @@ export default function ShowcaseGallery({
                 </span>
               </div>
 
-              <div className="mt-4 flex flex-wrap gap-2.5">
+              <RevealStagger as="div" className="mt-4 flex flex-wrap gap-2.5" stagger={55}>
                 {activeItem.meta.map((item) => (
                   <span
                     key={item}
@@ -132,11 +133,11 @@ export default function ShowcaseGallery({
                     {item}
                   </span>
                 ))}
-              </div>
+              </RevealStagger>
             </div>
           </div>
         </div>
-      </div>
+      </Reveal>
 
       <ImageViewer
         key={activeImage?.index ?? `${counterLabel}-viewer`}

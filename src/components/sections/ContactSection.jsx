@@ -6,6 +6,7 @@ import InfoRow from "../ui/InfoRow";
 import { servicesData } from "../../data/companyProfileData";
 import { openWhatsAppContact } from "../../lib/openWhatsAppContact";
 import SectionShell from "../ui/SectionShell";
+import { Reveal, RevealStagger } from "../ui/Reveal";
 
 export default function ContactSection({ companyData }) {
     const [formData, setFormData] = useState({
@@ -69,7 +70,7 @@ export default function ContactSection({ companyData }) {
             title="Hubungi Kami"
             intro="Sampaikan kebutuhan proyek, konsultasi layanan, atau permintaan penawaran melalui form kontak agar tim CV Karya Indah dapat merespons lebih cepat dan terarah."
         >
-            <div className="grid items-start gap-8 lg:grid-cols-[1.12fr_0.88fr]">
+            <Reveal as="div" className="grid items-start gap-8 lg:grid-cols-[1.12fr_0.88fr]" delay={60}>
                 <div className="self-start overflow-hidden rounded-[2rem] border border-[rgba(196,223,235,0.86)] bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.95))] p-6 shadow-[0_28px_70px_rgba(72,155,214,0.12)] sm:rounded-[2.3rem] sm:p-8">
                     <div className="mb-6 flex items-center gap-4">
                         <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />
@@ -176,11 +177,11 @@ export default function ContactSection({ companyData }) {
                             printing untuk bisnis maupun institusi.
                         </p>
 
-                        <div className="mt-8 space-y-5 text-slate-200">
+                        <RevealStagger as="div" className="mt-8 space-y-5 text-slate-200" stagger={65}>
                             <ContactItem label="Alamat" value={companyData.address} />
                             <ContactItem label="Telepon" value={companyData.phones.join(" / ")} />
                             <ContactItem label="Email" value={companyData.email} />
-                        </div>
+                        </RevealStagger>
                     </div>
 
                     <InfoPanel title="Informasi Bank">
@@ -189,7 +190,7 @@ export default function ContactSection({ companyData }) {
                         <InfoRow label="Atas Nama" value={companyData.bank.holder} />
                     </InfoPanel>
                 </div>
-            </div>
+            </Reveal>
         </SectionShell>
     );
 }
