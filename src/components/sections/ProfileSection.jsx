@@ -100,7 +100,7 @@ export default function ProfileSection({ companyData }) {
                 <div className="absolute bottom-0 left-1/2 h-80 w-[34rem] -translate-x-1/2 bg-[radial-gradient(circle,rgba(255,255,255,0.85)_0%,rgba(255,255,255,0)_74%)]" />
             </div>
 
-            <div className="relative mx-auto max-w-7xl">
+            <div className="relative mx-auto max-w-7xl space-y-12 sm:space-y-14">
                 <div className="mb-10 max-w-3xl sm:mb-12">
                     <p className="text-xs uppercase tracking-[0.34em] text-[var(--teal-deep)]">Company Profile</p>
                     <h2 className="mt-4 font-display text-[2.55rem] uppercase leading-[0.92] text-[var(--ink-strong)] sm:text-[4.4rem]">
@@ -200,9 +200,8 @@ export default function ProfileSection({ companyData }) {
                         </div>
                     </GlowCard>
                 </div>
-            </div>
 
-            <section className="mt-12 rounded-[2.35rem] border border-white/70 bg-[linear-gradient(180deg,rgba(249,252,254,0.96),rgba(242,247,250,0.94))] p-5 shadow-[0_28px_68px_rgba(72,155,214,0.1)] sm:mt-14 sm:rounded-[2.6rem] sm:p-8">
+            <section className="rounded-[2.35rem] border border-white/70 bg-[linear-gradient(180deg,rgba(249,252,254,0.96),rgba(242,247,250,0.94))] p-5 shadow-[0_28px_68px_rgba(72,155,214,0.1)] sm:rounded-[2.6rem] sm:p-8">
                 <div className="mb-8 max-w-2xl">
                     <p className="text-xs uppercase tracking-[0.34em] text-[var(--teal-deep)]">Company Snapshot</p>
                     <h3 className="mt-4 font-display text-[2.1rem] uppercase leading-[0.96] text-[var(--ink-strong)] sm:text-[3.2rem]">
@@ -219,7 +218,7 @@ export default function ProfileSection({ companyData }) {
                 </div>
             </section>
 
-            <section className="mt-12 rounded-[2.4rem] border border-white/70 bg-[linear-gradient(180deg,rgba(248,252,254,0.96),rgba(241,247,250,0.95))] p-5 shadow-[0_32px_78px_rgba(72,155,214,0.12)] sm:mt-14 sm:rounded-[2.8rem] sm:p-8 lg:p-10">
+            <section className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(180deg,rgba(248,252,254,0.96),rgba(241,247,250,0.95))] p-5 shadow-[0_32px_78px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-8 lg:p-10">
                 <div className="max-w-3xl">
                     <p className="text-xs uppercase tracking-[0.34em] text-[var(--teal-deep)]">Detail Perusahaan</p>
                     <h3 className="mt-4 font-display text-[2.15rem] uppercase leading-[0.94] text-[var(--ink-strong)] sm:text-[3.8rem]">
@@ -295,7 +294,7 @@ export default function ProfileSection({ companyData }) {
                 </div>
             </section>
 
-            <section className="mt-12 rounded-[2.4rem] border border-white/70 bg-[linear-gradient(135deg,rgba(10,30,41,0.98),rgba(21,63,79,0.96)_58%,rgba(36,92,108,0.94))] p-5 text-white shadow-[0_36px_90px_rgba(17,43,57,0.24)] sm:mt-14 sm:rounded-[2.8rem] sm:p-8 lg:p-10">
+            <section className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(135deg,rgba(10,30,41,0.98),rgba(21,63,79,0.96)_58%,rgba(36,92,108,0.94))] p-5 text-white shadow-[0_36px_90px_rgba(17,43,57,0.24)] sm:rounded-[2.8rem] sm:p-8 lg:p-10">
                 <div className="grid gap-6 sm:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:items-start">
                     <div className="max-w-3xl">
                         <p className="text-xs uppercase tracking-[0.34em] text-cyan-100/82">Struktur Organisasi</p>
@@ -354,7 +353,7 @@ export default function ProfileSection({ companyData }) {
                                             alt: "Struktur organisasi CV Karya Indah",
                                         })
                                     }
-                                    className="block h-auto max-h-[360px] w-auto max-w-none object-contain shadow-[0_18px_46px_rgba(72,155,214,0.12)] sm:max-h-[560px]"
+                                    className="block h-auto max-h-[360px] w-auto max-w-none cursor-zoom-in object-contain shadow-[0_18px_46px_rgba(72,155,214,0.12)] transition hover:shadow-[0_22px_54px_rgba(72,155,214,0.18)] sm:max-h-[560px]"
                                 />
                             </div>
                         </div>
@@ -363,6 +362,8 @@ export default function ProfileSection({ companyData }) {
             </section>
 
             <LegalitiesShowcase items={legalityShowcaseItems} onOpenImage={setLightboxImage} />
+
+            </div>
 
             <ImageViewer
                 key={lightboxImage?.src ?? "lightbox"}
@@ -392,7 +393,7 @@ function LegalitiesShowcase({ items, onOpenImage }) {
     };
 
     return (
-        <section className="mt-12 rounded-[2.45rem] border border-white/80 bg-[linear-gradient(180deg,rgba(252,254,255,0.98),rgba(242,248,251,0.95))] p-5 shadow-[0_34px_84px_rgba(72,155,214,0.14)] sm:mt-14 sm:rounded-[2.85rem] sm:p-8 lg:p-10">
+        <section className="rounded-[2.45rem] border border-white/80 bg-[linear-gradient(180deg,rgba(252,254,255,0.98),rgba(242,248,251,0.95))] p-5 shadow-[0_34px_84px_rgba(72,155,214,0.14)] sm:rounded-[2.85rem] sm:p-8 lg:p-10">
             <div className="max-w-3xl">
                 <p className="text-xs uppercase tracking-[0.34em] text-[var(--teal-deep)]">Dokumen Legalitas</p>
                 <h3 className="mt-4 font-display text-[2.2rem] uppercase leading-[0.94] text-[var(--ink-strong)] sm:text-[3.7rem]">
