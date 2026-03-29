@@ -1,4 +1,5 @@
 import { FiAward, FiLayers, FiTool } from "react-icons/fi";
+import { Reveal, RevealStagger } from "../ui/Reveal";
 
 export default function HeroSection({ companyData, heroImage }) {
     const profileNarrative = [
@@ -72,7 +73,7 @@ export default function HeroSection({ companyData, heroImage }) {
                     <div className="absolute bottom-0 left-1/2 h-64 w-[36rem] -translate-x-1/2 bg-[radial-gradient(circle,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0)_76%)]" />
                 </div>
                 <div className="mx-auto max-w-7xl">
-                    <div className="relative overflow-hidden rounded-[2.2rem] border border-[rgba(128,214,229,0.22)] bg-[linear-gradient(180deg,rgba(10,29,38,0.96),rgba(16,46,58,0.94))] p-6 shadow-[0_34px_86px_rgba(5,18,25,0.3),0_0_46px_rgba(88,182,197,0.1)] sm:rounded-[2.8rem] sm:p-8 lg:p-10 xl:p-12">
+                    <Reveal as="div" className="relative overflow-hidden rounded-[2.2rem] border border-[rgba(128,214,229,0.22)] bg-[linear-gradient(180deg,rgba(10,29,38,0.96),rgba(16,46,58,0.94))] p-6 shadow-[0_34px_86px_rgba(5,18,25,0.3),0_0_46px_rgba(88,182,197,0.1)] sm:rounded-[2.8rem] sm:p-8 lg:p-10 xl:p-12">
                         <div className="pointer-events-none absolute left-[-6%] top-8 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(88,182,197,0.18)_0%,rgba(88,182,197,0)_72%)] blur-3xl" />
                         <div className="pointer-events-none absolute bottom-0 right-[-6%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(17,43,57,0.12)_0%,rgba(17,43,57,0)_74%)] blur-3xl" />
                         <div className="pointer-events-none absolute inset-x-20 top-0 h-14 bg-[radial-gradient(circle,rgba(88,182,197,0.14)_0%,rgba(88,182,197,0)_72%)] blur-2xl" />
@@ -125,9 +126,9 @@ export default function HeroSection({ companyData, heroImage }) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Reveal>
 
-                    <section className="relative mt-8 overflow-hidden rounded-[2.2rem] border border-[rgba(214,231,240,0.28)] bg-[linear-gradient(180deg,rgba(11,31,40,0.72),rgba(15,39,49,0.6))] p-5 shadow-[0_32px_76px_rgba(5,18,25,0.26),0_0_40px_rgba(88,182,197,0.08)] backdrop-blur-sm sm:mt-10 sm:rounded-[2.6rem] sm:p-7 lg:p-9">
+                    <Reveal as="section" className="relative mt-8 overflow-hidden rounded-[2.2rem] border border-[rgba(214,231,240,0.28)] bg-[linear-gradient(180deg,rgba(11,31,40,0.72),rgba(15,39,49,0.6))] p-5 shadow-[0_32px_76px_rgba(5,18,25,0.26),0_0_40px_rgba(88,182,197,0.08)] backdrop-blur-sm sm:mt-10 sm:rounded-[2.6rem] sm:p-7 lg:p-9">
                         <div className="pointer-events-none absolute left-0 top-0 h-28 w-56 bg-[radial-gradient(circle,rgba(88,182,197,0.18)_0%,rgba(88,182,197,0)_72%)] blur-2xl" />
                         <div className="pointer-events-none absolute bottom-0 right-0 h-28 w-56 bg-[radial-gradient(circle,rgba(17,43,57,0.12)_0%,rgba(17,43,57,0)_74%)] blur-2xl" />
 
@@ -143,7 +144,7 @@ export default function HeroSection({ companyData, heroImage }) {
                                 </div>
                             </div>
 
-                            <div className="mt-6 grid gap-4 sm:mt-7 lg:grid-cols-3 lg:gap-5">
+                            <RevealStagger as="div" className="mt-6 grid gap-4 sm:mt-7 lg:grid-cols-3 lg:gap-5" stagger={90}>
                                 {profileAdvantages.map((item, index) => {
                                     const Icon = item.icon;
 
@@ -172,9 +173,9 @@ export default function HeroSection({ companyData, heroImage }) {
                                         </article>
                                     );
                                 })}
-                            </div>
+                            </RevealStagger>
                         </div>
-                    </section>
+                    </Reveal>
                 </div>
             </div>
         </section>

@@ -1,3 +1,5 @@
+import { Reveal } from './Reveal'
+
 export default function SectionShell({
   id,
   eyebrow,
@@ -27,7 +29,8 @@ export default function SectionShell({
   return (
     <section id={id} className={`px-4 ${paddingClassName} sm:px-6 lg:px-8 ${sectionClass} ${sectionClassName}`}>
       <div className="mx-auto max-w-7xl">
-        <div
+        <Reveal as="div">
+          <div
           className={`mb-12 ${
             isFeaturedHeader
               ? 'mx-auto max-w-4xl px-2 sm:px-4'
@@ -71,7 +74,11 @@ export default function SectionShell({
             </p>
           </div>
         </div>
-        {children}
+        </Reveal>
+
+        <Reveal as="div" delay={90}>
+          {children}
+        </Reveal>
       </div>
     </section>
   )
