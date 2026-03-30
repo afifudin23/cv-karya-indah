@@ -1,4 +1,4 @@
-const WHATSAPP_PHONE = "6295836972";
+const WHATSAPP_PHONE = "628975836972";
 
 export function buildWhatsAppContactMessage(formData) {
   const lines = [

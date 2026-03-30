@@ -13,7 +13,7 @@ export default function OfficeWorkshopSection({
       tone={tone}
       paddingClassName={paddingClassName}
       eyebrow="Office & Workshop"
-      title="Area kerja yang tertata untuk proses yang siap produksi"
+      title="Lingkungan Kerja"
       intro="Ruang kantor, area koordinasi, dan workshop ditampilkan sebagai bagian dari alur kerja CV Karya Indah agar klien dapat melihat kesiapan fasilitas, ritme produksi, dan dukungan operasional yang dimiliki perusahaan."
     >
       <ShowcaseGallery

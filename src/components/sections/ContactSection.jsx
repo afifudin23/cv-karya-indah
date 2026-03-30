@@ -9,6 +9,8 @@ import SectionShell from "../ui/SectionShell";
 import { Reveal, RevealStagger } from "../ui/Reveal";
 
 export default function ContactSection({ companyData }) {
+    const mapsLink = "https://maps.app.goo.gl/gHhTQ7mLCE498mMo6";
+    const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(companyData.address)}&output=embed`;
     const [formData, setFormData] = useState({
         name: "",
         company: "",
@@ -70,8 +72,31 @@ export default function ContactSection({ companyData }) {
             title="Hubungi Kami"
             intro="Sampaikan kebutuhan proyek, konsultasi layanan, atau permintaan penawaran melalui form kontak agar tim CV Karya Indah dapat merespons lebih cepat dan terarah."
         >
-            <Reveal as="div" className="grid items-start gap-8 lg:grid-cols-[1.12fr_0.88fr]" delay={60}>
-                <div className="self-start overflow-hidden rounded-[2rem] border border-[rgba(196,223,235,0.86)] bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.95))] p-6 shadow-[0_28px_70px_rgba(72,155,214,0.12)] sm:rounded-[2.3rem] sm:p-8">
+            <Reveal as="div" className="space-y-8" delay={60}>
+                <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:auto-rows-fr">
+                    <div className="h-full rounded-[2rem] bg-[var(--hero)] p-8 text-white shadow-[0_26px_64px_rgba(17,43,57,0.2)]">
+                        <p className="mb-4 text-xs uppercase tracking-[0.32em] text-[var(--teal)]">Contact Detail</p>
+                        <h3 className="font-display text-4xl uppercase">CV. Karya Indah</h3>
+                        <p className="mt-4 max-w-xl leading-8 text-slate-300">
+                            Siap membantu kebutuhan jasa periklanan, interior, eksterior, konstruksi visual, dan digital
+                            printing untuk bisnis maupun institusi.
+                        </p>
+
+                        <RevealStagger as="div" className="mt-8 space-y-5 text-slate-200" stagger={65}>
+                            <ContactItem label="Alamat" value={companyData.address} />
+                            <ContactItem label="Telepon" value={companyData.phones.join(" / ")} />
+                            <ContactItem label="Email" value={companyData.email} />
+                        </RevealStagger>
+                    </div>
+
+                    <InfoPanel title="Informasi Bank">
+                        <InfoRow label="Bank" value={companyData.bank.name} />
+                        <InfoRow label="Nomor Rekening" value={companyData.bank.account} />
+                        <InfoRow label="Atas Nama" value={companyData.bank.holder} />
+                    </InfoPanel>
+                </div>
+
+                <div className="overflow-hidden rounded-[2rem] border border-[rgba(196,223,235,0.86)] bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.95))] p-6 shadow-[0_28px_70px_rgba(72,155,214,0.12)] sm:rounded-[2.3rem] sm:p-8">
                     <div className="mb-6 flex items-center gap-4">
                         <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />
                         <p className="text-xs uppercase tracking-[0.3em] text-[var(--teal-deep)]">Form Kontak</p>
@@ -168,27 +193,32 @@ export default function ContactSection({ companyData }) {
                     </form>
                 </div>
 
-                <div className="space-y-6">
-                    <div className="rounded-[2rem] bg-[var(--hero)] p-8 text-white shadow-[0_26px_64px_rgba(17,43,57,0.2)]">
-                        <p className="mb-4 text-xs uppercase tracking-[0.32em] text-[var(--teal)]">Contact Detail</p>
-                        <h3 className="font-display text-4xl uppercase">CV. Karya Indah</h3>
-                        <p className="mt-4 max-w-xl leading-8 text-slate-300">
-                            Siap membantu kebutuhan jasa periklanan, interior, eksterior, konstruksi visual, dan digital
-                            printing untuk bisnis maupun institusi.
-                        </p>
+                <div className="overflow-hidden rounded-[2rem] border border-[rgba(196,223,235,0.86)] bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.95))] p-4 shadow-[0_28px_70px_rgba(72,155,214,0.12)] sm:rounded-[2.3rem] sm:p-6">
+                    <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <div className="flex items-center gap-4">
+                            <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />
+                            <p className="text-xs uppercase tracking-[0.3em] text-[var(--teal-deep)]">Peta Lokasi</p>
+                        </div>
 
-                        <RevealStagger as="div" className="mt-8 space-y-5 text-slate-200" stagger={65}>
-                            <ContactItem label="Alamat" value={companyData.address} />
-                            <ContactItem label="Telepon" value={companyData.phones.join(" / ")} />
-                            <ContactItem label="Email" value={companyData.email} />
-                        </RevealStagger>
+                        <a
+                            href={mapsLink}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center justify-center rounded-full border border-[rgba(88,182,197,0.35)] bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--teal-deep)] transition hover:border-[var(--teal)] hover:bg-[rgba(88,182,197,0.08)]"
+                        >
+                            Buka di Google Maps
+                        </a>
                     </div>
 
-                    <InfoPanel title="Informasi Bank">
-                        <InfoRow label="Bank" value={companyData.bank.name} />
-                        <InfoRow label="Nomor Rekening" value={companyData.bank.account} />
-                        <InfoRow label="Atas Nama" value={companyData.bank.holder} />
-                    </InfoPanel>
+                    <div className="overflow-hidden rounded-[1.7rem] border border-[rgba(205,225,236,0.94)] bg-white shadow-[0_18px_42px_rgba(72,155,214,0.08)]">
+                        <iframe
+                            title="Peta lokasi CV Karya Indah"
+                            src={mapsEmbedUrl}
+                            className="h-[320px] w-full border-0 sm:h-[380px] lg:h-[420px]"
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        />
+                    </div>
                 </div>
             </Reveal>
         </SectionShell>

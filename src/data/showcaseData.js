@@ -220,7 +220,7 @@ const baseProductionGallery = [
 
 const baseOfficeWorkshopGallery = [
   ...createSeriesItems({
-    title: 'Tampak Depan CV Karya Indah',
+    title: 'Tampak Depan',
     category: 'Office Exterior',
     subtitle: 'Area depan kantor yang menjadi wajah pertama perusahaan',
     note:

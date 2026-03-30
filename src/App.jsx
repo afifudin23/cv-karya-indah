@@ -17,6 +17,7 @@ import {
   navItems,
   servicesData,
 } from './data/companyProfileData'
+import { projectLocations } from './data/projectLocations'
 
 const DEFAULT_ROUTE = '/beranda'
 const VALID_ROUTES = new Set([
@@ -77,7 +78,7 @@ export default function App() {
           </>
         )
       case '/layanan':
-        return <ServicesSection servicesData={servicesData} />
+        return <ServicesSection servicesData={servicesData} coverageLocations={projectLocations} />
       case '/produksi':
         return <ProductionSection />
       case '/pelanggan':

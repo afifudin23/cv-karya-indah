@@ -52,27 +52,29 @@ export default function HeroSection({ companyData, heroImage }) {
                     <div className="flex flex-col items-center text-center">
                         <Reveal as="div" className="flex justify-center" duration={820}>
                             <img
-                                src="/logo.png"
+                                src="/banner2.png"
                                 alt="Logo CV Karya Indah"
-                                className="w-full max-w-[150px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)] sm:max-w-[180px] lg:max-w-[220px]"
+                                className="w-full max-w-[220px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)] sm:max-w-[280px] lg:max-w-[360px]"
                             />
                         </Reveal>
                         <Reveal as="div" delay={120} duration={880} className="mt-6 rounded-[1.8rem] bg-white/92 px-6 py-5 shadow-[0_18px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:px-8">
-                            <h1 className="font-display text-3xl uppercase leading-none text-white sm:text-4xl lg:text-[4rem]">
+                            <h1 className="font-hero-brand text-[2.35rem] uppercase leading-[0.98] text-white sm:text-[3.1rem] lg:text-[4rem]">
                                 {companyData.name}
                             </h1>
                             <div className="mx-auto my-4 h-[4px] w-full max-w-[520px] bg-[var(--teal)]" />
-                            <p className="text-base text-white sm:text-lg lg:text-[2rem]">{companyData.tagline}</p>
+                            <p className="text-base font-medium tracking-[0.02em] text-white sm:text-lg lg:text-[2rem]">
+                                {companyData.tagline}
+                            </p>
                         </Reveal>
                     </div>
                 </div>
             </div>
 
-            <div className="relative z-10 overflow-hidden border-y border-white/8 bg-[linear-gradient(180deg,#edf7f2_0%,#dceee5_42%,#cce2d7_100%)] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+            <div className="relative z-10 overflow-hidden border-y border-[rgba(191,221,232,0.45)] bg-[linear-gradient(180deg,#f7fbfe_0%,#edf6fb_48%,#e7f1f7_100%)] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
                 <div className="pointer-events-none absolute inset-0">
-                    <div className="absolute left-[-6%] top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(88,182,140,0.16)_0%,rgba(88,182,140,0)_72%)] blur-3xl" />
-                    <div className="absolute right-[-8%] top-28 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(44,108,82,0.12)_0%,rgba(44,108,82,0)_74%)] blur-3xl" />
-                    <div className="absolute bottom-0 left-1/2 h-64 w-[36rem] -translate-x-1/2 bg-[radial-gradient(circle,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0)_76%)]" />
+                    <div className="absolute left-[-6%] top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(88,182,197,0.12)_0%,rgba(88,182,197,0)_72%)] blur-3xl" />
+                    <div className="absolute right-[-8%] top-28 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(88,182,197,0.09)_0%,rgba(88,182,197,0)_74%)] blur-3xl" />
+                    <div className="absolute bottom-0 left-1/2 h-64 w-[36rem] -translate-x-1/2 bg-[radial-gradient(circle,rgba(231,241,247,0.9)_0%,rgba(255,255,255,0)_76%)]" />
                 </div>
                 <div className="mx-auto max-w-7xl">
                     <Reveal as="div" className="relative overflow-hidden rounded-[2.2rem] border border-[rgba(128,214,229,0.22)] bg-[linear-gradient(180deg,rgba(10,29,38,0.96),rgba(16,46,58,0.94))] p-6 shadow-[0_34px_86px_rgba(5,18,25,0.3),0_0_46px_rgba(88,182,197,0.1)] sm:rounded-[2.8rem] sm:p-8 lg:p-10 xl:p-12">
@@ -108,10 +110,10 @@ export default function HeroSection({ companyData, heroImage }) {
                                 </div>
                             </div>
 
-                            <div className="mt-7 rounded-[1.8rem] border border-[rgba(128,214,229,0.2)] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] p-5 shadow-[0_22px_52px_rgba(5,18,25,0.2),0_0_34px_rgba(88,182,197,0.08)] backdrop-blur-md sm:rounded-[2.1rem] sm:p-7 lg:mt-8 lg:p-8">
+                            <div className="mt-7 rounded-[1.8rem] border border-[rgba(191,221,232,0.74)] bg-[linear-gradient(180deg,#fbfdff_0%,#f3f9fd_42%,#eaf4fb_100%)] p-5 shadow-[0_18px_42px_rgba(5,18,25,0.12),0_0_26px_rgba(88,182,197,0.08)] sm:rounded-[2.1rem] sm:p-7 lg:mt-8 lg:p-8">
                                 <div className="mb-5 flex items-center gap-4">
                                     <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />
-                                    <p className="text-[11px] uppercase tracking-[0.3em] text-cyan-100/80">
+                                    <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--teal-deep)]">
                                         Tentang CV Karya Indah
                                     </p>
                                 </div>
@@ -120,7 +122,7 @@ export default function HeroSection({ companyData, heroImage }) {
                                     {profileNarrative.map((paragraph) => (
                                         <p
                                             key={paragraph}
-                                            className="text-[0.96rem] leading-8 text-justify text-slate-200 sm:text-[1rem] sm:leading-8"
+                                            className="text-[0.96rem] leading-8 text-justify text-slate-700 sm:text-[1rem] sm:leading-8"
                                         >
                                             {paragraph}
                                         </p>

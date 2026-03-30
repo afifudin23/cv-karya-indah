@@ -37,12 +37,6 @@ export default function ProfileSection({ companyData }) {
         { label: "Jenis usaha", value: companyData.businessType },
     ];
 
-    const bankRows = [
-        { label: "Bank", value: companyData.bank.name },
-        { label: "No. rekening", value: companyData.bank.account },
-        { label: "Atas nama", value: companyData.bank.holder },
-    ];
-
     const legalityShowcaseItems = [
         {
             id: "01",
@@ -80,12 +74,6 @@ export default function ProfileSection({ companyData }) {
         { label: "Bidang utama", value: companyData.businessType },
         { label: "Slogan", value: companyData.slogan },
         { label: "Kontak", value: companyData.email },
-    ];
-
-    const profileStrengths = [
-        "Berawal dari screen printing dan berkembang menjadi mitra produksi visual branding yang lebih lengkap.",
-        "Melayani kebutuhan exterior goods, interior goods, hingga konstruksi pendukung branding.",
-        "Menjaga kualitas material dan eksekusi agar hasil kerja tetap rapi, kuat, dan tepat waktu.",
     ];
 
     const servicePillars = ["Advertising", "Signage", "Interior", "Konstruksi"];
@@ -200,71 +188,52 @@ export default function ProfileSection({ companyData }) {
                             </div>
                         </div>
                     </GlowCard>
-            </Reveal>
+                </Reveal>
 
-            <Reveal as="section" className="rounded-[2.35rem] border border-white/70 bg-[linear-gradient(180deg,rgba(249,252,254,0.96),rgba(242,247,250,0.94))] p-5 shadow-[0_28px_68px_rgba(72,155,214,0.1)] sm:rounded-[2.6rem] sm:p-8">
-                <div className="mb-8 max-w-2xl">
-                    <p className="text-xs uppercase tracking-[0.34em] text-[var(--teal-deep)]">Company Snapshot</p>
-                    <h3 className="mt-4 font-display text-[2.1rem] uppercase leading-[0.96] text-[var(--ink-strong)] sm:text-[3.2rem]">
-                        Sorotan utama
-                        <br />
-                        perusahaan
-                    </h3>
-                </div>
+                <Reveal
+                    as="section"
+                    className="rounded-[2.35rem] border border-white/70 bg-[linear-gradient(180deg,rgba(249,252,254,0.96),rgba(242,247,250,0.94))] p-5 shadow-[0_28px_68px_rgba(72,155,214,0.1)] sm:rounded-[2.6rem] sm:p-8"
+                >
+                    <div className="mb-8 max-w-2xl">
+                        <p className="text-xs uppercase tracking-[0.34em] text-[var(--teal-deep)]">Company Snapshot</p>
+                        <h3 className="mt-4 font-display text-[2.1rem] uppercase leading-[0.96] text-[var(--ink-strong)] sm:text-[3.2rem]">
+                            Sorotan utama
+                            <br />
+                            perusahaan
+                        </h3>
+                    </div>
 
-                <RevealStagger as="div" className="grid gap-4 md:grid-cols-2 xl:grid-cols-4" stagger={70}>
-                    {profileHighlights.map((item) => (
-                        <MetricCard key={item.label} {...item} />
-                    ))}
-                </RevealStagger>
-            </Reveal>
+                    <RevealStagger as="div" className="grid gap-4 md:grid-cols-2 xl:grid-cols-4" stagger={70}>
+                        {profileHighlights.map((item) => (
+                            <MetricCard key={item.label} {...item} />
+                        ))}
+                    </RevealStagger>
+                </Reveal>
 
-            <Reveal as="section" className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(180deg,rgba(248,252,254,0.96),rgba(241,247,250,0.95))] p-5 shadow-[0_32px_78px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-8 lg:p-10">
-                <div className="max-w-3xl">
-                    <p className="text-xs uppercase tracking-[0.34em] text-[var(--teal-deep)]">Detail Perusahaan</p>
-                    <h3 className="mt-4 font-display text-[2.15rem] uppercase leading-[0.94] text-[var(--ink-strong)] sm:text-[3.8rem]">
-                        Informasi pendukung
-                        <br />
-                        dalam section baru
-                    </h3>
-                    <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-slate-600 sm:text-base sm:leading-8">
-                        Bagian ini dipisahkan dari cerita utama supaya informasi pendukung terasa lebih terstruktur,
-                        lebih lega, dan tidak menempel dengan blok tentang perusahaan.
-                    </p>
-                </div>
+                <Reveal
+                    as="section"
+                    className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(180deg,rgba(248,252,254,0.96),rgba(241,247,250,0.95))] p-5 shadow-[0_32px_78px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-8 lg:p-10"
+                >
+                    <div className="max-w-3xl">
+                        <p className="text-xs uppercase tracking-[0.34em] text-[var(--teal-deep)]">Detail Perusahaan</p>
+                        <h3 className="mt-4 font-display text-[2.15rem] uppercase leading-[0.94] text-[var(--ink-strong)] sm:text-[3.8rem]">
+                            Informasi pendukung
+                            <br />
+                            dalam section baru
+                        </h3>
+                        <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-slate-600 sm:text-base sm:leading-8">
+                            Bagian ini dipisahkan dari cerita utama supaya informasi pendukung terasa lebih terstruktur,
+                            lebih lega, dan tidak menempel dengan blok tentang perusahaan.
+                        </p>
+                    </div>
 
-                <div className="mt-8 grid gap-6 sm:mt-10 sm:gap-8 xl:grid-cols-[0.86fr_1.14fr]">
-                    <div className="space-y-6">
-                        <div className="rounded-[1.8rem] border border-[rgba(145,187,208,0.32)] bg-[linear-gradient(180deg,rgba(232,246,250,0.95),rgba(255,255,255,0.95))] p-5 shadow-[0_18px_46px_rgba(72,155,214,0.1)] sm:rounded-[2rem] sm:p-6">
-                            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--teal-deep)]">
-                                Mengapa Dipilih
-                            </p>
-                            <div className="mt-5 space-y-4">
-                                {profileStrengths.map((item, index) => (
-                                    <div
-                                        key={item}
-                                        className="rounded-[1.4rem] border border-white/80 bg-white/90 px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.82)]"
-                                    >
-                                        <div className="flex items-start gap-3">
-                                            <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--hero)] text-xs font-semibold text-white">
-                                                0{index + 1}
-                                            </span>
-                                            <p className="text-sm leading-7 text-slate-700">{item}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="mt-5 rounded-[1.4rem] bg-[var(--hero)] px-4 py-4 text-white shadow-[0_18px_42px_rgba(17,43,57,0.18)] sm:rounded-[1.6rem] sm:px-5 sm:py-5">
-                                <p className="text-[11px] uppercase tracking-[0.28em] text-cyan-100/85">Nilai Utama</p>
-                                <p className="mt-3 text-base leading-8 text-slate-200">
-                                    Kualitas material, ketepatan pengerjaan, dan perhatian pada kebutuhan klien menjadi
-                                    dasar setiap proyek yang kami kerjakan.
-                                </p>
-                            </div>
+                    <div className="mt-8 space-y-6 sm:mt-10 sm:space-y-8">
+                        <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:auto-rows-fr">
+                            <CompanySheet title="Data Perusahaan" rows={companyRows} />
+                            <DetailListCard title="Legalitas Perusahaan" rows={companyData.legalities} />
                         </div>
 
-                        <div className="grid gap-5 md:grid-cols-3 xl:grid-cols-1">
+                        <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:auto-rows-fr">
                             <NarrativeCard
                                 title="Visi Perusahaan"
                                 accent="border-white/10 bg-gradient-to-br from-[#112b39] via-[#1a4c5e] to-[#2b6b7b] text-white"
@@ -275,97 +244,102 @@ export default function ProfileSection({ companyData }) {
                                 {companyData.vision}
                             </NarrativeCard>
 
-                            <NarrativeCard title="Misi Perusahaan">{companyData.mission}</NarrativeCard>
-
-                            <NarrativeCard title="Kebijakan K3">
-                                Keselamatan dan kesehatan kerja menjadi prioritas utama dalam proses produksi maupun
-                                instalasi. Kami menjaga prosedur kerja yang tertib, aman, dan bertanggung jawab untuk
-                                tim internal, mitra, maupun pelanggan.
+                            <NarrativeCard
+                                title="Misi Perusahaan"
+                                accent="border-white/10 bg-gradient-to-br from-[#112b39] via-[#1a4c5e] to-[#2b6b7b] text-white"
+                                textClassName="text-slate-200"
+                                titleClassName="text-cyan-100/90"
+                                glowTone="dark"
+                            >
+                                {companyData.mission}
                             </NarrativeCard>
                         </div>
+
+                        <NarrativeCard title="Kebijakan K3">
+                            CV Karya Indah menerapkan kebijakan keselamatan dan kesehatan kerja secara disiplin pada
+                            setiap tahapan produksi, pengiriman, hingga instalasi di lapangan. Setiap aktivitas
+                            operasional dijalankan dengan prosedur kerja yang tertib, penggunaan perlengkapan yang
+                            sesuai, serta pengawasan yang bertanggung jawab agar mutu pekerjaan tetap terjaga dan
+                            seluruh tim, mitra, maupun pelanggan merasa aman selama proses berlangsung.
+                        </NarrativeCard>
                     </div>
+                </Reveal>
 
-                    <div className="space-y-6">
-                        <CompanySheet title="Data Perusahaan" rows={companyRows} />
-                        <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-                            <DetailListCard title="Legalitas Perusahaan" rows={companyData.legalities} />
-                            <BankCard title="Informasi Bank" rows={bankRows} />
-                        </div>
-                    </div>
-                </div>
-            </Reveal>
-
-            <Reveal as="section" className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(135deg,rgba(10,30,41,0.98),rgba(21,63,79,0.96)_58%,rgba(36,92,108,0.94))] p-5 text-white shadow-[0_36px_90px_rgba(17,43,57,0.24)] sm:rounded-[2.8rem] sm:p-8 lg:p-10">
-                <div className="grid gap-6 sm:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:items-start">
-                    <div className="max-w-3xl">
-                        <p className="text-xs uppercase tracking-[0.34em] text-cyan-100/82">Struktur Organisasi</p>
-                        <h3 className="mt-4 font-display text-[2.15rem] uppercase leading-[0.92] text-white sm:text-[3rem] lg:text-[3.4rem]">
-                            Alur kerja yang
-                            <br />
-                            tertata jelas
-                        </h3>
-                        <p className="mt-5 max-w-2xl text-[0.98rem] leading-7 text-slate-200 sm:text-[1.05rem] sm:leading-8">
-                            Struktur organisasi ini menampilkan pembagian peran dari level pimpinan sampai divisi
-                            operasional agar alur koordinasi, produksi, dan administrasi terasa lebih mudah dipindai
-                            saat dilihat di web.
-                        </p>
-
-                        <div className="mt-7 grid gap-4 sm:mt-8">
-                            <GlowCard
-                                tone="dark"
-                                className="rounded-[1.45rem] border border-white/10 bg-white/8 p-4 backdrop-blur-sm hover:border-white/16 hover:bg-white/[0.1] sm:rounded-[1.6rem] sm:p-5"
-                            >
-                                <p className="text-[11px] uppercase tracking-[0.28em] text-cyan-100/78">Highlights</p>
-                                <p className="mt-3 text-[1.05rem] font-semibold leading-7 text-white">
-                                    Hierarki operasional, administrasi, dan lapangan tersusun lebih tegas.
-                                </p>
-                            </GlowCard>
-
-                            <GlowCard
-                                tone="dark"
-                                className="rounded-[1.45rem] border border-white/10 bg-white/8 p-4 backdrop-blur-sm hover:border-white/16 hover:bg-white/[0.1] sm:rounded-[1.6rem] sm:p-5"
-                            >
-                                <p className="text-[11px] uppercase tracking-[0.28em] text-cyan-100/78">Layout</p>
-                                <p className="mt-3 text-[1.05rem] font-semibold leading-7 text-white">
-                                    Gambar struktur ditaruh di samping kanan supaya section terasa lebih seimbang.
-                                </p>
-                            </GlowCard>
-                        </div>
-                    </div>
-
-                    <GlowCard className="w-full rounded-[2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.06))] p-3 shadow-[0_24px_70px_rgba(6,18,25,0.2)] backdrop-blur-sm sm:rounded-[2.25rem] sm:p-5">
-                        <div className="mb-4 sm:mb-5">
-                            <p className="text-[11px] uppercase tracking-[0.28em] text-cyan-100/78">
-                                Organization Tree
+                <Reveal
+                    as="section"
+                    className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(135deg,rgba(10,30,41,0.98),rgba(21,63,79,0.96)_58%,rgba(36,92,108,0.94))] p-5 text-white shadow-[0_36px_90px_rgba(17,43,57,0.24)] sm:rounded-[2.8rem] sm:p-8 lg:p-10"
+                >
+                    <div className="grid gap-6 sm:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:items-start">
+                        <div className="max-w-3xl">
+                            <p className="text-xs uppercase tracking-[0.34em] text-cyan-100/82">Struktur Organisasi</p>
+                            <h3 className="mt-4 font-display text-[2.15rem] uppercase leading-[0.92] text-white sm:text-[3rem] lg:text-[3.4rem]">
+                                Alur kerja yang
+                                <br />
+                                tertata jelas
+                            </h3>
+                            <p className="mt-5 max-w-2xl text-[0.98rem] leading-7 text-slate-200 sm:text-[1.05rem] sm:leading-8">
+                                Struktur organisasi ini menampilkan pembagian peran dari level pimpinan sampai divisi
+                                operasional agar alur koordinasi, produksi, dan administrasi terasa lebih mudah dipindai
+                                saat dilihat di web.
                             </p>
-                            <p className="mt-2 text-base font-semibold text-white sm:text-lg">
-                                Bagan organisasi ditampilkan di sisi kanan sebagai fokus visual utama.
-                            </p>
-                        </div>
 
-                        <div className="rounded-[1.55rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(88,182,197,0.12),rgba(246,251,253,0.96)_34%,rgba(232,242,247,0.92)_100%)] p-3 sm:rounded-[1.9rem] sm:p-6">
-                            <div className="flex h-[250px] items-center justify-center overflow-hidden rounded-[1.2rem] bg-white/72 px-3 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.86)] sm:h-[460px] sm:rounded-[1.45rem] sm:px-5 sm:py-6 lg:h-[520px]">
-                                <img
-                                    src="/struktur.jpeg"
-                                    alt="Struktur organisasi CV Karya Indah"
-                                    onClick={() =>
-                                        setLightboxImage({
-                                            src: "/struktur.jpeg",
-                                            alt: "Struktur organisasi CV Karya Indah",
-                                        })
-                                    }
-                                    className="block h-auto max-h-[360px] w-auto max-w-none cursor-zoom-in object-contain shadow-[0_18px_46px_rgba(72,155,214,0.12)] transition hover:shadow-[0_22px_54px_rgba(72,155,214,0.18)] sm:max-h-[560px]"
-                                />
+                            <div className="mt-7 grid gap-4 sm:mt-8">
+                                <GlowCard
+                                    tone="dark"
+                                    className="rounded-[1.45rem] border border-white/10 bg-white/8 p-4 backdrop-blur-sm hover:border-white/16 hover:bg-white/[0.1] sm:rounded-[1.6rem] sm:p-5"
+                                >
+                                    <p className="text-[11px] uppercase tracking-[0.28em] text-cyan-100/78">
+                                        Highlights
+                                    </p>
+                                    <p className="mt-3 text-[1.05rem] font-semibold leading-7 text-white">
+                                        Hierarki operasional, administrasi, dan lapangan tersusun lebih tegas.
+                                    </p>
+                                </GlowCard>
+
+                                <GlowCard
+                                    tone="dark"
+                                    className="rounded-[1.45rem] border border-white/10 bg-white/8 p-4 backdrop-blur-sm hover:border-white/16 hover:bg-white/[0.1] sm:rounded-[1.6rem] sm:p-5"
+                                >
+                                    <p className="text-[11px] uppercase tracking-[0.28em] text-cyan-100/78">Layout</p>
+                                    <p className="mt-3 text-[1.05rem] font-semibold leading-7 text-white">
+                                        Gambar struktur ditaruh di samping kanan supaya section terasa lebih seimbang.
+                                    </p>
+                                </GlowCard>
                             </div>
                         </div>
-                    </GlowCard>
-                </div>
-            </Reveal>
 
-            <Reveal as="div" delay={60}>
-              <LegalitiesShowcase items={legalityShowcaseItems} onOpenImage={setLightboxImage} />
-            </Reveal>
+                        <GlowCard className="w-full rounded-[2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.06))] p-3 shadow-[0_24px_70px_rgba(6,18,25,0.2)] backdrop-blur-sm sm:rounded-[2.25rem] sm:p-5">
+                            <div className="mb-4 sm:mb-5">
+                                <p className="text-[11px] uppercase tracking-[0.28em] text-cyan-100/78">
+                                    Organization Tree
+                                </p>
+                                <p className="mt-2 text-base font-semibold text-white sm:text-lg">
+                                    Bagan organisasi ditampilkan di sisi kanan sebagai fokus visual utama.
+                                </p>
+                            </div>
 
+                            <div className="rounded-[1.55rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(88,182,197,0.12),rgba(246,251,253,0.96)_34%,rgba(232,242,247,0.92)_100%)] p-3 sm:rounded-[1.9rem] sm:p-6">
+                                <div className="flex h-[250px] items-center justify-center overflow-hidden rounded-[1.2rem] bg-white/72 px-3 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.86)] sm:h-[460px] sm:rounded-[1.45rem] sm:px-5 sm:py-6 lg:h-[520px]">
+                                    <img
+                                        src="/struktur.jpeg"
+                                        alt="Struktur organisasi CV Karya Indah"
+                                        onClick={() =>
+                                            setLightboxImage({
+                                                src: "/struktur.jpeg",
+                                                alt: "Struktur organisasi CV Karya Indah",
+                                            })
+                                        }
+                                        className="block h-auto max-h-[360px] w-auto max-w-none cursor-zoom-in object-contain shadow-[0_18px_46px_rgba(72,155,214,0.12)] transition hover:shadow-[0_22px_54px_rgba(72,155,214,0.18)] sm:max-h-[560px]"
+                                    />
+                                </div>
+                            </div>
+                        </GlowCard>
+                    </div>
+                </Reveal>
+
+                <Reveal as="div" delay={60}>
+                    <LegalitiesShowcase items={legalityShowcaseItems} onOpenImage={setLightboxImage} />
+                </Reveal>
             </div>
 
             <ImageViewer
@@ -597,7 +571,7 @@ function NarrativeCard({
     return (
         <GlowCard
             tone={glowTone}
-            className={`rounded-[1.8rem] border p-5 shadow-[0_24px_56px_rgba(72,155,214,0.1)] hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(72,155,214,0.15)] sm:rounded-[2.1rem] sm:p-8 ${accent}`}
+            className={`h-full rounded-[1.8rem] border p-5 shadow-[0_24px_56px_rgba(72,155,214,0.1)] hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(72,155,214,0.15)] sm:rounded-[2.1rem] sm:p-8 ${accent}`}
         >
             <div className="mb-5 flex items-center gap-3">
                 <span className="h-[4px] w-14 rounded-full bg-[var(--teal)]" />
@@ -610,25 +584,25 @@ function NarrativeCard({
 
 function CompanySheet({ title, rows }) {
     return (
-        <GlowCard className="rounded-[1.95rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(244,250,253,0.95))] p-5 shadow-[0_28px_68px_rgba(72,155,214,0.12)] hover:-translate-y-1 hover:shadow-[0_30px_72px_rgba(72,155,214,0.16)] sm:rounded-[2.3rem] sm:p-8">
+        <GlowCard className="h-full rounded-[1.95rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(244,250,253,0.95))] p-5 shadow-[0_28px_68px_rgba(72,155,214,0.12)] hover:-translate-y-1 hover:shadow-[0_30px_72px_rgba(72,155,214,0.16)] sm:rounded-[2.3rem] sm:p-8">
             <div className="mb-6 flex items-center gap-4 sm:mb-8">
                 <span className="h-[5px] w-16 rounded-full bg-[var(--teal)]" />
                 <p className="text-sm uppercase tracking-[0.3em] text-[var(--teal-deep)]">{title}</p>
             </div>
 
-            <div className="overflow-hidden rounded-[1.8rem] border border-[rgba(210,228,238,0.88)] bg-white/90">
+            <div className="space-y-4">
                 {rows.map((item, index) => (
-                    <div
-                        key={item.label}
-                        className={`grid gap-3 px-4 py-4 md:grid-cols-[150px_minmax(0,1fr)] md:items-start md:px-5 md:py-5 ${
-                            index !== rows.length - 1 ? "border-b border-[rgba(210,228,238,0.78)]" : ""
-                        }`}
+                    <GlowCard
+                        key={index}
+                        className="rounded-[1.35rem] border border-[rgba(205,225,236,0.96)] bg-[linear-gradient(180deg,rgba(252,254,255,0.98),rgba(242,248,252,0.98))] px-4 py-4 shadow-[0_14px_32px_rgba(72,155,214,0.08),inset_0_1px_0_rgba(255,255,255,0.88)] hover:-translate-y-1 hover:border-[rgba(88,182,197,0.42)] hover:shadow-[0_20px_38px_rgba(72,155,214,0.16),inset_0_1px_0_rgba(255,255,255,0.92)] sm:rounded-[1.55rem] sm:px-5 sm:py-5"
                     >
-                        <span className="inline-flex w-fit rounded-full bg-[rgba(72,155,214,0.1)] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--teal-deep)]">
-                            {item.label}
-                        </span>
-                        <p className="text-[1rem] leading-7 text-slate-700 sm:text-[1.08rem]">{item.value}</p>
-                    </div>
+                        <div className="grid gap-3 md:grid-cols-[150px_minmax(0,1fr)] md:items-start">
+                            <span className="inline-flex w-fit rounded-full bg-[rgba(72,155,214,0.1)] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--teal-deep)]">
+                                {item.label}
+                            </span>
+                            <p className="text-[1rem] leading-7 text-slate-700 sm:text-[1.08rem]">{item.value}</p>
+                        </div>
+                    </GlowCard>
                 ))}
             </div>
         </GlowCard>
@@ -637,7 +611,7 @@ function CompanySheet({ title, rows }) {
 
 function DetailListCard({ title, rows }) {
     return (
-        <div className="rounded-[1.95rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(244,250,253,0.95))] p-5 shadow-[0_26px_64px_rgba(72,155,214,0.11)] sm:rounded-[2.2rem] sm:p-8">
+        <div className="h-full rounded-[1.95rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(244,250,253,0.95))] p-5 shadow-[0_26px_64px_rgba(72,155,214,0.11)] sm:rounded-[2.2rem] sm:p-8">
             <div className="mb-6 flex items-center gap-4 sm:mb-7">
                 <span className="h-[5px] w-16 rounded-full bg-[var(--teal)]" />
                 <p className="text-sm uppercase tracking-[0.3em] text-[var(--teal-deep)]">{title}</p>
@@ -666,34 +640,5 @@ function DetailListCard({ title, rows }) {
                 ))}
             </div>
         </div>
-    );
-}
-
-function BankCard({ title, rows }) {
-    return (
-        <GlowCard
-            tone="dark"
-            className="rounded-[1.95rem] border border-white/10 bg-gradient-to-br from-[#0e2330] via-[#153949] to-[#23586b] p-5 text-white shadow-[0_26px_70px_rgba(17,43,57,0.26)] hover:-translate-y-1 hover:shadow-[0_30px_76px_rgba(17,43,57,0.34)] sm:rounded-[2.2rem] sm:p-8"
-        >
-            <div className="mb-6 flex items-center gap-4 sm:mb-7">
-                <span className="h-[5px] w-16 rounded-full bg-[var(--teal)]" />
-                <p className="text-sm uppercase tracking-[0.3em] text-cyan-100/90">{title}</p>
-            </div>
-
-            <div className="space-y-4">
-                {rows.map((item) => (
-                    <GlowCard
-                        key={item.label}
-                        tone="dark"
-                        className="rounded-[1.3rem] border border-white/10 bg-white/10 px-4 py-4 backdrop-blur-sm hover:border-white/20 hover:bg-white/[0.13] sm:rounded-[1.5rem] sm:px-5 sm:py-5"
-                    >
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-cyan-100/85">
-                            {item.label}
-                        </p>
-                        <p className="mt-2 text-[1rem] leading-7 text-slate-100 sm:text-[1.08rem]">{item.value}</p>
-                    </GlowCard>
-                ))}
-            </div>
-        </GlowCard>
     );
 }

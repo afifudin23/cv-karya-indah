@@ -1,4 +1,5 @@
 import SectionShell from '../ui/SectionShell'
+import ClientLocationsMap from '../ui/ClientLocationsMap'
 import { RevealStagger } from '../ui/Reveal'
 
 function getIconLabel(icon) {
@@ -16,7 +17,7 @@ function getIconLabel(icon) {
   }
 }
 
-export default function ServicesSection({ servicesData }) {
+export default function ServicesSection({ servicesData, coverageLocations = [] }) {
   return (
     <SectionShell
       id="layanan"
@@ -79,6 +80,35 @@ export default function ServicesSection({ servicesData }) {
           </article>
         ))}
       </RevealStagger>
+
+      {coverageLocations.length ? (
+        <div className="mt-10 overflow-hidden rounded-[2.3rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] p-5 shadow-[0_28px_70px_rgba(6,18,25,0.22)] sm:mt-12 sm:rounded-[2.6rem] sm:p-7 lg:p-8">
+          <div className="grid gap-5 border-b border-white/10 pb-6 sm:pb-7 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.3em] text-cyan-100/82">
+                Peta Sebaran
+              </p>
+              <h3 className="mt-4 font-display text-[2.1rem] uppercase leading-[0.94] text-white sm:text-[3rem]">
+                Sebaran perusahaan
+                <br />
+                di berbagai provinsi
+              </h3>
+            </div>
+
+            <div className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 shadow-[0_18px_44px_rgba(6,18,25,0.18)] backdrop-blur-md sm:rounded-[1.8rem] sm:p-6">
+              <p className="text-[0.98rem] leading-7 text-slate-300 sm:text-base sm:leading-8">
+                Peta ini merangkum perusahaan dan pusat aktivitas bisnis dari berbagai kota di Indonesia sebagai
+                gambaran luasnya ekosistem industri yang relevan dengan layanan branding, signage, interior, dan
+                digital printing yang dikerjakan CV Karya Indah.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6">
+            <ClientLocationsMap locations={coverageLocations} />
+          </div>
+        </div>
+      ) : null}
     </SectionShell>
   )
 }

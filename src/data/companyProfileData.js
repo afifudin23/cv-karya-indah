@@ -184,20 +184,24 @@ export const clients = [
     name: 'PT. YAMAHA INDONESIA MOTOR MANUFACTURING',
     address:
       'Jl. DR. KRT Radjiman Widyodiningrat (Jl. Raya Bekasi Km. 23) Pulogadung, Jakarta Timur 13920',
+    coordinates: { lat: -6.193056, lon: 106.9275 },
   },
   {
     name: 'PT. AKUR PRATAMA',
     address:
       'Jl. Terusan Buah Batu No. 12, Batununggal, Kec. Bandung Kidul, Kota Bandung, Jawa Barat 40266',
+    coordinates: { lat: -6.94975, lon: 107.6341 },
   },
   {
     name: 'PT. SAYAP MAS UTAMA',
     address:
       'Kawasan Perluasan Utara PT. JIEP Jl. Tipar Cakung Kav F 5-7 Jakarta 13910',
+    coordinates: { lat: -6.167778, lon: 106.926667 },
   },
   {
     name: 'PT. TONG TJI TEA INDONESIA',
     address: 'Jl. Raya Tegal-Pemalang Padaharja-Tegal',
+    coordinates: { lat: -6.8429, lon: 109.0945 },
   },
 ]
 
