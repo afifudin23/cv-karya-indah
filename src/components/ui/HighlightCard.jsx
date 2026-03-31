@@ -6,7 +6,7 @@ export default function HighlightCard({ title, accent, children }) {
 
   return (
     <div className={`rounded-[1.5rem] border-l-4 p-6 ${accentClass}`}>
-      <p className="mb-3 text-xs uppercase tracking-[0.3em]">{title}</p>
+      <p className="label-size mb-3 uppercase tracking-[0.3em]">{title}</p>
       <p className="text-lg leading-8">{children}</p>
     </div>
   )

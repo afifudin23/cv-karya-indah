@@ -75,7 +75,7 @@ export default function ContactSection({ companyData }) {
             <Reveal as="div" className="space-y-8" delay={60}>
                 <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:auto-rows-fr">
                     <div className="h-full rounded-[2rem] bg-[var(--hero)] p-8 text-white shadow-[0_26px_64px_rgba(17,43,57,0.2)]">
-                        <p className="mb-4 text-xs uppercase tracking-[0.32em] text-[var(--teal)]">Contact Detail</p>
+                        <p className="label-size mb-4 uppercase tracking-[0.32em] text-[var(--teal)]">Contact Detail</p>
                         <h3 className="font-display text-4xl uppercase">CV. Karya Indah</h3>
                         <p className="mt-4 max-w-xl leading-8 text-slate-300">
                             Siap membantu kebutuhan jasa periklanan, interior, eksterior, konstruksi visual, dan digital
@@ -99,13 +99,13 @@ export default function ContactSection({ companyData }) {
                 <div className="overflow-hidden rounded-[2rem] border border-[rgba(196,223,235,0.86)] bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.95))] p-6 shadow-[0_28px_70px_rgba(72,155,214,0.12)] sm:rounded-[2.3rem] sm:p-8">
                     <div className="mb-6 flex items-center gap-4">
                         <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />
-                        <p className="text-xs uppercase tracking-[0.3em] text-[var(--teal-deep)]">Form Kontak</p>
+                        <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">Form Kontak</p>
                     </div>
 
                     <form className="space-y-4" onSubmit={handleSubmit}>
                         <div className="grid gap-4 sm:grid-cols-2">
                             <label className="space-y-2">
-                                <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
+                                <span className="label-size font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
                                     Nama
                                 </span>
                                 <input
@@ -120,7 +120,7 @@ export default function ContactSection({ companyData }) {
                             </label>
 
                             <label className="space-y-2">
-                                <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
+                                <span className="label-size font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
                                     Perusahaan
                                 </span>
                                 <input
@@ -136,7 +136,7 @@ export default function ContactSection({ companyData }) {
                         </div>
 
                         <label className="space-y-2">
-                            <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
+                            <span className="label-size font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
                                 Layanan yang dibutuhkan
                             </span>
                             <select
@@ -155,7 +155,7 @@ export default function ContactSection({ companyData }) {
                         </label>
 
                         <label className="space-y-2">
-                            <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
+                            <span className="label-size font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
                                 Pesan
                             </span>
                             <textarea
@@ -197,7 +197,7 @@ export default function ContactSection({ companyData }) {
                     <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex items-center gap-4">
                             <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />
-                            <p className="text-xs uppercase tracking-[0.3em] text-[var(--teal-deep)]">Peta Lokasi</p>
+                            <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">Peta Lokasi</p>
                         </div>
 
                         <a

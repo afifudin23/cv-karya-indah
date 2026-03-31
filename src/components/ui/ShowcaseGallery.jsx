@@ -47,7 +47,7 @@ export default function ShowcaseGallery({
       <Reveal as="div" className="mx-auto max-w-6xl rounded-[2.2rem] border border-[rgba(196,223,235,0.8)] bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.94))] p-4 shadow-[0_34px_90px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-6 lg:p-7">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--teal-deep)]">
+            <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">
               {showcaseEyebrow}
             </p>
             <p className="mt-2 text-sm leading-6 text-slate-500 sm:text-[0.95rem]">
@@ -100,10 +100,10 @@ export default function ShowcaseGallery({
         <div className="mt-5 px-1 pb-1 sm:mt-6 sm:px-2">
           <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
             <div className="max-w-3xl">
-              <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--teal-deep)]">
+              <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">
                 {activeItem.category}
               </p>
-              <h3 className="mt-3 font-display text-[1.9rem] uppercase leading-[0.94] text-[var(--ink-strong)] sm:text-[3rem] lg:text-[2.75rem] xl:text-[3.1rem]">
+              <h3 className="content-title-size mt-3 font-display uppercase leading-[0.94] text-[var(--ink-strong)]">
                 {activeItem.title}
               </h3>
               <p className="mt-2.5 text-base font-medium text-slate-700 sm:text-[1.08rem] xl:text-[1.15rem]">
@@ -117,7 +117,7 @@ export default function ShowcaseGallery({
 
             <div className="rounded-[1.45rem] bg-[linear-gradient(180deg,rgba(241,249,252,0.58),rgba(255,255,255,0.8))] p-4 shadow-[0_14px_34px_rgba(72,155,214,0.06)] sm:rounded-[1.7rem] sm:p-5 lg:p-4">
               <div className="flex items-center justify-between gap-3">
-                <p className="text-[11px] uppercase tracking-[0.28em] text-[var(--teal-deep)]">
+                <p className="label-size uppercase tracking-[0.28em] text-[var(--teal-deep)]">
                   {metaLabel}
                 </p>
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--hero)] text-sm font-semibold text-white shadow-[0_16px_38px_rgba(17,43,57,0.18)] sm:h-14 sm:w-14">

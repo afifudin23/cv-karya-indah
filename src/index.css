@@ -14,6 +14,9 @@
   --silver: #c9c9c9;
   --line: rgba(14, 28, 37, 0.09);
   --panel-soft: #eef7f7;
+  --label-font-size: 0.75rem;
+  --section-title-size: clamp(2.15rem, 5vw, 2.5rem);
+  --content-title-size: clamp(1.9rem, 4.2vw, 2.5rem);
 }
 
 html {
@@ -40,6 +43,18 @@ body {
   font-family: 'Montserrat', 'Manrope', sans-serif;
   font-weight: 800;
   letter-spacing: 0.06em;
+}
+
+.label-size {
+  font-size: var(--label-font-size);
+}
+
+.section-title-size {
+  font-size: var(--section-title-size);
+}
+
+.content-title-size {
+  font-size: var(--content-title-size);
 }
 
 .clip-diagonal-left {

@@ -53,7 +53,7 @@ export const servicesData = [
       'Billboard',
       'Booth & pylon',
     ],
-    icon: 'billboard',
+    icon: 'exterior',
     image:
       'https://unsplash.com/photos/XyQrfarM_VA/download?force=true&w=1400',
     imageAlt: 'Storefront facade with exterior signage',

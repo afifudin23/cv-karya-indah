@@ -44,7 +44,7 @@ export default function SectionShell({
               }`}
             >
               <span className={`h-[3px] rounded-full bg-[var(--teal)] ${isFeaturedHeader ? 'w-14' : 'hidden'}`} />
-              <p className={`text-xs uppercase tracking-[0.34em] ${eyebrowClass}`}>
+              <p className={`label-size uppercase tracking-[0.34em] ${eyebrowClass}`}>
                 {eyebrow}
               </p>
             </div>
@@ -53,7 +53,7 @@ export default function SectionShell({
               className={`font-display uppercase ${titleClass} ${
                 isFeaturedHeader
                   ? 'text-right text-[2.85rem] leading-[0.95] sm:text-[4rem] lg:text-[4.8rem]'
-                  : 'text-4xl sm:text-5xl'
+                  : 'section-title-size'
               } ${titleClassName}`}
             >
               {title}

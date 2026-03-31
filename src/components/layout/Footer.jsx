@@ -3,7 +3,7 @@ export default function Footer({ companyData, navItems, onNavigate }) {
     <footer className="border-t border-white/10 bg-[var(--hero)] px-4 py-10 text-white sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-xl">
-          <p className="mb-3 text-sm uppercase tracking-[0.34em] text-[var(--teal)]">
+          <p className="label-size mb-3 uppercase tracking-[0.34em] text-[var(--teal)]">
             CV. Karya Indah
           </p>
           <h3 className="font-display text-3xl uppercase text-white">
@@ -18,13 +18,13 @@ export default function Footer({ companyData, navItems, onNavigate }) {
 
         <div className="grid gap-6 text-sm text-white/72 sm:grid-cols-2 lg:text-right">
           <div>
-            <p className="mb-2 text-xs uppercase tracking-[0.3em] text-white/45">Kontak</p>
+            <p className="label-size mb-2 uppercase tracking-[0.3em] text-white/45">Kontak</p>
             <p>{companyData.address}</p>
             <p>{companyData.phones.join(' / ')}</p>
             <p>{companyData.email}</p>
           </div>
           <div>
-            <p className="mb-2 text-xs uppercase tracking-[0.3em] text-white/45">Navigasi</p>
+            <p className="label-size mb-2 uppercase tracking-[0.3em] text-white/45">Navigasi</p>
             <div className="space-y-1">
               {navItems.map((item) => (
                 <a

@@ -14,7 +14,7 @@ export default function WorkspacesSection({ workspaces }) {
             key={space}
             className="rounded-[1.6rem] border border-black/5 bg-white p-5 shadow-[0_12px_30px_rgba(5,20,27,0.05)]"
           >
-            <div className="mb-4 text-xs uppercase tracking-[0.3em] text-[var(--teal-deep)]">
+            <div className="label-size mb-4 uppercase tracking-[0.3em] text-[var(--teal-deep)]">
               {String(index + 1).padStart(2, '0')}
             </div>
             <h3 className="font-display text-2xl uppercase text-[var(--ink-strong)]">{space}</h3>

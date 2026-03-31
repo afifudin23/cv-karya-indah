@@ -9,7 +9,7 @@ export default function ClientsSection({ clients }) {
       tone="light"
       paddingClassName="pt-24 pb-20 sm:pt-20 sm:pb-24"
       sectionClassName="bg-[linear-gradient(180deg,#edf7f2_0%,#dceee5_42%,#cce2d7_100%)]"
-      titleClassName="text-[3.15rem] leading-[0.95] sm:text-5xl"
+      titleClassName="leading-[0.95]"
       eyebrow="Pelanggan"
       title="Bukti Pelanggan"
       intro="Kami telah bekerja sama dengan berbagai klien dari beragam sektor. Daftar ini ditampilkan ulang sebagai bukti relasi kerja yang terus dijaga melalui kualitas hasil, komunikasi yang baik, dan pelayanan yang konsisten."
@@ -21,10 +21,10 @@ export default function ClientsSection({ clients }) {
 
           <div className="relative grid gap-5 border-b border-[rgba(177,218,232,0.16)] pb-6 sm:pb-7 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.3em] text-white">
+              <p className="label-size uppercase tracking-[0.3em] text-white">
                 Daftar Klien
               </p>
-              <h3 className="mt-4 font-display text-[2.15rem] uppercase leading-[0.94] text-white sm:text-[3rem]">
+              <h3 className="content-title-size mt-4 font-display uppercase leading-[0.94] text-white">
                 Rekam kerja yang
                 <br />
                 terus dipercaya
@@ -57,7 +57,7 @@ export default function ClientsSection({ clients }) {
                   </span>
                 </div>
 
-                <p className="mt-5 text-[11px] uppercase tracking-[0.3em] text-white">
+                <p className="label-size mt-5 uppercase tracking-[0.3em] text-white">
                   Pelanggan Setia
                 </p>
                 <h3 className="mt-4 font-display text-[1.7rem] uppercase leading-[0.94] text-white sm:text-[2rem]">
@@ -78,7 +78,7 @@ export default function ClientsSection({ clients }) {
 
           <div className="relative mt-6 grid gap-4 lg:grid-cols-[0.8fr_1.2fr] lg:gap-5">
             <div className="rounded-[1.8rem] border border-[rgba(118,212,227,0.22)] bg-[linear-gradient(180deg,rgba(8,23,31,0.96),rgba(14,39,50,0.94))] px-6 py-7 text-white shadow-[0_24px_60px_rgba(5,18,25,0.24),0_0_34px_rgba(88,182,197,0.08)] sm:rounded-[2rem] sm:px-7 sm:py-8">
-              <p className="text-[11px] uppercase tracking-[0.3em] text-white">
+              <p className="label-size uppercase tracking-[0.3em] text-white">
                 Komitmen Relasi
               </p>
               <p className="mt-4 text-[1.45rem] font-semibold leading-tight text-white sm:text-[1.7rem]">
@@ -87,7 +87,7 @@ export default function ClientsSection({ clients }) {
             </div>
 
             <div className="rounded-[1.8rem] border border-[rgba(128,214,229,0.2)] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] px-6 py-7 shadow-[0_24px_60px_rgba(5,18,25,0.24),0_0_32px_rgba(88,182,197,0.08)] backdrop-blur-md sm:rounded-[2rem] sm:px-7 sm:py-8">
-              <p className="text-[11px] uppercase tracking-[0.3em] text-white">
+              <p className="label-size uppercase tracking-[0.3em] text-white">
                 Hubungan Jangka Panjang
               </p>
               <p className="mt-4 text-[0.98rem] leading-8 text-white">

@@ -50,11 +50,11 @@ export default function HeroSection({ companyData, heroImage }) {
 
                 <div className="relative mx-auto flex min-h-screen max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col items-center text-center">
-                        <Reveal as="div" className="flex justify-center" duration={820}>
+                        <Reveal as="div" className="flex w-full justify-center" duration={820}>
                             <img
                                 src="/banner2.png"
                                 alt="Logo CV Karya Indah"
-                                className="w-full max-w-[220px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)] sm:max-w-[280px] lg:max-w-[360px]"
+                                className="mx-auto w-full max-w-[115px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)] sm:max-w-[150px] lg:max-w-[195px]"
                             />
                         </Reveal>
                         <Reveal as="div" delay={120} duration={880} className="mt-6 rounded-[1.8rem] bg-white/92 px-6 py-5 shadow-[0_18px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:px-8">
@@ -85,7 +85,7 @@ export default function HeroSection({ companyData, heroImage }) {
                         <div className="relative">
                             <div className="flex flex-col gap-6 border-b border-[rgba(177,218,232,0.18)] pb-7 sm:gap-7 lg:flex-row lg:items-end lg:justify-between lg:pb-8">
                                 <div className="max-w-3xl">
-                                    <p className="text-xs uppercase tracking-[0.34em] text-cyan-100/80">
+                                    <p className="label-size uppercase tracking-[0.34em] text-cyan-100/80">
                                         Profil Perusahaan
                                     </p>
                                     <h2 className="mt-4 font-display text-[2.4rem] uppercase leading-[0.92] text-white sm:text-[3.6rem] lg:text-[4.2rem]">
@@ -113,7 +113,7 @@ export default function HeroSection({ companyData, heroImage }) {
                             <div className="mt-7 rounded-[1.8rem] border border-[rgba(191,221,232,0.74)] bg-[linear-gradient(180deg,#fbfdff_0%,#f3f9fd_42%,#eaf4fb_100%)] p-5 shadow-[0_18px_42px_rgba(5,18,25,0.12),0_0_26px_rgba(88,182,197,0.08)] sm:rounded-[2.1rem] sm:p-7 lg:mt-8 lg:p-8">
                                 <div className="mb-5 flex items-center gap-4">
                                     <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />
-                                    <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--teal-deep)]">
+                                    <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">
                                         Tentang CV Karya Indah
                                     </p>
                                 </div>
@@ -132,16 +132,16 @@ export default function HeroSection({ companyData, heroImage }) {
                         </div>
                     </Reveal>
 
-                    <Reveal as="section" className="relative mt-8 overflow-hidden rounded-[2.2rem] border border-[rgba(214,231,240,0.28)] bg-[linear-gradient(180deg,rgba(11,31,40,0.72),rgba(15,39,49,0.6))] p-5 shadow-[0_32px_76px_rgba(5,18,25,0.26),0_0_40px_rgba(88,182,197,0.08)] backdrop-blur-sm sm:mt-10 sm:rounded-[2.6rem] sm:p-7 lg:p-9">
-                        <div className="pointer-events-none absolute left-0 top-0 h-28 w-56 bg-[radial-gradient(circle,rgba(88,182,197,0.18)_0%,rgba(88,182,197,0)_72%)] blur-2xl" />
-                        <div className="pointer-events-none absolute bottom-0 right-0 h-28 w-56 bg-[radial-gradient(circle,rgba(17,43,57,0.12)_0%,rgba(17,43,57,0)_74%)] blur-2xl" />
+                    <Reveal as="section" className="relative mt-8 overflow-hidden rounded-[2.2rem] border border-[rgba(191,221,232,0.78)] bg-[linear-gradient(180deg,rgba(251,253,255,0.98),rgba(237,246,251,0.96))] p-5 shadow-[0_28px_68px_rgba(72,155,214,0.12),0_0_36px_rgba(88,182,197,0.08)] sm:mt-10 sm:rounded-[2.6rem] sm:p-7 lg:p-9">
+                        <div className="pointer-events-none absolute left-0 top-0 h-28 w-56 bg-[radial-gradient(circle,rgba(88,182,197,0.14)_0%,rgba(88,182,197,0)_72%)] blur-2xl" />
+                        <div className="pointer-events-none absolute bottom-0 right-0 h-28 w-56 bg-[radial-gradient(circle,rgba(88,182,197,0.1)_0%,rgba(88,182,197,0)_74%)] blur-2xl" />
 
                         <div className="relative rounded-[1.8rem] border border-[rgba(128,214,229,0.2)] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_0_30px_rgba(88,182,197,0.06)] backdrop-blur-md sm:rounded-[2.1rem] sm:p-6 lg:p-7">
                             <div className="grid gap-6 border-b border-[rgba(177,218,232,0.16)] pb-6 sm:gap-7 sm:pb-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
                                 <div>
                                     <div className="flex items-center gap-4">
                                         <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />
-                                        <p className="text-xs uppercase tracking-[0.34em] text-cyan-100/80">
+                                        <p className="label-size uppercase tracking-[0.34em] text-cyan-100/80">
                                             Mengapa Pilih Kami
                                         </p>
                                     </div>
