@@ -78,7 +78,7 @@ export default function App() {
           </>
         )
       case '/layanan':
-        return <ServicesSection servicesData={servicesData} coverageLocations={projectLocations} />
+        return <ServicesSection servicesData={servicesData} coverageLocations={projectLocations} clients={clients} />
       case '/produksi':
         return <ProductionSection />
       case '/pelanggan':

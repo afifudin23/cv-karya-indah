@@ -44,7 +44,7 @@ export default function ClientsSection({ clients }) {
     event.currentTarget.style.setProperty('--glow-opacity', '0')
   }
 
-  return (
+    return (
     <SectionShell
       id="pelanggan"
       tone="light"
@@ -63,25 +63,25 @@ export default function ClientsSection({ clients }) {
           '--glow-y': '50%',
           '--glow-opacity': '0',
         }}
-        className="relative mx-auto max-w-6xl overflow-hidden rounded-[2.35rem] border border-[rgba(186,214,228,0.85)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,253,0.96))] p-5 shadow-[0_34px_86px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-7 lg:p-9"
+        className="relative mx-auto max-w-6xl overflow-visible rounded-none border-0 bg-transparent p-0 shadow-none sm:overflow-hidden sm:rounded-[2.8rem] sm:border sm:border-[rgba(186,214,228,0.85)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,253,0.96))] sm:p-7 sm:shadow-[0_34px_86px_rgba(72,155,214,0.12)] lg:p-9"
       >
         <div
-          className="pointer-events-none absolute inset-0 opacity-[var(--glow-opacity)] transition-opacity duration-300"
+          className="pointer-events-none absolute inset-0 hidden opacity-[var(--glow-opacity)] transition-opacity duration-300 sm:block"
           style={{
             background:
               'radial-gradient(240px circle at var(--glow-x) var(--glow-y), rgba(0,194,255,0.14), rgba(0,194,255,0.07) 24%, rgba(0,194,255,0.03) 46%, rgba(0,194,255,0) 72%)',
           }}
         />
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-px"
+          className="pointer-events-none absolute inset-x-0 top-0 hidden h-px sm:block"
           style={{
             background:
               'linear-gradient(90deg,rgba(0,194,255,0),rgba(0,194,255,0.5),rgba(0,194,255,0))',
           }}
         />
 
-        <div className="pointer-events-none absolute left-[-6%] top-10 h-52 w-52 rounded-full bg-[radial-gradient(circle,rgba(0,194,255,0.12)_0%,rgba(0,194,255,0)_74%)] blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 right-[-8%] h-60 w-60 rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1)_0%,rgba(14,165,233,0)_74%)] blur-3xl" />
+        <div className="pointer-events-none absolute left-[-6%] top-10 hidden h-52 w-52 rounded-full bg-[radial-gradient(circle,rgba(0,194,255,0.12)_0%,rgba(0,194,255,0)_74%)] blur-3xl sm:block" />
+        <div className="pointer-events-none absolute bottom-0 right-[-8%] hidden h-60 w-60 rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1)_0%,rgba(14,165,233,0)_74%)] blur-3xl sm:block" />
 
         <div className="relative">
           <div className="grid gap-5 border-b border-[rgba(14,165,233,0.12)] pb-6 sm:pb-7 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
@@ -96,8 +96,8 @@ export default function ClientsSection({ clients }) {
               </h3>
             </div>
 
-            <div className="rounded-[1.7rem] border border-[rgba(186,214,228,0.75)] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(244,248,251,0.9))] p-5 shadow-[0_22px_52px_rgba(72,155,214,0.1)] sm:rounded-[1.9rem] sm:p-6">
-              <p className="descriptive-copy text-sm leading-7 text-slate-600 sm:text-[0.98rem]">
+            <div className="rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[1.9rem] sm:border sm:border-[rgba(186,214,228,0.75)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(244,248,251,0.9))] sm:p-6 sm:shadow-[0_22px_52px_rgba(72,155,214,0.1)]">
+              <p className="descriptive-copy text-sm leading-7 text-slate-600 sm:text-[0.98rem] sm:leading-8">
                 Beberapa pelanggan utama kami berasal dari sektor manufaktur, retail, distribusi, hingga industri
                 minuman. Kehadiran mereka di halaman ini menjadi bukti hubungan kerja yang dibangun secara konsisten
                 melalui kualitas hasil dan ketepatan layanan.
