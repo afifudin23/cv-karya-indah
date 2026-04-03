@@ -1,10 +1,10 @@
 import { useLayoutEffect, useRef } from "react";
 
 export default function Header({ isOpen, navItems, currentPath, onNavigate, onToggle }) {
-    const navRef = useRef(null);
+    const headerBarRef = useRef(null);
 
     useLayoutEffect(() => {
-        const element = navRef.current;
+        const element = headerBarRef.current;
         if (!element) return undefined;
 
         const applyHeight = () => {
@@ -13,16 +13,25 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
 
         applyHeight();
 
+        if (typeof ResizeObserver !== "undefined") {
+            const observer = new ResizeObserver(() => applyHeight());
+            observer.observe(element);
+            return () => observer.disconnect();
+        }
+
         window.addEventListener("resize", applyHeight);
         return () => window.removeEventListener("resize", applyHeight);
     }, []);
 
     return (
         <nav
-            ref={navRef}
-            className="fixed inset-x-0 top-0 z-50 border-b border-[rgba(125,223,255,0.14)] bg-[linear-gradient(180deg,rgba(11,30,45,0.88),rgba(15,23,42,0.84))] shadow-[0_18px_42px_rgba(0,194,255,0.14)] backdrop-blur-xl"
+            className="fixed inset-x-0 top-0 z-50 bg-[linear-gradient(180deg,rgba(11,30,45,0.88),rgba(15,23,42,0.84))] shadow-[0_18px_42px_rgba(0,194,255,0.14)] backdrop-blur-xl"
         >
-            <div className="mx-auto flex w-full max-w-[min(96vw,1600px)] items-center justify-between px-3 py-2.5 min-[960px]:px-5 min-[960px]:py-3 lg:px-6">
+            <div
+                ref={headerBarRef}
+                className="w-full border-b border-[rgba(125,223,255,0.14)]"
+            >
+                <div className="mx-auto flex w-full max-w-[min(96vw,1600px)] items-center justify-between px-3 py-2.5 min-[960px]:px-5 min-[960px]:py-3 lg:px-6">
                 <a
                     href="/beranda"
                     className="flex min-w-0 items-center gap-2"
@@ -81,6 +90,7 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
                         />
                     </span>
                 </button>
+                </div>
             </div>
 
             <div

@@ -48,8 +48,9 @@ export default function HeroSection({ companyData, heroImage }) {
     ];
 
     return (
-        <section id="beranda" className="relative overflow-hidden">
-            <div className="relative min-h-[100svh] overflow-hidden">
+        <section id="beranda" className="relative overflow-hidden pt-[var(--header-height)]">
+            {/* < 1024px (tablet & mobile): hero mengikuti viewport seperti versi sebelumnya */}
+            <div className="relative h-[calc(100svh-var(--header-height))] overflow-hidden lg:hidden">
                 <img
                     src={heroImage}
                     alt="Gedung modern untuk cover company profile"
@@ -61,29 +62,72 @@ export default function HeroSection({ companyData, heroImage }) {
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,30,45,0.3),rgba(15,23,42,0.46))]" />
 
-                <div className="relative mx-auto flex min-h-[calc(100svh-var(--header-height))] max-w-7xl items-center justify-center px-4 pt-[var(--header-height)] sm:px-6 lg:px-8">
+                <div className="pointer-events-none absolute inset-0 z-10 mx-auto flex h-full max-w-7xl items-center justify-center px-4 sm:px-6">
                     <div className="flex flex-col items-center text-center">
                         <Reveal as="div" className="flex w-full justify-center" duration={820}>
                             <img
                                 src="/logoo.png"
                                 alt="Logo CV Karya Indah"
-                                className="mx-auto w-full max-w-[172px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)] sm:max-w-[152px] lg:max-w-[304px]"
+                                className="mx-auto w-full max-w-[172px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)]"
                             />
                         </Reveal>
                         <Reveal
                             as="div"
                             delay={120}
                             duration={880}
-                            className="mt-3 rounded-[1.35rem] bg-white/92 px-3.5 py-3 shadow-[0_18px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:mt-4 sm:px-5 sm:py-4 lg:px-7"
+                            className="mt-3 rounded-[1.35rem] bg-white/92 px-3.5 py-3 shadow-[0_18px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:mt-4 sm:px-5 sm:py-4"
                         >
-                            <h1 className="font-hero-brand text-[1.55rem] uppercase leading-[1.04] text-white sm:text-[2.1rem] lg:text-[2.9rem]">
+                            <h1 className="font-hero-brand text-[1.55rem] uppercase leading-[1.04] text-white sm:text-[2.1rem]">
                                 {companyData.name}
                             </h1>
                             <div className="mx-auto my-2.5 h-[3px] w-full max-w-[360px] bg-[var(--teal)]" />
-                            <p className="text-[0.82rem] font-medium tracking-[0.01em] text-white sm:text-[1.02rem] lg:text-[1.35rem]">
+                            <p className="text-[0.82rem] font-medium tracking-[0.01em] text-white sm:text-[1.02rem]">
                                 {companyData.tagline}
                             </p>
                         </Reveal>
+                    </div>
+                </div>
+            </div>
+
+            {/* >= 1024px: gambar full (tidak kepotong), overlay tetap center via sticky */}
+            <div className="relative hidden overflow-hidden lg:block">
+                <img
+                    src={heroImage}
+                    alt="Gedung modern untuk cover company profile"
+                    width="1536"
+                    height="1024"
+                    loading="eager"
+                    fetchPriority="high"
+                    className="hero-image-intro block h-auto w-full"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,30,45,0.3),rgba(15,23,42,0.46))]" />
+
+                <div className="pointer-events-none absolute inset-0 z-10">
+                    <div className="sticky top-[var(--header-height)] mx-auto flex h-[calc(100svh-var(--header-height))] max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
+                        <div className="flex -translate-y-24 flex-col items-center text-center">
+                            <Reveal as="div" className="flex w-full justify-center" duration={820}>
+                                <img
+                                    src="/logoo.png"
+                                    alt="Logo CV Karya Indah"
+                                    className="mx-auto w-full max-w-[304px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)]"
+                                />
+                            </Reveal>
+
+                            <Reveal
+                                as="div"
+                                delay={120}
+                                duration={880}
+                                className="mt-4 rounded-[1.35rem] bg-white/92 px-7 py-4 shadow-[0_18px_40px_rgba(0,0,0,0.18)] backdrop-blur-sm"
+                            >
+                                <h1 className="font-hero-brand text-[2.9rem] uppercase leading-[1.04] text-white">
+                                    {companyData.name}
+                                </h1>
+                                <div className="mx-auto my-3 h-[3px] w-full max-w-[420px] bg-[var(--teal)]" />
+                                <p className="text-[1.35rem] font-medium tracking-[0.01em] text-white">
+                                    {companyData.tagline}
+                                </p>
+                            </Reveal>
+                        </div>
                     </div>
                 </div>
             </div>
