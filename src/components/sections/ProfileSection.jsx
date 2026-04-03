@@ -81,7 +81,7 @@ export default function ProfileSection({ companyData }) {
     return (
         <section
             id="profil"
-            className="relative overflow-hidden border-y border-black/5 bg-[linear-gradient(180deg,#f1f6fa_0%,#f9f6f1_48%,#f3eee7_100%)] px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8"
+            className="relative overflow-hidden border-y border-black/5 bg-[linear-gradient(180deg,#eef6ff_0%,#f7fbff_52%,#edf6fb_100%)] px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8"
         >
             <div className="pointer-events-none absolute inset-0">
                 <div className="absolute left-[-8%] top-16 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(90,176,185,0.18)_0%,rgba(90,176,185,0)_72%)] blur-2xl" />
@@ -90,52 +90,58 @@ export default function ProfileSection({ companyData }) {
             </div>
 
             <div className="relative mx-auto max-w-7xl space-y-12 sm:space-y-14">
-                <div className="space-y-5 sm:space-y-6">
-                    <Reveal as="div" className="max-w-3xl">
-                        <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)]">Company Profile</p>
+                <div className="sm:space-y-6">
+                    <Reveal as="div" className="max-w-3xl hidden sm:block">
+                        <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)]">
+                            Company Profile
+                        </p>
                     </Reveal>
 
-                    <Reveal as="div" className="grid gap-6 sm:gap-8 xl:grid-cols-[0.88fr_1.12fr] xl:items-start" delay={60}>
+                    <Reveal
+                        as="div"
+                        className="grid gap-6 sm:gap-8 xl:grid-cols-[0.88fr_1.12fr] xl:items-start"
+                        delay={60}
+                    >
                         <div className="space-y-6 xl:sticky xl:top-28">
                             <GlowCard
                                 tone="dark"
-                                className="rounded-[2.3rem] border border-white/15 bg-gradient-to-br from-[#0b1821] via-[#163847] to-[#25586c] p-6 text-white shadow-[0_36px_80px_rgba(17,43,57,0.3)] sm:rounded-[2.5rem] sm:p-10"
+                                className="rounded-none border-0 bg-transparent p-0 text-[var(--ink-strong)] shadow-none sm:rounded-[2.5rem] sm:border sm:border-white/15 sm:bg-[linear-gradient(180deg,rgba(9,28,45,0.98),rgba(14,40,61,0.96))] sm:p-10 sm:text-white sm:shadow-[0_36px_80px_rgba(17,43,57,0.3)]"
                             >
-                                <div className="absolute right-0 top-0 h-44 w-44 translate-x-10 -translate-y-10 rounded-full bg-[radial-gradient(circle,rgba(90,176,185,0.38)_0%,rgba(90,176,185,0)_72%)]" />
-                                <div className="absolute bottom-0 right-6 text-[5.2rem] font-semibold leading-none text-white/[0.07] sm:text-[7rem]">
+                                <div className="absolute right-0 top-0 hidden h-44 w-44 translate-x-10 -translate-y-10 rounded-full bg-[radial-gradient(circle,rgba(90,176,185,0.38)_0%,rgba(90,176,185,0)_72%)] sm:block" />
+                                <div className="absolute bottom-0 right-6 hidden text-[7rem] font-semibold leading-none text-white/[0.07] sm:block">
                                     1992
                                 </div>
 
                                 <div className="relative">
-                                    <p className="label-size uppercase tracking-[0.34em] text-cyan-100/90">General Profile</p>
-                                    <h3 className="mt-5 max-w-md font-display text-[2.15rem] uppercase leading-[0.92] text-white sm:text-[4.4rem]">
-                                        CV. Karya
-                                        <br />
-                                        Indah
+                                    <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)] sm:text-cyan-100/90">
+                                        General Profile
+                                    </p>
+                                    <h3 className="mt-4 max-w-fit font-display text-[2.05rem] uppercase leading-[0.92] text-[var(--ink-strong)] sm:mt-5 sm:text-[4.4rem] sm:text-white">
+                                        CV. Karya Indah
                                     </h3>
-                                    <p className="mt-5 max-w-xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
+                                    <p className="descriptive-copy mt-4 max-w-xl text-[0.94rem] leading-7 text-slate-600 sm:mt-5 sm:text-lg sm:leading-8 sm:text-slate-200">
                                         {companyData.tagline}
                                     </p>
 
-                                    <div className="mt-7 flex flex-wrap gap-2.5 sm:mt-8 sm:gap-3">
+                                    <div className="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-3">
                                         {servicePillars.map((item) => (
                                             <span
                                                 key={item}
-                                                className="rounded-full border border-white/12 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/95 backdrop-blur-sm"
+                                                className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-600 sm:rounded-full sm:border sm:border-white/12 sm:bg-white/10 sm:px-4 sm:py-2 sm:text-xs sm:text-white/95 sm:backdrop-blur-sm"
                                             >
                                                 {item}
                                             </span>
                                         ))}
                                     </div>
 
-                                    <div className="mt-8 rounded-[1.6rem] border border-white/10 bg-white/10 p-4 backdrop-blur-sm sm:mt-10 sm:rounded-[1.8rem] sm:p-5">
-                                        <p className="label-size uppercase tracking-[0.28em] text-cyan-100/85">
+                                    <div className="mt-6 border-t border-[rgba(15,23,42,0.1)] pt-6 sm:mt-10 sm:rounded-[1.8rem] sm:border sm:border-white/10 sm:bg-white/10 sm:p-5 sm:backdrop-blur-sm">
+                                        <p className="label-size uppercase tracking-[0.28em] text-[var(--teal-deep)] sm:text-cyan-100/85">
                                             Positioning
                                         </p>
-                                        <p className="mt-3 text-[1.35rem] font-semibold leading-tight text-white sm:text-2xl">
+                                        <p className="mt-3 text-[1.25rem] font-semibold leading-tight text-[var(--ink-strong)] sm:text-2xl sm:text-white">
                                             {companyData.slogan}
                                         </p>
-                                        <p className="mt-3 max-w-lg text-[0.98rem] leading-7 text-slate-300">
+                                        <p className="descriptive-copy mt-3 max-w-lg text-[0.94rem] leading-7 text-slate-600 sm:text-[0.98rem] sm:text-slate-300">
                                             Dari percetakan sablon hingga pengerjaan signage, interior, dan konstruksi
                                             visual, kami menata layanan end-to-end agar hasil kerja tetap presisi dan
                                             profesional.
@@ -148,9 +154,9 @@ export default function ProfileSection({ companyData }) {
                         <GlowCard
                             as="article"
                             tone="light"
-                            className="rounded-[2.3rem] border border-white/75 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(246,251,253,0.94))] p-6 shadow-[0_30px_70px_rgba(72,155,214,0.12)] sm:rounded-[2.55rem] sm:p-10"
+                            className="rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.55rem] sm:border sm:border-white/75 sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(246,251,253,0.94))] sm:p-10 sm:shadow-[0_30px_70px_rgba(72,155,214,0.12)]"
                         >
-                            <div className="mb-7 flex items-center gap-4">
+                            <div className="mb-5 flex items-center gap-4 sm:mb-7">
                                 <span className="h-[4px] w-16 rounded-full bg-[var(--teal)]" />
                                 <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">
                                     Tentang Perusahaan
@@ -158,7 +164,7 @@ export default function ProfileSection({ companyData }) {
                             </div>
 
                             <div className="space-y-8">
-                                <div className="space-y-5 text-[0.98rem] leading-7 text-slate-700 sm:space-y-6 sm:text-[1.08rem] sm:leading-9">
+                                <div className="descriptive-copy space-y-5 text-[0.95rem] leading-7 text-slate-700 sm:space-y-6 sm:text-[1.08rem] sm:leading-9">
                                     <p>{companyData.description}</p>
                                     <p>{companyData.descriptionLong}</p>
                                 </div>
@@ -167,7 +173,7 @@ export default function ProfileSection({ companyData }) {
                                     {snapshotRows.map((item) => (
                                         <div
                                             key={item.label}
-                                            className="rounded-[1.6rem] border border-[rgba(212,230,239,0.92)] bg-[linear-gradient(180deg,rgba(251,254,255,0.98),rgba(241,248,251,0.95))] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]"
+                                            className="border-b border-[rgba(15,23,42,0.1)] py-4 last:border-b-0 sm:rounded-[1.6rem] sm:border sm:border-[rgba(212,230,239,0.92)] sm:bg-[linear-gradient(180deg,rgba(251,254,255,0.98),rgba(241,248,251,0.95))] sm:px-5 sm:py-5 sm:shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]"
                                         >
                                             <p className="label-size uppercase tracking-[0.28em] text-[var(--teal-deep)]">
                                                 {item.label}
@@ -185,19 +191,20 @@ export default function ProfileSection({ companyData }) {
 
                 <Reveal
                     as="section"
-                    className="rounded-[2.35rem] border border-white/70 bg-[linear-gradient(180deg,rgba(249,252,254,0.96),rgba(242,247,250,0.94))] p-5 shadow-[0_28px_68px_rgba(72,155,214,0.1)] sm:rounded-[2.6rem] sm:p-8"
+                    className="rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.6rem] sm:border sm:border-white/70 sm:bg-[linear-gradient(180deg,rgba(249,252,254,0.96),rgba(242,247,250,0.94))] sm:p-8 sm:shadow-[0_28px_68px_rgba(72,155,214,0.1)]"
                 >
                     <div className="mb-8 max-w-2xl">
                         <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)]">Profil Singkat</p>
-                        <h3 className="section-title-size mt-4 font-display uppercase leading-[0.96] text-[var(--ink-strong)]">
+                        <h3 className="mt-3 font-display uppercase leading-[1] text-[1.85rem] text-[var(--ink-strong)] sm:mt-4 sm:text-[length:var(--text-section-title)] sm:leading-[0.96]">
                             Sorotan Profil
                         </h3>
-                        <p className="mt-4 max-w-xl text-[0.98rem] leading-7 text-slate-600 sm:text-base sm:leading-8">
-                            Bagian ini merangkum identitas, pengalaman, dan keunggulan utama CV Karya Indah sebagai landasan kepercayaan bagi calon mitra dan pelanggan.
+                        <p className="descriptive-copy mt-3 max-w-xl text-[0.92rem] leading-7 text-slate-600 sm:mt-4 sm:text-base sm:leading-8">
+                            Bagian ini merangkum identitas, pengalaman, dan keunggulan utama CV Karya Indah sebagai
+                            landasan kepercayaan bagi calon mitra dan pelanggan.
                         </p>
                     </div>
 
-                    <RevealStagger as="div" className="grid gap-4 md:grid-cols-2 xl:grid-cols-4" stagger={70}>
+                    <RevealStagger as="div" className="grid gap-0 sm:gap-4 md:grid-cols-2 xl:grid-cols-4" stagger={70}>
                         {profileHighlights.map((item) => (
                             <MetricCard key={item.label} {...item} />
                         ))}
@@ -206,15 +213,18 @@ export default function ProfileSection({ companyData }) {
 
                 <Reveal
                     as="section"
-                    className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(180deg,rgba(248,252,254,0.96),rgba(241,247,250,0.95))] p-5 shadow-[0_32px_78px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-8 lg:p-10"
+                    className="rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.8rem] sm:border sm:border-white/70 sm:bg-[linear-gradient(180deg,rgba(248,252,254,0.96),rgba(241,247,250,0.95))] sm:p-8 sm:shadow-[0_32px_78px_rgba(72,155,214,0.12)] lg:p-10"
                 >
                     <div className="max-w-7xl">
-                        <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)]">Detail Perusahaan</p>
-                        <h3 className="section-title-size mt-4 font-display uppercase leading-[0.94] text-[var(--ink-strong)]">
+                        <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)]">
+                            Detail Perusahaan
+                        </p>
+                        <h3 className="mt-3 font-display uppercase leading-[1] text-[1.85rem] text-[var(--ink-strong)] sm:mt-4 sm:text-[length:var(--text-section-title)] sm:leading-[0.94]">
                             Informasi Perusahaan
                         </h3>
-                        <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-slate-600 sm:text-base sm:leading-8">
-                            Bagian ini menyajikan data inti perusahaan, legalitas, visi, misi, dan kebijakan kerja secara terstruktur agar mudah dipahami dalam satu alur baca.
+                        <p className="descriptive-copy mt-3 max-w-2xl text-[0.92rem] leading-7 text-slate-600 sm:mt-4 sm:text-base sm:leading-8">
+                            Bagian ini menyajikan data inti perusahaan, legalitas, visi, misi, dan kebijakan kerja
+                            secara terstruktur agar mudah dipahami dalam satu alur baca.
                         </p>
                     </div>
 
@@ -227,9 +237,9 @@ export default function ProfileSection({ companyData }) {
                         <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:auto-rows-fr">
                             <NarrativeCard
                                 title="Visi Perusahaan"
-                                accent="border-white/10 bg-gradient-to-br from-[#112b39] via-[#1a4c5e] to-[#2b6b7b] text-white"
-                                textClassName="text-slate-200"
-                                titleClassName="text-cyan-100/90"
+                                accent="sm:border-white/10 sm:bg-[linear-gradient(180deg,rgba(9,28,45,0.98),rgba(14,40,61,0.96))] sm:text-white"
+                                textClassName="text-slate-700 sm:text-slate-200"
+                                titleClassName="text-[var(--teal-deep)] sm:text-cyan-100/90"
                                 glowTone="dark"
                             >
                                 {companyData.vision}
@@ -237,9 +247,9 @@ export default function ProfileSection({ companyData }) {
 
                             <NarrativeCard
                                 title="Misi Perusahaan"
-                                accent="border-white/10 bg-gradient-to-br from-[#112b39] via-[#1a4c5e] to-[#2b6b7b] text-white"
-                                textClassName="text-slate-200"
-                                titleClassName="text-cyan-100/90"
+                                accent="sm:border-white/10 sm:bg-[linear-gradient(180deg,rgba(9,28,45,0.98),rgba(14,40,61,0.96))] sm:text-white"
+                                textClassName="text-slate-700 sm:text-slate-200"
+                                titleClassName="text-[var(--teal-deep)] sm:text-cyan-100/90"
                                 glowTone="dark"
                             >
                                 {companyData.mission}
@@ -258,55 +268,81 @@ export default function ProfileSection({ companyData }) {
 
                 <Reveal
                     as="section"
-                    className="rounded-[2.4rem] border border-white/70 bg-[linear-gradient(135deg,rgba(10,30,41,0.98),rgba(21,63,79,0.96)_58%,rgba(36,92,108,0.94))] p-5 text-white shadow-[0_36px_90px_rgba(17,43,57,0.24)] sm:rounded-[2.8rem] sm:p-8 lg:p-10"
+                    onMouseMove={handleGlowMove}
+                    onMouseLeave={handleGlowLeave}
+                    style={{
+                        "--glow-x": "50%",
+                        "--glow-y": "50%",
+                        "--glow-opacity": "0",
+                    }}
+                    className="relative overflow-hidden rounded-none border-0 bg-transparent p-0 text-[var(--ink-strong)] shadow-none sm:rounded-[2.8rem] sm:border sm:border-white/70 sm:bg-[linear-gradient(135deg,rgba(9,28,45,0.98),rgba(14,40,61,0.96)_58%,rgba(27,78,103,0.94))] sm:p-8 sm:text-white sm:shadow-[0_36px_90px_rgba(17,43,57,0.24)] lg:p-10"
                 >
-                    <div className="grid gap-6 sm:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:items-start">
+                    <div
+                        className="pointer-events-none absolute inset-0 hidden opacity-[var(--glow-opacity)] transition-opacity duration-300 sm:block"
+                        style={{
+                            background:
+                                "radial-gradient(260px circle at var(--glow-x) var(--glow-y), rgba(255,255,255,0.16), rgba(255,255,255,0.08) 24%, rgba(255,255,255,0.03) 46%, rgba(255,255,255,0) 72%)",
+                        }}
+                    />
+                    <div
+                        className="pointer-events-none absolute inset-x-0 top-0 hidden h-px sm:block"
+                        style={{
+                            background:
+                                "linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,0.52),rgba(255,255,255,0))",
+                        }}
+                    />
+                    <div className="grid gap-6 px-0 py-0 sm:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:items-start">
                         <div className="max-w-3xl">
-                            <p className="label-size uppercase tracking-[0.34em] text-cyan-100/82">Struktur Organisasi</p>
-                            <h3 className="section-title-size mt-4 font-display uppercase leading-[0.92] text-white">
+                            <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)] sm:text-cyan-100/82">
+                                Struktur Organisasi
+                            </p>
+                            <h3 className="mt-3 font-display uppercase leading-[1] text-[1.85rem] text-[var(--ink-strong)] sm:mt-4 sm:text-[length:var(--text-section-title)] sm:leading-[0.92] sm:text-white">
                                 Struktur Organisasi
                             </h3>
-                            <p className="mt-5 max-w-2xl text-[0.98rem] leading-7 text-slate-200 sm:text-[1.05rem] sm:leading-8">
-                                Bagian ini menampilkan susunan jabatan dan pembagian peran secara jelas agar alur koordinasi, tanggung jawab, dan proses kerja perusahaan mudah dipahami.
+                            <p className="descriptive-copy mt-3 max-w-2xl text-[0.92rem] leading-7 text-slate-600 sm:mt-5 sm:text-[1.05rem] sm:leading-8 sm:text-slate-200">
+                                Bagian ini menampilkan susunan jabatan dan pembagian peran secara jelas agar alur
+                                koordinasi, tanggung jawab, dan proses kerja perusahaan mudah dipahami.
                             </p>
 
-                            <div className="mt-7 grid gap-4 sm:mt-8">
+                            <div className="mt-7 grid gap-0 sm:mt-8 sm:gap-4">
                                 <GlowCard
-                                    tone="dark"
-                                    className="rounded-[1.45rem] border border-white/10 bg-white/8 p-4 backdrop-blur-sm hover:border-white/16 hover:bg-white/[0.1] sm:rounded-[1.6rem] sm:p-5"
+                                    tone="light"
+                                    className="border-b border-[var(--color-border-soft)] bg-transparent pb-4 last:border-b-0 sm:rounded-[1.6rem] sm:border sm:border-white/10 sm:bg-white/8 sm:p-5 sm:backdrop-blur-sm sm:hover:border-white/16 sm:hover:bg-white/[0.1]"
                                 >
-                                    <p className="label-size uppercase tracking-[0.28em] text-cyan-100/78">
+                                    <p className="label-size uppercase tracking-[0.28em] text-[var(--teal-deep)] sm:text-cyan-100/78">
                                         Highlights
                                     </p>
-                                    <p className="mt-3 text-[1.05rem] font-semibold leading-7 text-white">
+                                    <p className="descriptive-copy mt-2 text-[0.95rem] font-normal leading-7 text-slate-700 sm:mt-3 sm:text-[1.05rem] sm:text-white">
                                         Hierarki operasional, administrasi, dan lapangan tersusun lebih tegas.
                                     </p>
                                 </GlowCard>
 
                                 <GlowCard
-                                    tone="dark"
-                                    className="rounded-[1.45rem] border border-white/10 bg-white/8 p-4 backdrop-blur-sm hover:border-white/16 hover:bg-white/[0.1] sm:rounded-[1.6rem] sm:p-5"
+                                    tone="light"
+                                    className="border-b border-[var(--color-border-soft)] bg-transparent pb-4 last:border-b-0 sm:rounded-[1.6rem] sm:border sm:border-white/10 sm:bg-white/8 sm:p-5 sm:backdrop-blur-sm sm:hover:border-white/16 sm:hover:bg-white/[0.1]"
                                 >
-                                    <p className="label-size uppercase tracking-[0.28em] text-cyan-100/78">Layout</p>
-                                    <p className="mt-3 text-[1.05rem] font-semibold leading-7 text-white">
+                                    <p className="label-size uppercase tracking-[0.28em] text-[var(--teal-deep)] sm:text-cyan-100/78">
+                                        Layout
+                                    </p>
+                                    <p className="descriptive-copy mt-2 text-[0.95rem] font-normal leading-7 text-slate-700 sm:mt-3 sm:text-[1.05rem] sm:text-white">
                                         Gambar struktur ditaruh di samping kanan supaya section terasa lebih seimbang.
                                     </p>
                                 </GlowCard>
                             </div>
                         </div>
 
-                        <GlowCard className="w-full rounded-[2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.06))] p-3 shadow-[0_24px_70px_rgba(6,18,25,0.2)] backdrop-blur-sm sm:rounded-[2.25rem] sm:p-5">
+                        <GlowCard className="w-full rounded-none border-0 bg-transparent p-0 shadow-none backdrop-blur-none sm:rounded-[2.25rem] sm:border sm:border-white/12 sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.06))] sm:p-5 sm:shadow-[0_24px_70px_rgba(6,18,25,0.2)] sm:backdrop-blur-sm">
                             <div className="mb-4 sm:mb-5">
-                                <p className="label-size uppercase tracking-[0.28em] text-cyan-100/78">
+                                <p className="label-size uppercase tracking-[0.28em] text-[var(--teal-deep)] sm:text-cyan-100/78">
                                     Organization Tree
                                 </p>
-                                <p className="mt-2 text-base font-semibold text-white sm:text-lg">
+                                <p className="mt-2 text-base font-normal text-[var(--ink-strong)] sm:text-lg sm:text-white">
                                     Bagan organisasi ditampilkan di sisi kanan sebagai fokus visual utama.
                                 </p>
                             </div>
 
-                            <div className="rounded-[1.55rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(88,182,197,0.12),rgba(246,251,253,0.96)_34%,rgba(232,242,247,0.92)_100%)] p-3 sm:rounded-[1.9rem] sm:p-6">
-                                <div className="flex h-[250px] items-center justify-center overflow-hidden rounded-[1.2rem] bg-white/72 px-3 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.86)] sm:h-[460px] sm:rounded-[1.45rem] sm:px-5 sm:py-6 lg:h-[520px]">
+                            <div className="rounded-none border-0 bg-transparent p-0 sm:rounded-[1.9rem] sm:border sm:border-white/10 sm:bg-[radial-gradient(circle_at_top,rgba(88,182,197,0.12),rgba(246,251,253,0.96)_34%,rgba(232,242,247,0.92)_100%)] sm:p-6">
+                                <div className="flex h-[250px] items-center justify-center overflow-hidden rounded-[1.05rem] bg-white/92 p-2 shadow-none sm:h-[460px] sm:rounded-[1.45rem] sm:bg-white/72 sm:px-5 sm:py-6 sm:shadow-[inset_0_1px_0_rgba(255,255,255,0.86)] lg:h-[520px]">
                                     <img
                                         src="/struktur.jpeg"
                                         alt="Struktur organisasi CV Karya Indah"
@@ -316,7 +352,7 @@ export default function ProfileSection({ companyData }) {
                                                 alt: "Struktur organisasi CV Karya Indah",
                                             })
                                         }
-                                        className="block h-auto max-h-[360px] w-auto max-w-none cursor-zoom-in object-contain shadow-[0_18px_46px_rgba(72,155,214,0.12)] transition hover:shadow-[0_22px_54px_rgba(72,155,214,0.18)] sm:max-h-[560px]"
+                                        className="block h-auto max-h-[360px] w-auto max-w-none cursor-zoom-in object-contain shadow-none transition sm:max-h-[560px] sm:shadow-[0_18px_46px_rgba(72,155,214,0.12)] sm:hover:shadow-[0_22px_54px_rgba(72,155,214,0.18)]"
                                     />
                                 </div>
                             </div>
@@ -357,19 +393,20 @@ function LegalitiesShowcase({ items, onOpenImage }) {
     };
 
     return (
-        <section className="rounded-[2.45rem] border border-white/80 bg-[linear-gradient(180deg,rgba(252,254,255,0.98),rgba(242,248,251,0.95))] p-5 shadow-[0_34px_84px_rgba(72,155,214,0.14)] sm:rounded-[2.85rem] sm:p-8 lg:p-10">
+        <section className="rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.85rem] sm:border sm:border-white/80 sm:bg-[linear-gradient(180deg,rgba(252,254,255,0.98),rgba(242,248,251,0.95))] sm:p-8 sm:shadow-[0_34px_84px_rgba(72,155,214,0.14)] lg:p-10">
             <div className="max-w-3xl">
                 <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)]">Dokumen Legalitas</p>
-                <h3 className="section-title-size mt-4 font-display uppercase leading-[0.94] text-[var(--ink-strong)]">
+                <h3 className="mt-3 font-display uppercase leading-[1] text-[1.85rem] text-[var(--ink-strong)] sm:mt-4 sm:text-[length:var(--text-section-title)] sm:leading-[0.94]">
                     Legalitas Perusahaan
                 </h3>
-                <p className="mt-5 max-w-2xl text-[0.98rem] leading-7 text-slate-600 sm:text-[1.05rem] sm:leading-8">
-                    Bagian ini menampilkan dokumen legal utama perusahaan secara ringkas dan terstruktur agar validitas usaha dapat ditinjau dengan lebih mudah dan meyakinkan.
+                <p className="descriptive-copy mt-3 max-w-2xl text-[0.92rem] leading-7 text-slate-600 sm:mt-5 sm:text-[1.05rem] sm:leading-8">
+                    Bagian ini menampilkan dokumen legal utama perusahaan secara ringkas dan terstruktur agar validitas
+                    usaha dapat ditinjau dengan lebih mudah dan meyakinkan.
                 </p>
             </div>
 
             <div className="mt-8 grid gap-6 sm:mt-10 sm:gap-8 xl:grid-cols-[1.02fr_0.98fr] xl:items-start">
-                <GlowCard className="rounded-[1.95rem] border border-[rgba(210,228,238,0.96)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(243,249,252,0.95))] p-3 shadow-[0_22px_56px_rgba(72,155,214,0.11)] sm:rounded-[2.2rem] sm:p-5">
+                <GlowCard className="rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.2rem] sm:border sm:border-[rgba(210,228,238,0.96)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(243,249,252,0.95))] sm:p-5 sm:shadow-[0_22px_56px_rgba(72,155,214,0.11)]">
                     <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <div>
                             <p className="label-size uppercase tracking-[0.28em] text-[var(--teal-deep)]">
@@ -421,7 +458,7 @@ function LegalitiesShowcase({ items, onOpenImage }) {
                 </GlowCard>
 
                 <div className="space-y-5">
-                    <GlowCard className="rounded-[1.95rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(243,249,252,0.94))] p-5 shadow-[0_24px_60px_rgba(72,155,214,0.1)] sm:rounded-[2.15rem] sm:p-7">
+                    <GlowCard className="rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.15rem] sm:border sm:border-white/80 sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(243,249,252,0.94))] sm:p-7 sm:shadow-[0_24px_60px_rgba(72,155,214,0.1)]">
                         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                             <div>
                                 <p className="label-size uppercase tracking-[0.28em] text-[var(--teal-deep)]">
@@ -430,7 +467,7 @@ function LegalitiesShowcase({ items, onOpenImage }) {
                                 <h4 className="content-title-size mt-3 font-display uppercase leading-[0.94] text-[var(--ink-strong)]">
                                     {activeItem.title}
                                 </h4>
-                                <p className="mt-3 text-base font-medium text-slate-700 sm:text-lg">
+                                <p className="descriptive-copy mt-3 text-base font-medium text-slate-700 sm:text-lg">
                                     {activeItem.subtitle}
                                 </p>
                             </div>
@@ -439,7 +476,7 @@ function LegalitiesShowcase({ items, onOpenImage }) {
                             </span>
                         </div>
 
-                        <p className="mt-5 text-[0.98rem] leading-7 text-slate-600 sm:mt-6 sm:text-base sm:leading-8">
+                        <p className="descriptive-copy mt-5 text-[0.98rem] leading-7 text-slate-600 sm:mt-6 sm:text-base sm:leading-8">
                             {activeItem.summary}
                         </p>
 
@@ -447,7 +484,7 @@ function LegalitiesShowcase({ items, onOpenImage }) {
                             {activeItem.meta.map((item) => (
                                 <span
                                     key={item}
-                                    className="rounded-full border border-[rgba(190,219,231,0.95)] bg-[rgba(88,182,197,0.08)] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--teal-deep)]"
+                                    className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--teal-deep)] sm:rounded-full sm:border sm:border-[rgba(190,219,231,0.95)] sm:bg-[rgba(88,182,197,0.08)] sm:px-4 sm:py-2"
                                 >
                                     {item}
                                 </span>
@@ -461,10 +498,10 @@ function LegalitiesShowcase({ items, onOpenImage }) {
                                 key={item.id}
                                 type="button"
                                 onClick={() => setActiveIndex(index)}
-                                className={`rounded-[1.35rem] border px-4 py-3.5 text-left transition sm:rounded-[1.5rem] sm:py-4 ${
+                                className={`border-b border-[rgba(15,23,42,0.12)] bg-transparent px-0 py-3 text-left transition last:border-b-0 sm:rounded-[1.5rem] sm:border sm:px-4 sm:py-4 ${
                                     index === activeIndex
-                                        ? "border-[var(--teal)] bg-[linear-gradient(180deg,rgba(232,246,250,0.96),rgba(255,255,255,0.98))] shadow-[0_18px_40px_rgba(72,155,214,0.12)]"
-                                        : "border-[rgba(210,228,238,0.88)] bg-white/86 hover:border-[rgba(88,182,197,0.4)] hover:bg-[rgba(248,252,254,0.98)]"
+                                        ? "text-[var(--ink-strong)] sm:border-[var(--teal)] sm:bg-[linear-gradient(180deg,rgba(232,246,250,0.96),rgba(255,255,255,0.98))] sm:shadow-[0_18px_40px_rgba(72,155,214,0.12)]"
+                                        : "text-slate-600 sm:border-[rgba(210,228,238,0.88)] sm:bg-white/86 sm:hover:border-[rgba(88,182,197,0.4)] sm:hover:bg-[rgba(248,252,254,0.98)]"
                                 }`}
                             >
                                 <p className="label-size uppercase tracking-[0.24em] text-[var(--teal-deep)]">
@@ -534,12 +571,12 @@ function GlowCard({ as: Component = "div", tone = "light", className = "", style
 
 function MetricCard({ label, value, detail }) {
     return (
-        <GlowCard className="rounded-[1.55rem] border border-white/80 bg-white/88 p-4 shadow-[0_20px_52px_rgba(72,155,214,0.1)] backdrop-blur-sm hover:-translate-y-1 hover:shadow-[0_26px_58px_rgba(72,155,214,0.15)] sm:rounded-[1.8rem] sm:p-5">
+        <GlowCard className="border-b border-[rgba(15,23,42,0.1)] py-5 last:border-b-0 sm:rounded-[1.8rem] sm:border sm:border-white/80 sm:bg-white/88 sm:p-5 sm:shadow-[0_20px_52px_rgba(72,155,214,0.1)] sm:backdrop-blur-sm sm:hover:-translate-y-1 sm:hover:shadow-[0_26px_58px_rgba(72,155,214,0.15)]">
             <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">{label}</p>
             <p className="mt-3 text-[1.25rem] font-semibold leading-tight text-[var(--ink-strong)] sm:text-[1.45rem]">
                 {value}
             </p>
-            <p className="mt-3 text-[0.98rem] leading-7 text-slate-600">{detail}</p>
+            <p className="descriptive-copy mt-3 text-[0.98rem] leading-7 text-slate-600">{detail}</p>
         </GlowCard>
     );
 }
@@ -555,21 +592,23 @@ function NarrativeCard({
     return (
         <GlowCard
             tone={glowTone}
-            className={`h-full rounded-[1.8rem] border p-5 shadow-[0_24px_56px_rgba(72,155,214,0.1)] hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(72,155,214,0.15)] sm:rounded-[2.1rem] sm:p-8 ${accent}`}
+            className={`h-full rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.1rem] sm:border sm:p-8 sm:shadow-[0_24px_56px_rgba(72,155,214,0.1)] sm:hover:-translate-y-1 sm:hover:shadow-[0_28px_60px_rgba(72,155,214,0.15)] ${accent}`}
         >
-            <div className="mb-5 flex items-center gap-3">
+            <div className="mb-4 flex items-center gap-3 sm:mb-5">
                 <span className="h-[4px] w-14 rounded-full bg-[var(--teal)]" />
                 <p className={`label-size uppercase tracking-[0.28em] ${titleClassName}`}>{title}</p>
             </div>
-            <p className={`text-[0.98rem] leading-7 sm:text-lg sm:leading-9 ${textClassName}`}>{children}</p>
+            <p className={`descriptive-copy text-[0.95rem] leading-7 sm:text-lg sm:leading-9 ${textClassName}`}>
+                {children}
+            </p>
         </GlowCard>
     );
 }
 
 function CompanySheet({ title, rows }) {
     return (
-        <GlowCard className="h-full rounded-[1.95rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(244,250,253,0.95))] p-5 shadow-[0_28px_68px_rgba(72,155,214,0.12)] hover:-translate-y-1 hover:shadow-[0_30px_72px_rgba(72,155,214,0.16)] sm:rounded-[2.3rem] sm:p-8">
-            <div className="mb-6 flex items-center gap-4 sm:mb-8">
+        <GlowCard className="h-full rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.3rem] sm:border sm:border-white/80 sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(244,250,253,0.95))] sm:p-8 sm:shadow-[0_28px_68px_rgba(72,155,214,0.12)] sm:hover:-translate-y-1 sm:hover:shadow-[0_30px_72px_rgba(72,155,214,0.16)]">
+            <div className="mb-5 flex items-center gap-4 sm:mb-8">
                 <span className="h-[5px] w-16 rounded-full bg-[var(--teal)]" />
                 <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">{title}</p>
             </div>
@@ -578,10 +617,10 @@ function CompanySheet({ title, rows }) {
                 {rows.map((item, index) => (
                     <GlowCard
                         key={index}
-                        className="rounded-[1.35rem] border border-[rgba(205,225,236,0.96)] bg-[linear-gradient(180deg,rgba(252,254,255,0.98),rgba(242,248,252,0.98))] px-4 py-4 shadow-[0_14px_32px_rgba(72,155,214,0.08),inset_0_1px_0_rgba(255,255,255,0.88)] hover:-translate-y-1 hover:border-[rgba(88,182,197,0.42)] hover:shadow-[0_20px_38px_rgba(72,155,214,0.16),inset_0_1px_0_rgba(255,255,255,0.92)] sm:rounded-[1.55rem] sm:px-5 sm:py-5"
+                        className="border-b border-[rgba(15,23,42,0.1)] py-4 last:border-b-0 sm:rounded-[1.55rem] sm:border sm:border-[rgba(205,225,236,0.96)] sm:bg-[linear-gradient(180deg,rgba(252,254,255,0.98),rgba(242,248,252,0.98))] sm:px-5 sm:py-5 sm:shadow-[0_14px_32px_rgba(72,155,214,0.08),inset_0_1px_0_rgba(255,255,255,0.88)] sm:hover:-translate-y-1 sm:hover:border-[rgba(88,182,197,0.42)] sm:hover:shadow-[0_20px_38px_rgba(72,155,214,0.16),inset_0_1px_0_rgba(255,255,255,0.92)]"
                     >
                         <div className="grid gap-3 md:grid-cols-[150px_minmax(0,1fr)] md:items-start">
-                            <span className="inline-flex w-fit rounded-full bg-[rgba(72,155,214,0.1)] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--teal-deep)]">
+                            <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--teal-deep)] sm:inline-flex sm:w-fit sm:rounded-full sm:bg-[rgba(72,155,214,0.1)] sm:px-3 sm:py-1.5">
                                 {item.label}
                             </span>
                             <p className="text-[1rem] leading-7 text-slate-700 sm:text-[1.08rem]">{item.value}</p>
@@ -595,8 +634,8 @@ function CompanySheet({ title, rows }) {
 
 function DetailListCard({ title, rows }) {
     return (
-        <div className="h-full rounded-[1.95rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(244,250,253,0.95))] p-5 shadow-[0_26px_64px_rgba(72,155,214,0.11)] sm:rounded-[2.2rem] sm:p-8">
-            <div className="mb-6 flex items-center gap-4 sm:mb-7">
+        <div className="h-full rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.2rem] sm:border sm:border-white/80 sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(244,250,253,0.95))] sm:p-8 sm:shadow-[0_26px_64px_rgba(72,155,214,0.11)]">
+            <div className="mb-5 flex items-center gap-4 sm:mb-7">
                 <span className="h-[5px] w-16 rounded-full bg-[var(--teal)]" />
                 <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">{title}</p>
             </div>
@@ -605,7 +644,7 @@ function DetailListCard({ title, rows }) {
                 {rows.map((item, index) => (
                     <GlowCard
                         key={item.label}
-                        className="rounded-[1.35rem] border border-[rgba(205,225,236,0.96)] bg-[linear-gradient(180deg,rgba(252,254,255,0.98),rgba(242,248,252,0.98))] px-4 py-4 shadow-[0_14px_32px_rgba(72,155,214,0.08),inset_0_1px_0_rgba(255,255,255,0.88)] hover:-translate-y-1 hover:border-[rgba(88,182,197,0.42)] hover:shadow-[0_20px_38px_rgba(72,155,214,0.16),inset_0_1px_0_rgba(255,255,255,0.92)] sm:rounded-[1.55rem] sm:px-5 sm:py-5"
+                        className="border-b border-[rgba(15,23,42,0.1)] py-4 last:border-b-0 sm:rounded-[1.55rem] sm:border sm:border-[rgba(205,225,236,0.96)] sm:bg-[linear-gradient(180deg,rgba(252,254,255,0.98),rgba(242,248,252,0.98))] sm:px-5 sm:py-5 sm:shadow-[0_14px_32px_rgba(72,155,214,0.08),inset_0_1px_0_rgba(255,255,255,0.88)] sm:hover:-translate-y-1 sm:hover:border-[rgba(88,182,197,0.42)] sm:hover:shadow-[0_20px_38px_rgba(72,155,214,0.16),inset_0_1px_0_rgba(255,255,255,0.92)]"
                     >
                         <div className="flex items-start gap-3 sm:gap-4">
                             <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[rgba(72,155,214,0.12)] text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--teal-deep)]">

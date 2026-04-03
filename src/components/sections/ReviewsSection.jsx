@@ -13,7 +13,7 @@ export default function ReviewsSection({
       tone={tone}
       paddingClassName={paddingClassName}
       eyebrow="Review Pelanggan"
-      title="Kepercayaan yang dibangun dari pengalaman klien"
+      title="Review & Testimonial"
       intro="Tangkapan review pelanggan ditampilkan dalam format visual agar testimoni terasa lebih nyata, mudah dipindai, dan tetap selaras dengan tampilan showcase halaman company profile."
     >
       <ShowcaseGallery

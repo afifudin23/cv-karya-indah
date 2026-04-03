@@ -5,13 +5,15 @@ import { officeWorkshopShowcaseItems } from '../../data/showcaseData'
 export default function OfficeWorkshopSection({
   id = 'office-workshop',
   tone = 'muted',
-  paddingClassName = 'pb-20 pt-20 sm:pt-24',
+  paddingClassName = 'pb-20 pt-14 sm:pt-16 lg:pt-16',
 }) {
   return (
     <SectionShell
       id={id}
       tone={tone}
       paddingClassName={paddingClassName}
+      headingClassName="max-w-none"
+      introClassName="max-w-none"
       eyebrow="Office & Workshop"
       title="Lingkungan Kerja"
       intro="Ruang kantor, area koordinasi, dan workshop ditampilkan sebagai bagian dari alur kerja CV Karya Indah agar klien dapat melihat kesiapan fasilitas, ritme produksi, dan dukungan operasional yang dimiliki perusahaan."

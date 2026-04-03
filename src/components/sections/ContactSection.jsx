@@ -8,6 +8,17 @@ import { openWhatsAppContact } from "../../lib/openWhatsAppContact";
 import SectionShell from "../ui/SectionShell";
 import { Reveal, RevealStagger } from "../ui/Reveal";
 
+function handleGlowMove(event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    event.currentTarget.style.setProperty("--glow-x", `${event.clientX - rect.left}px`);
+    event.currentTarget.style.setProperty("--glow-y", `${event.clientY - rect.top}px`);
+    event.currentTarget.style.setProperty("--glow-opacity", "1");
+}
+
+function handleGlowLeave(event) {
+    event.currentTarget.style.setProperty("--glow-opacity", "0");
+}
+
 export default function ContactSection({ companyData }) {
     const mapsLink = "https://maps.app.goo.gl/gHhTQ7mLCE498mMo6";
     const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(companyData.address)}&output=embed`;
@@ -74,19 +85,51 @@ export default function ContactSection({ companyData }) {
         >
             <Reveal as="div" className="space-y-8" delay={60}>
                 <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:auto-rows-fr">
-                    <div className="h-full rounded-[2rem] bg-[var(--hero)] p-8 text-white shadow-[0_26px_64px_rgba(17,43,57,0.2)]">
-                        <p className="label-size mb-4 uppercase tracking-[0.32em] text-[var(--teal)]">Contact Detail</p>
-                        <h3 className="font-display text-4xl uppercase">CV. Karya Indah</h3>
-                        <p className="mt-4 max-w-xl leading-8 text-slate-300">
-                            Siap membantu kebutuhan jasa periklanan, interior, eksterior, konstruksi visual, dan digital
-                            printing untuk bisnis maupun institusi.
-                        </p>
+                    <div
+                        onMouseMove={handleGlowMove}
+                        onMouseLeave={handleGlowLeave}
+                        style={{
+                            "--glow-x": "50%",
+                            "--glow-y": "50%",
+                            "--glow-opacity": "0",
+                        }}
+                        className="relative h-full overflow-hidden rounded-[2rem] border border-white/15 bg-[linear-gradient(180deg,rgba(9,28,45,0.98),rgba(14,40,61,0.96))] p-8 text-white shadow-[0_30px_72px_rgba(17,43,57,0.24)]"
+                    >
+                        <div
+                            className="pointer-events-none absolute inset-0 opacity-[var(--glow-opacity)] transition-opacity duration-300"
+                            style={{
+                                background:
+                                    "radial-gradient(240px circle at var(--glow-x) var(--glow-y), rgba(255,255,255,0.16), rgba(255,255,255,0.08) 24%, rgba(255,255,255,0.03) 46%, rgba(255,255,255,0) 72%)",
+                            }}
+                        />
+                        <div
+                            className="pointer-events-none absolute inset-x-0 top-0 h-px"
+                            style={{
+                                background:
+                                    "linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,0.52),rgba(255,255,255,0))",
+                            }}
+                        />
+                        <div className="pointer-events-none absolute right-0 top-0 h-44 w-44 translate-x-10 -translate-y-10 rounded-full bg-[radial-gradient(circle,rgba(0,194,255,0.2)_0%,rgba(0,194,255,0)_72%)]" />
+                        <div className="pointer-events-none absolute bottom-0 right-6 text-[5rem] font-semibold leading-none text-white/[0.05] sm:text-[6.5rem]">
+                            KI
+                        </div>
 
-                        <RevealStagger as="div" className="mt-8 space-y-5 text-slate-200" stagger={65}>
-                            <ContactItem label="Alamat" value={companyData.address} />
-                            <ContactItem label="Telepon" value={companyData.phones.join(" / ")} />
-                            <ContactItem label="Email" value={companyData.email} />
-                        </RevealStagger>
+                        <div className="relative">
+                            <p className="label-size mb-4 uppercase tracking-[0.32em] text-cyan-100/82">Contact Detail</p>
+                            <h3 className="font-display text-4xl uppercase text-white">CV. Karya Indah</h3>
+                            <p className="descriptive-copy mt-4 max-w-xl leading-8 text-slate-300">
+                                Siap membantu kebutuhan jasa periklanan, interior, eksterior, konstruksi visual, dan digital
+                                printing untuk bisnis maupun institusi.
+                            </p>
+
+                            <div className="mt-8 rounded-[1.6rem] border border-white/10 bg-white/8 p-4 backdrop-blur-sm sm:p-5">
+                                <RevealStagger as="div" className="space-y-4 text-slate-200" stagger={65}>
+                                    <ContactItem label="Alamat" value={companyData.address} />
+                                    <ContactItem label="Telepon" value={companyData.phones.join(" / ")} />
+                                    <ContactItem label="Email" value={companyData.email} />
+                                </RevealStagger>
+                            </div>
+                        </div>
                     </div>
 
                     <InfoPanel title="Informasi Bank">

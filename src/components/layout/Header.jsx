@@ -1,25 +1,53 @@
+import { useLayoutEffect, useRef } from "react";
+
 export default function Header({ isOpen, navItems, currentPath, onNavigate, onToggle }) {
+    const navRef = useRef(null);
+
+    useLayoutEffect(() => {
+        const element = navRef.current;
+        if (!element) return undefined;
+
+        const applyHeight = () => {
+            document.documentElement.style.setProperty("--header-height", `${element.offsetHeight}px`);
+        };
+
+        applyHeight();
+
+        window.addEventListener("resize", applyHeight);
+        return () => window.removeEventListener("resize", applyHeight);
+    }, []);
+
     return (
-        <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[color:rgba(24,35,44,0.62)] shadow-[0_18px_42px_rgba(72,155,214,0.22)] backdrop-blur-xl">
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-                <a href="/beranda" className="flex items-center" onClick={(event) => onNavigate(event, "/beranda")}>
+        <nav
+            ref={navRef}
+            className="fixed inset-x-0 top-0 z-50 border-b border-[rgba(125,223,255,0.14)] bg-[linear-gradient(180deg,rgba(11,30,45,0.88),rgba(15,23,42,0.84))] shadow-[0_18px_42px_rgba(0,194,255,0.14)] backdrop-blur-xl"
+        >
+            <div className="mx-auto flex w-full max-w-[min(96vw,1600px)] items-center justify-between px-3 py-2.5 min-[960px]:px-5 min-[960px]:py-3 lg:px-6">
+                <a
+                    href="/beranda"
+                    className="flex min-w-0 items-center gap-2"
+                    onClick={(event) => onNavigate(event, "/beranda")}
+                >
                     <img
-                        src="/logo2.png"
+                        src="/logoo.png"
                         alt="Logo CV Karya Indah"
-                        className="h-10 w-auto brightness-110 contrast-105 sm:h-20 lg:h-14"
+                        className="h-14 w-auto shrink-0 brightness-110 contrast-105"
                     />
+                    <span className="whitespace-nowrap text-lg font-bold uppercase leading-none tracking-wide text-white">
+                        CV. Karya Indah
+                    </span>
                 </a>
 
-                <div className="hidden items-center gap-3 md:flex">
+                <div className="ml-auto hidden items-center gap-3 min-[960px]:flex min-[960px]:gap-0">
                     {navItems.map((item) => (
                         <a
                             key={item.href}
                             href={item.href}
                             onClick={(event) => onNavigate(event, item.href)}
-                            className={`rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.16em] transition ${
+                            className={`rounded-full px-3.5 py-1.5 text-[0.86rem] font-semibold uppercase tracking-[0.1em] transition  ${
                                 currentPath === item.href
-                                    ? "bg-white/14 text-white shadow-[0_8px_20px_rgba(72,155,214,0.18)]"
-                                    : "text-white/80 hover:bg-white/10 hover:text-white"
+                                    ? "border border-[rgba(125,223,255,0.18)] bg-[linear-gradient(180deg,rgba(0,194,255,0.16),rgba(30,144,255,0.12))] text-white shadow-[0_8px_22px_rgba(0,194,255,0.16)]"
+                                    : "text-white/80 hover:bg-white/8 hover:text-white"
                             }`}
                         >
                             {item.label}
@@ -30,7 +58,7 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
                 <button
                     type="button"
                     onClick={onToggle}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white shadow-sm backdrop-blur transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/12 active:scale-[0.98] md:hidden"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(125,223,255,0.16)] bg-white/8 text-white shadow-sm backdrop-blur transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/12 active:scale-[0.98] min-[960px]:hidden"
                     aria-label="Toggle navigation"
                     aria-expanded={isOpen}
                     aria-controls="mobile-nav"
@@ -58,12 +86,12 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
             <div
                 id="mobile-nav"
                 aria-hidden={!isOpen}
-                className={`md:hidden overflow-hidden border-t border-white/10 bg-[color:rgba(24,35,44,0.92)] transition-[max-height,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                className={`min-[960px]:hidden overflow-hidden border-t border-[rgba(125,223,255,0.12)] bg-[linear-gradient(180deg,rgba(11,30,45,0.96),rgba(15,23,42,0.95))] transition-[max-height,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
                     isOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
                 }`}
             >
                 <div
-                    className={`space-y-1 px-4 py-4 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                    className={`space-y-0.5 px-4 py-3 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
                         isOpen ? "translate-y-0" : "-translate-y-2"
                     }`}
                 >
@@ -72,10 +100,10 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
                             key={item.href}
                             href={item.href}
                             onClick={(event) => onNavigate(event, item.href)}
-                            className={`block rounded-2xl px-4 py-2.5 text-[0.78rem] sm:py-3 sm:text-sm font-semibold uppercase tracking-[0.14em] sm:tracking-[0.16em] transition ${
+                            className={`block rounded-xl px-3.5 py-2.5 text-[0.82rem] font-semibold uppercase tracking-[0.1em] transition ${
                                 currentPath === item.href
-                                    ? "bg-white/12 text-white"
-                                    : "text-white/80 hover:bg-white/10 hover:text-white"
+                                    ? "border border-[rgba(125,223,255,0.14)] bg-[linear-gradient(180deg,rgba(0,194,255,0.16),rgba(30,144,255,0.12))] text-white"
+                                    : "text-white/80 hover:bg-white/8 hover:text-white"
                             }`}
                         >
                             {item.label}

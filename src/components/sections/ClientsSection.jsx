@@ -1,8 +1,49 @@
+import { useRef } from 'react'
 import { FiBriefcase, FiMapPin } from 'react-icons/fi'
 import SectionShell from '../ui/SectionShell'
 import { RevealStagger } from '../ui/Reveal'
 
 export default function ClientsSection({ clients }) {
+  const glowFrameRef = useRef(null)
+  const glowStateRef = useRef(null)
+
+  const handleGlowMove = (event) => {
+    const target = event.currentTarget
+    const rect = target.getBoundingClientRect()
+    const nextState = {
+      target,
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top,
+    }
+
+    glowStateRef.current = nextState
+
+    if (glowFrameRef.current) {
+      return
+    }
+
+    glowFrameRef.current = requestAnimationFrame(() => {
+      glowFrameRef.current = null
+      const state = glowStateRef.current
+      if (!state?.target) {
+        return
+      }
+
+      state.target.style.setProperty('--glow-x', `${state.x}px`)
+      state.target.style.setProperty('--glow-y', `${state.y}px`)
+      state.target.style.setProperty('--glow-opacity', '1')
+    })
+  }
+
+  const handleGlowLeave = (event) => {
+    if (glowFrameRef.current) {
+      cancelAnimationFrame(glowFrameRef.current)
+      glowFrameRef.current = null
+    }
+    glowStateRef.current = null
+    event.currentTarget.style.setProperty('--glow-opacity', '0')
+  }
+
   return (
     <SectionShell
       id="pelanggan"
@@ -14,25 +55,49 @@ export default function ClientsSection({ clients }) {
       title="Bukti Pelanggan"
       intro="Kami telah bekerja sama dengan berbagai klien dari beragam sektor. Daftar ini ditampilkan ulang sebagai bukti relasi kerja yang terus dijaga melalui kualitas hasil, komunikasi yang baik, dan pelayanan yang konsisten."
     >
-      <div className="mx-auto max-w-6xl overflow-hidden rounded-[2.35rem] border border-[rgba(203,231,220,0.88)] bg-[linear-gradient(180deg,rgba(237,247,242,0.98),rgba(220,238,229,0.96),rgba(204,226,215,0.94))] p-5 shadow-[0_34px_86px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-7 lg:p-9">
-        <div className="relative overflow-hidden rounded-[2rem] border border-[rgba(128,214,229,0.18)] bg-[linear-gradient(180deg,rgba(10,29,38,0.96),rgba(16,46,58,0.94))] p-5 shadow-[0_34px_86px_rgba(5,18,25,0.28),0_0_46px_rgba(88,182,197,0.08)] sm:rounded-[2.4rem] sm:p-7 lg:p-8">
-          <div className="pointer-events-none absolute left-[-6%] top-10 h-52 w-52 rounded-full bg-[radial-gradient(circle,rgba(88,182,197,0.16)_0%,rgba(88,182,197,0)_74%)] blur-3xl" />
-          <div className="pointer-events-none absolute bottom-0 right-[-8%] h-60 w-60 rounded-full bg-[radial-gradient(circle,rgba(25,86,73,0.16)_0%,rgba(25,86,73,0)_74%)] blur-3xl" />
+      <div
+        onMouseMove={handleGlowMove}
+        onMouseLeave={handleGlowLeave}
+        style={{
+          '--glow-x': '50%',
+          '--glow-y': '50%',
+          '--glow-opacity': '0',
+        }}
+        className="relative mx-auto max-w-6xl overflow-hidden rounded-[2.35rem] border border-[rgba(186,214,228,0.85)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,248,253,0.96))] p-5 shadow-[0_34px_86px_rgba(72,155,214,0.12)] sm:rounded-[2.8rem] sm:p-7 lg:p-9"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[var(--glow-opacity)] transition-opacity duration-300"
+          style={{
+            background:
+              'radial-gradient(240px circle at var(--glow-x) var(--glow-y), rgba(0,194,255,0.14), rgba(0,194,255,0.07) 24%, rgba(0,194,255,0.03) 46%, rgba(0,194,255,0) 72%)',
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-px"
+          style={{
+            background:
+              'linear-gradient(90deg,rgba(0,194,255,0),rgba(0,194,255,0.5),rgba(0,194,255,0))',
+          }}
+        />
 
-          <div className="relative grid gap-5 border-b border-[rgba(177,218,232,0.16)] pb-6 sm:pb-7 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+        <div className="pointer-events-none absolute left-[-6%] top-10 h-52 w-52 rounded-full bg-[radial-gradient(circle,rgba(0,194,255,0.12)_0%,rgba(0,194,255,0)_74%)] blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 right-[-8%] h-60 w-60 rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.1)_0%,rgba(14,165,233,0)_74%)] blur-3xl" />
+
+        <div className="relative">
+          <div className="grid gap-5 border-b border-[rgba(14,165,233,0.12)] pb-6 sm:pb-7 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
             <div>
-              <p className="label-size uppercase tracking-[0.3em] text-white">
+              <p className="label-size uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
                 Daftar Klien
               </p>
-              <h3 className="content-title-size mt-4 font-display uppercase leading-[0.94] text-white">
+              <h3 className="content-title-size mt-4 font-display uppercase leading-[0.94] text-[var(--color-text-strong)]">
                 Rekam kerja yang
                 <br />
                 terus dipercaya
               </h3>
             </div>
 
-            <div className="rounded-[1.7rem] border border-[rgba(128,214,229,0.2)] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] p-5 shadow-[0_22px_52px_rgba(5,18,25,0.2),0_0_34px_rgba(88,182,197,0.08)] backdrop-blur-md sm:rounded-[1.9rem] sm:p-6">
-              <p className="text-sm leading-7 text-white sm:text-[0.98rem]">
+            <div className="rounded-[1.7rem] border border-[rgba(186,214,228,0.75)] bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(244,248,251,0.9))] p-5 shadow-[0_22px_52px_rgba(72,155,214,0.1)] sm:rounded-[1.9rem] sm:p-6">
+              <p className="descriptive-copy text-sm leading-7 text-slate-600 sm:text-[0.98rem]">
                 Beberapa pelanggan utama kami berasal dari sektor manufaktur, retail, distribusi, hingga industri
                 minuman. Kehadiran mereka di halaman ini menjadi bukti hubungan kerja yang dibangun secara konsisten
                 melalui kualitas hasil dan ketepatan layanan.
@@ -40,35 +105,35 @@ export default function ClientsSection({ clients }) {
             </div>
           </div>
 
-          <RevealStagger as="div" className="relative mt-6 grid gap-4 lg:grid-cols-2 lg:gap-5" stagger={70}>
+          <RevealStagger as="div" className="mt-6 grid gap-4 lg:grid-cols-2 lg:gap-5" stagger={70}>
             {clients.map((client, index) => (
               <article
                 key={client.name}
-                className="group relative overflow-hidden rounded-[1.7rem] border border-[rgba(118,212,227,0.22)] bg-[linear-gradient(180deg,rgba(8,23,31,0.96),rgba(14,39,50,0.94))] p-6 shadow-[0_22px_54px_rgba(5,18,25,0.24),0_0_30px_rgba(88,182,197,0.08)] transition duration-300 hover:-translate-y-1 hover:border-[rgba(146,221,235,0.38)] hover:shadow-[0_28px_62px_rgba(5,18,25,0.28),0_0_34px_rgba(88,182,197,0.12)] sm:rounded-[1.95rem] sm:p-7"
+                className="group relative overflow-hidden rounded-[1.7rem] border border-[rgba(186,214,228,0.85)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(244,248,251,0.96))] p-6 shadow-[0_22px_54px_rgba(72,155,214,0.1)] transition duration-300 hover:-translate-y-1 hover:border-[rgba(0,194,255,0.22)] hover:shadow-[0_28px_62px_rgba(72,155,214,0.14)] sm:rounded-[1.95rem] sm:p-7"
               >
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,rgba(88,182,197,0),rgba(88,182,197,0.85),rgba(88,182,197,0))]" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,rgba(0,194,255,0),rgba(0,194,255,0.75),rgba(0,194,255,0))]" />
 
                 <div className="flex items-start justify-between gap-4">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-[1.1rem] border border-white/18 bg-white/10 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-[1.1rem] border border-[rgba(14,165,233,0.18)] bg-[rgba(14,165,233,0.08)] text-[var(--color-primary-900)] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
                     <FiBriefcase className="text-[1.25rem]" />
                   </div>
-                  <span className="inline-flex min-w-[2.8rem] items-center justify-center rounded-full border border-white/24 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white">
+                  <span className="inline-flex min-w-[2.8rem] items-center justify-center rounded-full border border-[rgba(15,23,42,0.12)] bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-text-strong)] shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
                     0{index + 1}
                   </span>
                 </div>
 
-                <p className="label-size mt-5 uppercase tracking-[0.3em] text-white">
+                <p className="label-size mt-5 uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
                   Pelanggan Setia
                 </p>
-                <h3 className="mt-4 font-display text-[1.7rem] uppercase leading-[0.94] text-white sm:text-[2rem]">
+                <h3 className="mt-4 font-display text-[1.7rem] uppercase leading-[0.94] text-[var(--color-text-strong)] sm:text-[2rem]">
                   {client.name}
                 </h3>
 
-                <div className="mt-5 h-px w-full bg-[linear-gradient(90deg,rgba(88,182,197,0.5),rgba(88,182,197,0.08),rgba(88,182,197,0))]" />
+                <div className="mt-5 h-px w-full bg-[linear-gradient(90deg,rgba(0,194,255,0.26),rgba(15,23,42,0.08),rgba(0,194,255,0))]" />
 
                 <div className="mt-5 flex items-start gap-3">
-                  <FiMapPin className="mt-1 shrink-0 text-[1rem] text-white" />
-                  <p className="text-[0.98rem] leading-8 text-white">
+                  <FiMapPin className="mt-1 shrink-0 text-[1rem] text-[var(--color-primary-700)]" />
+                  <p className="text-[0.98rem] leading-8 text-[var(--color-text-secondary)]">
                     {client.address}
                   </p>
                 </div>
@@ -76,21 +141,21 @@ export default function ClientsSection({ clients }) {
             ))}
           </RevealStagger>
 
-          <div className="relative mt-6 grid gap-4 lg:grid-cols-[0.8fr_1.2fr] lg:gap-5">
-            <div className="rounded-[1.8rem] border border-[rgba(118,212,227,0.22)] bg-[linear-gradient(180deg,rgba(8,23,31,0.96),rgba(14,39,50,0.94))] px-6 py-7 text-white shadow-[0_24px_60px_rgba(5,18,25,0.24),0_0_34px_rgba(88,182,197,0.08)] sm:rounded-[2rem] sm:px-7 sm:py-8">
-              <p className="label-size uppercase tracking-[0.3em] text-white">
+          <div className="mt-6 grid gap-4 lg:grid-cols-[0.8fr_1.2fr] lg:gap-5">
+            <div className="rounded-[1.8rem] border border-[rgba(186,214,228,0.85)] bg-white px-6 py-7 shadow-[0_24px_60px_rgba(72,155,214,0.1)] sm:rounded-[2rem] sm:px-7 sm:py-8">
+              <p className="label-size uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
                 Komitmen Relasi
               </p>
-              <p className="mt-4 text-[1.45rem] font-semibold leading-tight text-white sm:text-[1.7rem]">
+              <p className="mt-4 text-[1.45rem] font-semibold leading-tight text-[var(--color-text-strong)] sm:text-[1.7rem]">
                 Hubungan kerja yang dijaga untuk jangka panjang.
               </p>
             </div>
 
-            <div className="rounded-[1.8rem] border border-[rgba(128,214,229,0.2)] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] px-6 py-7 shadow-[0_24px_60px_rgba(5,18,25,0.24),0_0_32px_rgba(88,182,197,0.08)] backdrop-blur-md sm:rounded-[2rem] sm:px-7 sm:py-8">
-              <p className="label-size uppercase tracking-[0.3em] text-white">
+            <div className="rounded-[1.8rem] border border-[rgba(186,214,228,0.75)] bg-[linear-gradient(180deg,rgba(255,255,255,0.88),rgba(244,248,251,0.9))] px-6 py-7 shadow-[0_24px_60px_rgba(72,155,214,0.1)] sm:rounded-[2rem] sm:px-7 sm:py-8">
+              <p className="label-size uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
                 Hubungan Jangka Panjang
               </p>
-              <p className="mt-4 text-[0.98rem] leading-8 text-white">
+              <p className="descriptive-copy mt-4 text-[0.98rem] leading-8 text-slate-600">
                 Kami selalu berusaha untuk membangun hubungan jangka panjang dengan setiap pelanggan kami dan terus
                 meningkatkan layanan kami berdasarkan masukan mereka.
               </p>

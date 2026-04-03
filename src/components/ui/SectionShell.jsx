@@ -9,15 +9,18 @@ export default function SectionShell({
   headerVariant = 'default',
   paddingClassName = 'py-20',
   sectionClassName = '',
+  headingClassName = '',
   titleClassName = '',
+  introClassName = '',
   children,
 }) {
   const sectionClass =
     tone === 'dark'
-      ? 'bg-[var(--hero)] text-white'
+      ? 'bg-[linear-gradient(180deg,var(--color-bg-canvas)_0%,var(--color-bg-surface)_100%)] text-white'
       : tone === 'muted'
-        ? 'border-y border-black/5 bg-white'
-        : 'border-y border-black/5 bg-[#f7f4ef]'
+        // ? 'border-y border-[var(--color-border-soft)] bg-white'
+        ? 'border-y border-[var(--color-border-soft)] bg-[linear-gradient(180deg,#f7fbff_0%,#f2f7fb_52%,#eef5fa_100%)]'
+        : 'border-y border-[var(--color-border-soft)] bg-[linear-gradient(180deg,#f7fbff_0%,#eef4f8_100%)]'
 
   const eyebrowClass =
     tone === 'dark' ? 'text-[var(--teal)]' : 'text-[var(--teal-deep)]'
@@ -31,19 +34,17 @@ export default function SectionShell({
       <div className="mx-auto max-w-7xl">
         <Reveal as="div">
           <div
-          className={`mb-12 ${
-            isFeaturedHeader
-              ? 'mx-auto max-w-4xl px-2 sm:px-4'
-              : 'max-w-3xl'
-          }`}
-        >
+            className={`mb-12 ${
+              isFeaturedHeader ? 'mx-auto max-w-4xl px-2 sm:px-4' : 'max-w-3xl'
+            } ${headingClassName}`}
+          >
           <div className={isFeaturedHeader ? 'mx-auto max-w-4xl' : ''}>
             <div
               className={`mb-4 flex items-center gap-4 ${
                 isFeaturedHeader ? 'justify-end' : ''
               }`}
             >
-              <span className={`h-[3px] rounded-full bg-[var(--teal)] ${isFeaturedHeader ? 'w-14' : 'hidden'}`} />
+              <span className={`h-[3px] rounded-full bg-[linear-gradient(90deg,var(--color-primary-500),var(--color-primary-700))] ${isFeaturedHeader ? 'w-14 shadow-[0_0_18px_rgba(0,194,255,0.3)]' : 'hidden'}`} />
               <p className={`label-size uppercase tracking-[0.34em] ${eyebrowClass}`}>
                 {eyebrow}
               </p>
@@ -52,7 +53,7 @@ export default function SectionShell({
             <h2
               className={`font-display uppercase ${titleClass} ${
                 isFeaturedHeader
-                  ? 'text-right text-[2.85rem] leading-[0.95] sm:text-[4rem] lg:text-[4.8rem]'
+                  ? 'text-right text-[2.1rem] leading-[1.05] sm:text-[3.1rem] lg:text-[4.4rem]'
                   : 'section-title-size'
               } ${titleClassName}`}
             >
@@ -60,15 +61,15 @@ export default function SectionShell({
             </h2>
 
             {isFeaturedHeader && (
-              <div className="ml-auto mt-5 h-px w-28 bg-[linear-gradient(90deg,rgba(88,182,197,0),rgba(88,182,197,0.9),rgba(88,182,197,0))]" />
+              <div className="ml-auto mt-5 h-px w-28 bg-[linear-gradient(90deg,rgba(0,194,255,0),rgba(0,194,255,0.9),rgba(30,144,255,0))]" />
             )}
 
             <p
-              className={`leading-8 ${introClass} ${
+              className={`descriptive-copy leading-8 ${introClass} ${
                 isFeaturedHeader
-                  ? 'mx-auto mt-6 max-w-3xl text-justify text-base sm:text-[1.08rem] sm:leading-9'
+                  ? 'mx-auto mt-6 max-w-3xl text-left text-[1rem] sm:text-[1.08rem] sm:leading-9'
                   : 'mt-5 max-w-2xl'
-              }`}
+              } ${introClassName}`}
             >
               {intro}
             </p>
