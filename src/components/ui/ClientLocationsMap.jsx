@@ -275,6 +275,7 @@ export default function ClientLocationsMap({ locations = [] }) {
     const [isProvinceMenuOpen, setIsProvinceMenuOpen] = useState(false);
     const [provinceFilter, setProvinceFilter] = useState("");
     const provinceMenuRef = useRef(null);
+    const provinceInputRef = useRef(null);
 
     const provinces = useMemo(() => {
         return [...new Set(locations.map((location) => location.province))].sort((left, right) =>
@@ -311,6 +312,14 @@ export default function ClientLocationsMap({ locations = [] }) {
             return;
         }
 
+        const focusSearch = () => {
+            const input = provinceInputRef.current;
+            if (!input) return;
+            input.focus({ preventScroll: true });
+        };
+
+        const animationFrameId = window.requestAnimationFrame(focusSearch);
+
         const handlePointerDown = (event) => {
             if (!provinceMenuRef.current) {
                 return;
@@ -333,6 +342,7 @@ export default function ClientLocationsMap({ locations = [] }) {
         document.addEventListener("keydown", handleKeyDown);
 
         return () => {
+            window.cancelAnimationFrame(animationFrameId);
             document.removeEventListener("pointerdown", handlePointerDown);
             document.removeEventListener("keydown", handleKeyDown);
         };
@@ -495,6 +505,7 @@ export default function ClientLocationsMap({ locations = [] }) {
                                 <div className="max-h-[240px] overflow-auto">
                                     <div className="sticky top-0 z-10 border-b border-[rgba(15,23,42,0.1)] bg-white p-2.5">
                                         <input
+                                            ref={provinceInputRef}
                                             type="text"
                                             value={provinceFilter}
                                             onChange={(event) => setProvinceFilter(event.target.value)}
