@@ -479,9 +479,9 @@ export default function ClientLocationsMap({ locations = [] }) {
                 </div>
             </div>
 
-            <div className="rounded-[1.9rem] border border-[var(--color-border-soft)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(244,248,251,0.96))] p-5 shadow-[0_18px_44px_rgba(15,23,42,0.06)] sm:p-6">
+            <div className="rounded-[1.9rem] border border-white/10 bg-[linear-gradient(180deg,#263343_0%,#1f2b39_100%)] p-5 shadow-[0_26px_64px_rgba(17,43,57,0.18)] sm:p-6">
                 <div>
-                    <p className="label-size uppercase tracking-[0.3em] text-[var(--color-primary-700)]">Provinsi</p>
+                    <p className="label-size uppercase tracking-[0.3em] text-white/90">Provinsi</p>
                     <div ref={provinceMenuRef} className="relative mt-3 w-full">
                         <button
                             type="button"

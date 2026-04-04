@@ -90,24 +90,14 @@ export default function ServicesSection({ servicesData, coverageLocations = [], 
 
             {clients?.length ? (
                 <div className="mt-10 sm:mt-12 sm:overflow-hidden sm:rounded-[2.6rem] sm:border sm:border-[rgba(186,214,228,0.88)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(241,248,252,0.96))] sm:p-7 sm:shadow-[0_28px_70px_rgba(72,155,214,0.1)] lg:p-8">
-                    <div className="grid gap-4 border-b border-[rgba(14,165,233,0.12)] pb-6 sm:gap-5 sm:pb-7 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+                    <div className="grid gap-4 border-b border-[rgba(14,165,233,0.12)] pb-6 sm:gap-5 sm:pb-7">
                         <div>
                             <p className="label-size uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
                                 Bukti Pelanggan
                             </p>
                             <h3 className="mt-3 font-display text-[1.55rem] uppercase leading-[0.98] text-[var(--color-text-strong)] sm:content-title-size sm:mt-4 sm:leading-[0.94]">
-                                Klien utama
-                                <br />
-                                yang sudah dipercaya
+                                Klien utama yang sudah dipercaya
                             </h3>
-                        </div>
-
-                        <div className="rounded-[1.6rem] border border-[rgba(14,165,233,0.12)] bg-white p-5 shadow-[0_18px_44px_rgba(15,23,42,0.08)] backdrop-blur-md sm:rounded-[1.8rem] sm:p-6">
-                            <p className="descriptive-copy text-[1rem] leading-8 text-[var(--color-text-secondary)] sm:text-[1.04rem] sm:leading-8">
-                                Daftar berikut ditampilkan ulang di halaman layanan agar calon klien lebih mudah melihat
-                                portofolio relasi kerja yang mendukung layanan signage, interior, digital printing, dan
-                                konstruksi.
-                            </p>
                         </div>
                     </div>
 
@@ -154,24 +144,14 @@ export default function ServicesSection({ servicesData, coverageLocations = [], 
 
             {coverageLocations.length ? (
                 <div className="mt-10 sm:mt-12 sm:overflow-hidden sm:rounded-[2.6rem] sm:border sm:border-[rgba(186,214,228,0.88)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(241,248,252,0.96))] sm:p-7 sm:shadow-[0_28px_70px_rgba(72,155,214,0.1)] lg:p-8">
-                    <div className="grid gap-4 border-b border-[rgba(14,165,233,0.12)] pb-6 sm:gap-5 sm:pb-7 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+                    <div className="grid gap-4 border-b border-[rgba(14,165,233,0.12)] pb-6 sm:gap-5 sm:pb-7">
                         <div>
                             <p className="label-size uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
                                 Peta Lokasi
                             </p>
                             <h3 className="mt-3 font-display text-[1.55rem] uppercase leading-[0.98] text-[var(--color-text-strong)] sm:content-title-size sm:mt-4 sm:leading-[0.94]">
-                                Pelayanan CV Karya Indah
-                                <br />
-                                di berbagai provinsi
+                                Pelayanan CV Karya Indah di berbagai provinsi
                             </h3>
-                        </div>
-
-                        <div className="rounded-[1.6rem] border border-[rgba(14,165,233,0.12)] bg-white p-5 shadow-[0_18px_44px_rgba(15,23,42,0.08)] backdrop-blur-md sm:rounded-[1.8rem] sm:p-6">
-                            <p className="descriptive-copy text-[1rem] leading-8 text-[var(--color-text-secondary)] sm:text-[1.04rem] sm:leading-8">
-                                Peta ini merangkum perusahaan dan pusat aktivitas bisnis dari berbagai kota di Indonesia
-                                sebagai gambaran luasnya ekosistem industri yang relevan dengan layanan branding,
-                                signage, interior, dan digital printing yang dikerjakan CV Karya Indah.
-                            </p>
                         </div>
                     </div>
 

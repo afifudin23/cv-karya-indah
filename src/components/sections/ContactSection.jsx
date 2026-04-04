@@ -93,37 +93,41 @@ export default function ContactSection({ companyData }) {
                             "--glow-y": "50%",
                             "--glow-opacity": "0",
                         }}
-                        className="relative h-full overflow-hidden rounded-[2rem] border border-white/15 bg-[linear-gradient(180deg,rgba(9,28,45,0.98),rgba(14,40,61,0.96))] p-8 text-white shadow-[0_30px_72px_rgba(17,43,57,0.24)]"
+                        className="relative h-full overflow-visible rounded-none border-0 bg-transparent p-0 text-[var(--color-text-strong)] shadow-none sm:overflow-hidden sm:rounded-[2rem] sm:border sm:border-white/15 sm:bg-[linear-gradient(180deg,rgba(9,28,45,0.98),rgba(14,40,61,0.96))] sm:p-8 sm:text-white sm:shadow-[0_30px_72px_rgba(17,43,57,0.24)]"
                     >
                         <div
-                            className="pointer-events-none absolute inset-0 opacity-[var(--glow-opacity)] transition-opacity duration-300"
+                            className="pointer-events-none absolute inset-0 hidden opacity-[var(--glow-opacity)] transition-opacity duration-300 sm:block"
                             style={{
                                 background:
                                     "radial-gradient(240px circle at var(--glow-x) var(--glow-y), rgba(255,255,255,0.16), rgba(255,255,255,0.08) 24%, rgba(255,255,255,0.03) 46%, rgba(255,255,255,0) 72%)",
                             }}
                         />
                         <div
-                            className="pointer-events-none absolute inset-x-0 top-0 h-px"
+                            className="pointer-events-none absolute inset-x-0 top-0 hidden h-px sm:block"
                             style={{
                                 background:
                                     "linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,0.52),rgba(255,255,255,0))",
                             }}
                         />
-                        <div className="pointer-events-none absolute right-0 top-0 h-44 w-44 translate-x-10 -translate-y-10 rounded-full bg-[radial-gradient(circle,rgba(0,194,255,0.2)_0%,rgba(0,194,255,0)_72%)]" />
-                        <div className="pointer-events-none absolute bottom-0 right-6 text-[5rem] font-semibold leading-none text-white/[0.05] sm:text-[6.5rem]">
+                        <div className="pointer-events-none absolute right-0 top-0 hidden h-44 w-44 translate-x-10 -translate-y-10 rounded-full bg-[radial-gradient(circle,rgba(0,194,255,0.2)_0%,rgba(0,194,255,0)_72%)] sm:block" />
+                        <div className="pointer-events-none absolute bottom-0 right-6 hidden text-[5rem] font-semibold leading-none text-white/[0.05] sm:block sm:text-[6.5rem]">
                             KI
                         </div>
 
                         <div className="relative">
-                            <p className="label-size mb-4 uppercase tracking-[0.32em] text-cyan-100/82">Contact Detail</p>
-                            <h3 className="font-display text-4xl uppercase text-white">CV. Karya Indah</h3>
-                            <p className="descriptive-copy mt-4 max-w-xl leading-8 text-slate-300">
+                            <p className="label-size mb-4 uppercase tracking-[0.32em] text-[var(--color-primary-700)] sm:text-cyan-100/82">
+                                Contact Detail
+                            </p>
+                            <h3 className="font-display text-4xl uppercase text-[var(--color-text-strong)] sm:text-white">
+                                CV. Karya Indah
+                            </h3>
+                            <p className="descriptive-copy mt-4 max-w-xl leading-8 text-slate-600 sm:text-slate-300">
                                 Siap membantu kebutuhan jasa periklanan, interior, eksterior, konstruksi visual, dan digital
                                 printing untuk bisnis maupun institusi.
                             </p>
 
-                            <div className="mt-8 rounded-[1.6rem] border border-white/10 bg-white/8 p-4 backdrop-blur-sm sm:p-5">
-                                <RevealStagger as="div" className="space-y-4 text-slate-200" stagger={65}>
+                            <div className="mt-7 sm:mt-8 sm:rounded-[1.6rem] sm:border sm:border-white/10 sm:bg-white/8 sm:p-5 sm:backdrop-blur-sm">
+                                <RevealStagger as="div" className="space-y-0 text-slate-200 sm:space-y-4" stagger={65}>
                                     <ContactItem label="Alamat" value={companyData.address} />
                                     <ContactItem label="Telepon" value={companyData.phones.join(" / ")} />
                                     <ContactItem label="Email" value={companyData.email} />
@@ -139,7 +143,7 @@ export default function ContactSection({ companyData }) {
                     </InfoPanel>
                 </div>
 
-                <div className="overflow-hidden rounded-[2rem] border border-[rgba(196,223,235,0.86)] bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.95))] p-6 shadow-[0_28px_70px_rgba(72,155,214,0.12)] sm:rounded-[2.3rem] sm:p-8">
+                <div className="overflow-visible rounded-none border-0 bg-transparent p-0 shadow-none sm:overflow-hidden sm:rounded-[2.3rem] sm:border sm:border-[rgba(196,223,235,0.86)] sm:bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.95))] sm:p-8 sm:shadow-[0_28px_70px_rgba(72,155,214,0.12)]">
                     <div className="mb-6 flex items-center gap-4">
                         <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />
                         <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">Form Kontak</p>
@@ -236,7 +240,7 @@ export default function ContactSection({ companyData }) {
                     </form>
                 </div>
 
-                <div className="overflow-hidden rounded-[2rem] border border-[rgba(196,223,235,0.86)] bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.95))] p-4 shadow-[0_28px_70px_rgba(72,155,214,0.12)] sm:rounded-[2.3rem] sm:p-6">
+                <div className="overflow-visible rounded-none border-0 bg-transparent p-0 shadow-none sm:overflow-hidden sm:rounded-[2.3rem] sm:border sm:border-[rgba(196,223,235,0.86)] sm:bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.95))] sm:p-6 sm:shadow-[0_28px_70px_rgba(72,155,214,0.12)]">
                     <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                         <div className="flex items-center gap-4">
                             <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />

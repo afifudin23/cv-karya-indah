@@ -53,7 +53,7 @@ export default function ShowcaseGallery({
             <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">
               {showcaseEyebrow}
             </p>
-            <p className="mt-2 text-[0.9rem] leading-7 text-slate-600 sm:text-[0.95rem] sm:leading-6 sm:text-slate-500">
+            <p className="descriptive-copy mt-2 text-[0.9rem] leading-7 text-slate-600 sm:text-[0.95rem] sm:leading-6 sm:text-slate-500">
               {showcaseIntro}
             </p>
           </div>
@@ -109,11 +109,11 @@ export default function ShowcaseGallery({
               <h3 className="content-title-size mt-3 font-display uppercase leading-[0.94] text-[var(--ink-strong)]">
                 {activeItem.title}
               </h3>
-              <p className="mt-2.5 text-[0.98rem] font-medium leading-7 text-slate-700 sm:text-[1.08rem] sm:leading-8 xl:text-[1.15rem]">
+              <p className="descriptive-copy mt-2.5 text-[0.98rem] font-medium leading-7 text-slate-700 sm:text-[1.08rem] sm:leading-8 xl:text-[1.15rem]">
                 {activeItem.subtitle}
               </p>
 
-              <p className="mt-3 max-w-4xl text-[0.94rem] leading-7 text-slate-600 sm:mt-4 sm:text-[1rem] sm:leading-7 xl:text-[1.05rem] xl:leading-8">
+              <p className="descriptive-copy mt-3 max-w-4xl text-[0.94rem] leading-7 text-slate-600 sm:mt-4 sm:text-[1rem] sm:leading-7 xl:text-[1.05rem] xl:leading-8">
                 {activeItem.note}
               </p>
             </div>

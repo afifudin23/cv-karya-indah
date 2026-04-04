@@ -34,11 +34,9 @@ export default function SectionShell({
       <div className="mx-auto max-w-7xl">
         <Reveal as="div">
           <div
-            className={`mb-12 ${
-              isFeaturedHeader ? 'mx-auto max-w-4xl px-2 sm:px-4' : 'max-w-3xl'
-            } ${headingClassName}`}
+            className={`mb-12 w-full ${isFeaturedHeader ? 'px-2 sm:px-4' : ''} ${headingClassName}`}
           >
-          <div className={isFeaturedHeader ? 'mx-auto max-w-4xl' : ''}>
+          <div className="w-full">
             <div
               className={`mb-4 flex items-center gap-4 ${
                 isFeaturedHeader ? 'justify-end' : ''
@@ -67,8 +65,8 @@ export default function SectionShell({
             <p
               className={`descriptive-copy leading-8 ${introClass} ${
                 isFeaturedHeader
-                  ? 'mx-auto mt-6 max-w-3xl text-left text-[1rem] sm:text-[1.08rem] sm:leading-9'
-                  : 'mt-5 max-w-2xl'
+                  ? 'mt-6 w-full text-left text-[1rem] sm:text-[1.08rem] sm:leading-9'
+                  : 'mt-5 w-full'
               } ${introClassName}`}
             >
               {intro}

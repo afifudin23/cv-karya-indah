@@ -93,7 +93,7 @@ export default function ProfileSection({ companyData }) {
                 <div className="sm:space-y-6">
                     <Reveal as="div" className="max-w-3xl hidden sm:block">
                         <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)]">
-                            Company Profile
+                            Profil Perusahaan
                         </p>
                     </Reveal>
 
@@ -193,12 +193,12 @@ export default function ProfileSection({ companyData }) {
                     as="section"
                     className="rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.6rem] sm:border sm:border-white/70 sm:bg-[linear-gradient(180deg,rgba(249,252,254,0.96),rgba(242,247,250,0.94))] sm:p-8 sm:shadow-[0_28px_68px_rgba(72,155,214,0.1)]"
                 >
-                    <div className="mb-8 max-w-2xl">
+                    <div className="mb-8 w-full">
                         <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)]">Profil Singkat</p>
                         <h3 className="mt-3 font-display uppercase leading-[1] text-[1.85rem] text-[var(--ink-strong)] sm:mt-4 sm:text-[length:var(--text-section-title)] sm:leading-[0.96]">
                             Sorotan Profil
                         </h3>
-                        <p className="descriptive-copy mt-3 max-w-xl text-[0.92rem] leading-7 text-slate-600 sm:mt-4 sm:text-base sm:leading-8">
+                        <p className="descriptive-copy mt-3 w-full text-[0.92rem] leading-7 text-slate-600 sm:mt-4 sm:text-base sm:leading-8">
                             Bagian ini merangkum identitas, pengalaman, dan keunggulan utama CV Karya Indah sebagai
                             landasan kepercayaan bagi calon mitra dan pelanggan.
                         </p>
@@ -215,14 +215,14 @@ export default function ProfileSection({ companyData }) {
                     as="section"
                     className="rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.8rem] sm:border sm:border-white/70 sm:bg-[linear-gradient(180deg,rgba(248,252,254,0.96),rgba(241,247,250,0.95))] sm:p-8 sm:shadow-[0_32px_78px_rgba(72,155,214,0.12)] lg:p-10"
                 >
-                    <div className="max-w-7xl">
+                    <div className="w-full">
                         <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)]">
                             Detail Perusahaan
                         </p>
                         <h3 className="mt-3 font-display uppercase leading-[1] text-[1.85rem] text-[var(--ink-strong)] sm:mt-4 sm:text-[length:var(--text-section-title)] sm:leading-[0.94]">
                             Informasi Perusahaan
                         </h3>
-                        <p className="descriptive-copy mt-3 max-w-2xl text-[0.92rem] leading-7 text-slate-600 sm:mt-4 sm:text-base sm:leading-8">
+                        <p className="descriptive-copy mt-3 w-full text-[0.92rem] leading-7 text-slate-600 sm:mt-4 sm:text-base sm:leading-8">
                             Bagian ini menyajikan data inti perusahaan, legalitas, visi, misi, dan kebijakan kerja
                             secara terstruktur agar mudah dipahami dalam satu alur baca.
                         </p>
@@ -292,14 +292,14 @@ export default function ProfileSection({ companyData }) {
                         }}
                     />
                     <div className="grid gap-6 px-0 py-0 sm:gap-8 xl:grid-cols-[0.82fr_1.18fr] xl:items-start">
-                        <div className="max-w-3xl">
+                        <div className="w-full">
                             <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)] sm:text-cyan-100/82">
                                 Struktur Organisasi
                             </p>
                             <h3 className="mt-3 font-display uppercase leading-[1] text-[1.85rem] text-[var(--ink-strong)] sm:mt-4 sm:text-[length:var(--text-section-title)] sm:leading-[0.92] sm:text-white">
                                 Struktur Organisasi
                             </h3>
-                            <p className="descriptive-copy mt-3 max-w-2xl text-[0.92rem] leading-7 text-slate-600 sm:mt-5 sm:text-[1.05rem] sm:leading-8 sm:text-slate-200">
+                            <p className="descriptive-copy mt-3 w-full text-[0.92rem] leading-7 text-slate-600 sm:mt-5 sm:text-[1.05rem] sm:leading-8 sm:text-slate-200">
                                 Bagian ini menampilkan susunan jabatan dan pembagian peran secara jelas agar alur
                                 koordinasi, tanggung jawab, dan proses kerja perusahaan mudah dipahami.
                             </p>
@@ -394,12 +394,12 @@ function LegalitiesShowcase({ items, onOpenImage }) {
 
     return (
         <section className="rounded-none border-0 bg-transparent p-0 shadow-none sm:rounded-[2.85rem] sm:border sm:border-white/80 sm:bg-[linear-gradient(180deg,rgba(252,254,255,0.98),rgba(242,248,251,0.95))] sm:p-8 sm:shadow-[0_34px_84px_rgba(72,155,214,0.14)] lg:p-10">
-            <div className="max-w-3xl">
+            <div className="w-full">
                 <p className="label-size uppercase tracking-[0.34em] text-[var(--teal-deep)]">Dokumen Legalitas</p>
                 <h3 className="mt-3 font-display uppercase leading-[1] text-[1.85rem] text-[var(--ink-strong)] sm:mt-4 sm:text-[length:var(--text-section-title)] sm:leading-[0.94]">
                     Legalitas Perusahaan
                 </h3>
-                <p className="descriptive-copy mt-3 max-w-2xl text-[0.92rem] leading-7 text-slate-600 sm:mt-5 sm:text-[1.05rem] sm:leading-8">
+                <p className="descriptive-copy mt-3 w-full text-[0.92rem] leading-7 text-slate-600 sm:mt-5 sm:text-[1.05rem] sm:leading-8">
                     Bagian ini menampilkan dokumen legal utama perusahaan secara ringkas dan terstruktur agar validitas
                     usaha dapat ditinjau dengan lebih mudah dan meyakinkan.
                 </p>

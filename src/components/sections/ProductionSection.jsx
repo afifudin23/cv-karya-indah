@@ -8,7 +8,7 @@ export default function ProductionSection() {
             id="produksi"
             tone="muted"
             paddingClassName="pb-20 pt-28 sm:pt-32"
-            eyebrow="Portofolio"
+            eyebrow="Produksi"
             title="Hasil Produksi"
             intro="Dokumentasi proyek produksi ditampilkan ulang memakai foto asli perusahaan supaya halaman produksi terasa lebih kuat, relevan, dan meyakinkan."
         >
