@@ -1,7 +1,8 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 
-export default function Header({ isOpen, navItems, currentPath, onNavigate, onToggle }) {
+export default function Header({ isOpen, navItems, currentPath, onNavigate, onToggle, onClose }) {
     const headerBarRef = useRef(null);
+    const navRef = useRef(null);
 
     useLayoutEffect(() => {
         const element = headerBarRef.current;
@@ -23,8 +24,33 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
         return () => window.removeEventListener("resize", applyHeight);
     }, []);
 
+    useEffect(() => {
+        if (!isOpen) return undefined;
+
+        const handlePointerDown = (event) => {
+            if (!navRef.current) return;
+            if (navRef.current.contains(event.target)) return;
+            onClose?.();
+        };
+
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                onClose?.();
+            }
+        };
+
+        document.addEventListener("pointerdown", handlePointerDown);
+        document.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            document.removeEventListener("pointerdown", handlePointerDown);
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [isOpen, onClose]);
+
     return (
         <nav
+            ref={navRef}
             className="fixed inset-x-0 top-0 z-50 bg-[linear-gradient(180deg,rgba(11,30,45,0.88),rgba(15,23,42,0.84))] shadow-[0_18px_42px_rgba(0,194,255,0.14)] backdrop-blur-xl"
         >
             <div
@@ -34,13 +60,13 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
                 <div className="mx-auto flex w-full max-w-[min(96vw,1600px)] items-center justify-between px-3 py-2.5 min-[960px]:px-5 min-[960px]:py-3 lg:px-6">
                 <a
                     href="/beranda"
-                    className="flex min-w-0 items-center gap-2"
+                    className="flex min-w-0 items-center gap-3"
                     onClick={(event) => onNavigate(event, "/beranda")}
                 >
                     <img
-                        src="/logoo.png"
+                        src="/logoku1.png"
                         alt="Logo CV Karya Indah"
-                        className="h-14 w-auto shrink-0 brightness-110 contrast-105"
+                        className="h-10 w-auto shrink-0 brightness-110 contrast-105"
                     />
                     <span className="whitespace-nowrap text-lg font-bold uppercase leading-none tracking-wide text-white">
                         CV. Karya Indah

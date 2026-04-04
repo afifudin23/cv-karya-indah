@@ -66,9 +66,9 @@ export default function HeroSection({ companyData, heroImage }) {
                     <div className="flex flex-col items-center text-center">
                         <Reveal as="div" className="flex w-full justify-center" duration={820}>
                             <img
-                                src="/logoo.png"
+                                src="/logoku1.png"
                                 alt="Logo CV Karya Indah"
-                                className="mx-auto w-full max-w-[172px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)]"
+                                className="mx-auto w-full max-w-[100px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)]"
                             />
                         </Reveal>
                         <Reveal
@@ -107,9 +107,9 @@ export default function HeroSection({ companyData, heroImage }) {
                         <div className="flex -translate-y-24 flex-col items-center text-center">
                             <Reveal as="div" className="flex w-full justify-center" duration={820}>
                                 <img
-                                    src="/logoo.png"
+                                    src="/logoku1.png"
                                     alt="Logo CV Karya Indah"
-                                    className="mx-auto w-full max-w-[304px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)]"
+                                    className="mx-auto w-full max-w-[160px] drop-shadow-[0_18px_40px_rgba(0,0,0,0.32)]"
                                 />
                             </Reveal>
 

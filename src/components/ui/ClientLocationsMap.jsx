@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FiBriefcase, FiMapPin } from "react-icons/fi";
+import { FiBriefcase, FiChevronDown, FiMapPin } from "react-icons/fi";
 
 const LEAFLET_CSS_ID = "leaflet-css-cdn";
 const LEAFLET_SCRIPT_ID = "leaflet-js-cdn";
@@ -270,12 +270,15 @@ export default function ClientLocationsMap({ locations = [] }) {
     const mapContainerRef = useRef(null);
     const leafletMapRef = useRef(null);
     const markerLayerRef = useRef(null);
+    const markerIndexRef = useRef(new Map());
     const [status, setStatus] = useState("loading");
     const [selectedProvince, setSelectedProvince] = useState("");
     const [isProvinceMenuOpen, setIsProvinceMenuOpen] = useState(false);
     const [provinceFilter, setProvinceFilter] = useState("");
+    const [activeProvinceIndex, setActiveProvinceIndex] = useState(0);
     const provinceMenuRef = useRef(null);
     const provinceInputRef = useRef(null);
+    const provinceOptionRefs = useRef([]);
 
     const provinces = useMemo(() => {
         return [...new Set(locations.map((location) => location.province))].sort((left, right) =>
@@ -349,6 +352,13 @@ export default function ClientLocationsMap({ locations = [] }) {
     }, [isProvinceMenuOpen]);
 
     useEffect(() => {
+        if (!isProvinceMenuOpen) return;
+        const option = provinceOptionRefs.current[activeProvinceIndex];
+        if (!option) return;
+        option.scrollIntoView({ block: "nearest" });
+    }, [activeProvinceIndex, isProvinceMenuOpen]);
+
+    useEffect(() => {
         let isActive = true;
 
         const setupMap = async () => {
@@ -388,12 +398,13 @@ export default function ClientLocationsMap({ locations = [] }) {
                     map.removeLayer(markerLayerRef.current);
                     markerLayerRef.current = null;
                 }
+                markerIndexRef.current.clear();
 
                 const markerIcon = createMarkerIcon(Leaflet);
                 const markerLayer = Leaflet.layerGroup();
 
                 locations.forEach((location) => {
-                    Leaflet.marker([location.lat, location.lng], {
+                    const marker = Leaflet.marker([location.lat, location.lng], {
                         icon: markerIcon,
                         keyboard: false,
                         title: location.companyName,
@@ -404,6 +415,8 @@ export default function ClientLocationsMap({ locations = [] }) {
                             offset: [0, -10],
                         })
                         .addTo(markerLayer);
+
+                    markerIndexRef.current.set(location.id, marker);
                 });
 
                 markerLayer.addTo(map);
@@ -459,6 +472,27 @@ export default function ClientLocationsMap({ locations = [] }) {
         };
     }, []);
 
+    const triggerMarkerClick = (location) => {
+        const marker = markerIndexRef.current.get(location.id);
+        const map = leafletMapRef.current;
+
+        if (!marker || !map) {
+            return;
+        }
+
+        if (mapContainerRef.current) {
+            const rect = mapContainerRef.current.getBoundingClientRect();
+            const isOutsideViewport = rect.top < 0 || rect.bottom > window.innerHeight;
+            if (isOutsideViewport) {
+                mapContainerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
+
+        const latlng = marker.getLatLng();
+        map.flyTo(latlng, Math.max(map.getZoom(), MAX_AUTO_ZOOM), { animate: true, duration: 0.8 });
+        marker.openPopup();
+    };
+
     return (
         <div className="space-y-5">
             <div className="overflow-hidden rounded-[1.9rem] border border-[var(--color-border-soft)] bg-white shadow-[0_22px_56px_rgba(15,23,42,0.08)]">
@@ -486,66 +520,113 @@ export default function ClientLocationsMap({ locations = [] }) {
                         <button
                             type="button"
                             onClick={() => {
-                                setProvinceFilter("");
-                                setIsProvinceMenuOpen((current) => !current);
+                                setIsProvinceMenuOpen((current) => {
+                                    const next = !current;
+                                    if (next) {
+                                        const selectedIndex = filteredProvinces.indexOf(effectiveSelectedProvince);
+                                        setActiveProvinceIndex(selectedIndex >= 0 ? selectedIndex : 0);
+                                    }
+                                    return next;
+                                });
                             }}
                             className="flex w-full items-center justify-between gap-3 rounded-[1.1rem] border border-[rgba(15,23,42,0.12)] bg-white px-4 py-3 text-left text-[0.95rem] font-semibold text-[var(--color-text-strong)] shadow-[0_10px_24px_rgba(15,23,42,0.06)] sm:text-[0.98rem]"
                             aria-haspopup="listbox"
                             aria-expanded={isProvinceMenuOpen}
                         >
                             <span className="truncate">{effectiveSelectedProvince || "Pilih provinsi"}</span>
-                            <span className="shrink-0 text-[0.95rem] text-slate-500">{isProvinceMenuOpen ? "▴" : "▾"}</span>
+                            <FiChevronDown
+                                aria-hidden="true"
+                                className={`shrink-0 text-[1.1rem] text-slate-500 transition-transform duration-200 ease-out ${
+                                    isProvinceMenuOpen ? "rotate-180" : "rotate-0"
+                                }`}
+                            />
                         </button>
 
-                        {isProvinceMenuOpen ? (
-                            <div
-                                role="listbox"
-                                className="absolute left-0 right-0 top-[calc(100%+10px)] z-40 overflow-hidden rounded-[1.1rem] border border-[rgba(15,23,42,0.12)] bg-white shadow-[0_22px_52px_rgba(15,23,42,0.14)]"
-                            >
-                                <div className="max-h-[240px] overflow-auto">
-                                    <div className="sticky top-0 z-10 border-b border-[rgba(15,23,42,0.1)] bg-white p-2.5">
-                                        <input
-                                            ref={provinceInputRef}
-                                            type="text"
-                                            value={provinceFilter}
-                                            onChange={(event) => setProvinceFilter(event.target.value)}
-                                            placeholder="Cari provinsi (opsional)"
-                                            className="w-full rounded-[0.95rem] border border-[rgba(15,23,42,0.12)] bg-[rgba(244,248,251,0.9)] px-3.5 py-2.5 text-[0.92rem] font-medium text-[var(--color-text-strong)] outline-none transition placeholder:text-slate-400 focus:border-[rgba(0,194,255,0.35)] focus:bg-white"
-                                            aria-label="Cari provinsi"
-                                        />
-                                    </div>
+                        <div
+                            role="listbox"
+                            aria-hidden={!isProvinceMenuOpen}
+                            className={`absolute left-0 right-0 top-[calc(100%+10px)] z-40 overflow-hidden rounded-[1.1rem] border border-[rgba(15,23,42,0.12)] bg-white shadow-[0_22px_52px_rgba(15,23,42,0.14)] transition-[max-height,opacity,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                                isProvinceMenuOpen
+                                    ? "pointer-events-auto max-h-[280px] opacity-100 translate-y-0"
+                                    : "pointer-events-none max-h-0 opacity-0 -translate-y-2"
+                            }`}
+                        >
+                            <div className="max-h-[280px] overflow-auto">
+                                <div className="sticky top-0 z-10 border-b border-[rgba(15,23,42,0.1)] bg-white p-2.5">
+                                    <input
+                                        ref={provinceInputRef}
+                                        type="text"
+                                        value={provinceFilter}
+                                        onChange={(event) => {
+                                            setProvinceFilter(event.target.value);
+                                            setActiveProvinceIndex(0);
+                                        }}
+                                        onKeyDown={(event) => {
+                                            if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+                                                event.preventDefault();
+                                                if (!filteredProvinces.length) return;
 
-                                    <div className="py-1">
+                                                const delta = event.key === "ArrowDown" ? 1 : -1;
+                                                setActiveProvinceIndex((current) => {
+                                                    return (current + delta + filteredProvinces.length) % filteredProvinces.length;
+                                                });
+                                                return;
+                                            }
+
+                                            if (event.key === "Enter") {
+                                                if (!filteredProvinces.length) return;
+                                                event.preventDefault();
+                                                const nextProvince =
+                                                    filteredProvinces[activeProvinceIndex] ?? filteredProvinces[0];
+                                                if (nextProvince) {
+                                                    setSelectedProvince(nextProvince);
+                                                }
+                                                setIsProvinceMenuOpen(false);
+                                            }
+                                        }}
+                                        placeholder="Cari provinsi (opsional)"
+                                        className="w-full rounded-[0.95rem] border border-[rgba(15,23,42,0.12)] bg-[rgba(244,248,251,0.9)] px-3.5 py-2.5 text-[0.92rem] font-medium text-[var(--color-text-strong)] outline-none transition placeholder:text-slate-400 focus:border-[rgba(0,194,255,0.35)] focus:bg-white"
+                                        aria-label="Cari provinsi"
+                                    />
+                                </div>
+
+                                <div className="py-1">
                                     {filteredProvinces.length ? (
-                                        filteredProvinces.map((province) => {
-                                        const isActive = province === effectiveSelectedProvince;
+                                        filteredProvinces.map((province, index) => {
+                                            const isActive = province === effectiveSelectedProvince;
 
-                                        return (
-                                            <button
-                                                key={province}
-                                                type="button"
-                                                role="option"
-                                                aria-selected={isActive}
-                                                onClick={() => {
-                                                    setSelectedProvince(province);
-                                                    setIsProvinceMenuOpen(false);
-                                                }}
-                                                className="flex w-full items-center justify-between px-4 py-3 text-left text-[0.95rem] font-medium text-slate-700 hover:bg-[rgba(14,165,233,0.06)]"
-                                            >
-                                                <span className="truncate">{province}</span>
-                                                {isActive ? (
-                                                    <span className="text-[0.95rem] text-[var(--color-primary-700)]">✓</span>
-                                                ) : null}
-                                            </button>
-                                        );
+                                            return (
+                                                <button
+                                                    key={province}
+                                                    type="button"
+                                                    role="option"
+                                                    aria-selected={isActive}
+                                                    ref={(node) => {
+                                                        if (node) provinceOptionRefs.current[index] = node;
+                                                    }}
+                                                    onClick={() => {
+                                                        setSelectedProvince(province);
+                                                        setActiveProvinceIndex(index);
+                                                        setIsProvinceMenuOpen(false);
+                                                    }}
+                                                    className={`flex w-full items-center justify-between px-4 py-3 text-left text-[0.95rem] font-medium transition ${
+                                                        isActive
+                                                            ? "bg-[rgba(38,51,67,0.12)] text-slate-900"
+                                                            : "text-slate-700 hover:bg-[rgba(14,165,233,0.06)]"
+                                                    } ${index === activeProvinceIndex ? "ring-1 ring-[rgba(0,194,255,0.28)]" : ""}`}
+                                                >
+                                                    <span className="truncate">{province}</span>
+                                                </button>
+                                            );
                                         })
                                     ) : (
-                                        <div className="px-4 py-3 text-[0.92rem] text-slate-500">Provinsi tidak ditemukan.</div>
+                                        <div className="px-4 py-3 text-[0.92rem] text-slate-500">
+                                            Provinsi tidak ditemukan.
+                                        </div>
                                     )}
-                                    </div>
                                 </div>
                             </div>
-                        ) : null}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -554,7 +635,16 @@ export default function ClientLocationsMap({ locations = [] }) {
                 {filteredLocations.map((location, index) => (
                     <article
                         key={location.id}
-                        className="group relative overflow-hidden rounded-[1.45rem] border border-[var(--color-border-soft)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(244,248,251,0.96))] p-5 shadow-[0_18px_42px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:border-[rgba(0,194,255,0.22)] hover:shadow-[0_24px_52px_rgba(15,23,42,0.1)] sm:rounded-[1.65rem] sm:p-6"
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => triggerMarkerClick(location)}
+                        onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                                event.preventDefault();
+                                triggerMarkerClick(location);
+                            }
+                        }}
+                        className="group relative cursor-pointer overflow-hidden rounded-[1.45rem] border border-[var(--color-border-soft)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(244,248,251,0.96))] p-5 shadow-[0_18px_42px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:border-[rgba(0,194,255,0.22)] hover:shadow-[0_24px_52px_rgba(15,23,42,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(0,194,255,0.35)] sm:rounded-[1.65rem] sm:p-6"
                     >
                         <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,rgba(0,194,255,0),rgba(0,194,255,0.75),rgba(0,194,255,0))]" />
 

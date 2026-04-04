@@ -18,7 +18,7 @@ function getIconLabel(icon) {
     }
 }
 
-export default function ServicesSection({ servicesData, coverageLocations = [], clients = [] }) {
+export default function ServicesSection({ servicesData, coverageLocations = [] }) {
     return (
         <SectionShell
             id="layanan"
@@ -88,60 +88,6 @@ export default function ServicesSection({ servicesData, coverageLocations = [], 
                 ))}
             </RevealStagger>
 
-            {clients?.length ? (
-                <div className="mt-10 sm:mt-12 sm:overflow-hidden sm:rounded-[2.6rem] sm:border sm:border-[rgba(186,214,228,0.88)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(241,248,252,0.96))] sm:p-7 sm:shadow-[0_28px_70px_rgba(72,155,214,0.1)] lg:p-8">
-                    <div className="grid gap-4 border-b border-[rgba(14,165,233,0.12)] pb-6 sm:gap-5 sm:pb-7">
-                        <div>
-                            <p className="label-size uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
-                                Bukti Pelanggan
-                            </p>
-                            <h3 className="mt-3 font-display text-[1.55rem] uppercase leading-[0.98] text-[var(--color-text-strong)] sm:content-title-size sm:mt-4 sm:leading-[0.94]">
-                                Klien utama yang sudah dipercaya
-                            </h3>
-                        </div>
-                    </div>
-
-                    <RevealStagger as="div" className="mt-6 grid gap-0 sm:mt-7 sm:gap-6 lg:grid-cols-2" stagger={70}>
-                        {clients.map((client, index) => (
-                            <article
-                                key={client.name}
-                                className="group relative overflow-visible border-b border-[rgba(15,23,42,0.1)] py-7 last:border-b-0 sm:overflow-hidden sm:rounded-[2.3rem] sm:border sm:border-[rgba(186,214,228,0.85)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(244,249,252,0.97))] sm:p-7 sm:shadow-[0_24px_60px_rgba(72,155,214,0.1)] sm:backdrop-blur-md sm:transition sm:duration-300 sm:hover:-translate-y-1 sm:hover:border-[rgba(0,194,255,0.28)] sm:hover:shadow-[0_30px_72px_rgba(72,155,214,0.16)]"
-                            >
-                                <div className="pointer-events-none absolute inset-x-10 top-0 hidden h-24 bg-[radial-gradient(circle,rgba(0,194,255,0.12)_0%,rgba(0,194,255,0)_72%)] blur-2xl sm:block" />
-                                <div className="pointer-events-none absolute right-0 top-0 hidden h-36 w-36 translate-x-8 -translate-y-8 rounded-full bg-[radial-gradient(circle,rgba(88,182,197,0.12)_0%,rgba(88,182,197,0)_72%)] blur-2xl sm:block" />
-
-                                <div className="relative z-10">
-                                    <div className="flex items-start justify-between gap-4">
-                                        <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(14,165,233,0.1)] text-[var(--color-primary-700)] sm:h-14 sm:w-14 sm:rounded-[1.2rem] sm:border sm:border-[rgba(14,165,233,0.16)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,1),rgba(241,248,252,0.96))] sm:shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_12px_28px_rgba(72,155,214,0.08)]">
-                                            <FiBriefcase className="text-[1.15rem] sm:text-[1.4rem]" />
-                                        </div>
-                                        <span className="inline-flex min-w-[2.6rem] items-center justify-center rounded-full border border-[rgba(15,23,42,0.12)] bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-strong)] shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
-                                            {String(index + 1).padStart(2, "0")}
-                                        </span>
-                                    </div>
-
-                                    <p className="label-size mt-5 uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
-                                        Pelanggan Setia
-                                    </p>
-                                    <h3 className="mt-4 font-display text-[1.55rem] uppercase leading-[0.98] text-[var(--color-text-strong)] sm:content-title-size sm:leading-[0.94]">
-                                        {client.name}
-                                    </h3>
-
-                                    <div className="mt-5 h-px w-full bg-[linear-gradient(90deg,rgba(0,194,255,0.26),rgba(15,23,42,0.08),rgba(0,194,255,0))]" />
-
-                                    <div className="mt-5 flex items-start gap-3">
-                                        <FiMapPin className="mt-1 shrink-0 text-[1rem] text-[var(--color-primary-700)]" />
-                                        <p className="descriptive-copy text-[0.98rem] leading-8 text-[var(--color-text-secondary)]">
-                                            {client.address}
-                                        </p>
-                                    </div>
-                                </div>
-                            </article>
-                        ))}
-                    </RevealStagger>
-                </div>
-            ) : null}
-
             {coverageLocations.length ? (
                 <div className="mt-10 sm:mt-12 sm:overflow-hidden sm:rounded-[2.6rem] sm:border sm:border-[rgba(186,214,228,0.88)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(241,248,252,0.96))] sm:p-7 sm:shadow-[0_28px_70px_rgba(72,155,214,0.1)] lg:p-8">
                     <div className="grid gap-4 border-b border-[rgba(14,165,233,0.12)] pb-6 sm:gap-5 sm:pb-7">
@@ -150,11 +96,10 @@ export default function ServicesSection({ servicesData, coverageLocations = [], 
                                 Peta Lokasi
                             </p>
                             <h3 className="mt-3 font-display text-[1.55rem] uppercase leading-[0.98] text-[var(--color-text-strong)] sm:content-title-size sm:mt-4 sm:leading-[0.94]">
-                                Pelayanan CV Karya Indah di berbagai provinsi
+                                Pelanggan Kami Berada di Berbagai Provinsi
                             </h3>
                         </div>
                     </div>
-
                     <div className="mt-6 sm:mt-6">
                         <ClientLocationsMap locations={coverageLocations} />
                     </div>
