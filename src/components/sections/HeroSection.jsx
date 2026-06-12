@@ -68,9 +68,9 @@ export default function HeroSection({ companyData, onNavigate }) {
 
 
             {/* ── Dipercaya oleh Perusahaan ── */}
-            <div className="bg-slate-50 py-16 sm:py-20 overflow-hidden">
+            <div className="bg-slate-50 py-12 sm:py-16 lg:py-20 overflow-hidden">
                 <Reveal as="div" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="mx-auto max-w-2xl text-center mb-10">
+                    <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-10">
                         <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
                             Pelanggan
                         </p>
@@ -102,7 +102,7 @@ export default function HeroSection({ companyData, onNavigate }) {
                     ))}
                 </div>
 
-                <Reveal as="div" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 text-center" delay={80}>
+                <Reveal as="div" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10 text-center" delay={80}>
                     <button
                         onClick={(e) => onNavigate(e, "/pelanggan")}
                         className="btn btn-primary"
@@ -113,10 +113,10 @@ export default function HeroSection({ companyData, onNavigate }) {
             </div>
 
             {/* ── Mengapa Pilih Kami ── */}
-            <div className="bg-white px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+            <div className="bg-white px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
                 <div className="mx-auto max-w-7xl">
                     <Reveal as="div">
-                        <div className="mx-auto max-w-2xl text-center mb-12">
+                        <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-12">
                             <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
                                 Keunggulan
                             </p>
@@ -135,38 +135,38 @@ export default function HeroSection({ companyData, onNavigate }) {
                             return (
                                 <div
                                     key={item.title}
-                                    className="rounded-2xl bg-[var(--color-primary-50)] p-7 transition duration-300 hover:-translate-y-1 hover:shadow-md"
+                                    className="rounded-2xl bg-[var(--color-primary-50)] p-5 sm:p-7 transition duration-300 hover:-translate-y-1 hover:shadow-md"
                                 >
-                                    <div className="mb-6">
-                                        <Icon className="text-[2.6rem] text-gray-900 stroke-[1.4]" />
+                                    <div className="mb-4 sm:mb-6">
+                                        <Icon className="text-[2.2rem] sm:text-[2.6rem] text-gray-900 stroke-[1.4]" />
                                     </div>
-                                    <h3 className="font-bold text-[1.15rem] text-gray-900 mb-3">{item.title}</h3>
-                                    <p className="text-[0.9rem] leading-7 text-gray-600">{item.description}</p>
+                                    <h3 className="font-bold text-[1.05rem] sm:text-[1.15rem] text-gray-900 mb-2 sm:mb-3">{item.title}</h3>
+                                    <p className="text-[0.88rem] sm:text-[0.9rem] leading-6 sm:leading-7 text-gray-600">{item.description}</p>
                                 </div>
                             );
                         })}
                     </RevealStagger>
 
-                    <Reveal as="div" className="mt-12">
-                        <div className="rounded-2xl bg-[var(--color-primary-600)] px-8 py-10 text-center text-white">
-                            <h3 className="font-bold text-[1.5rem] sm:text-[1.8rem] mb-3">
+                    <Reveal as="div" className="mt-8 sm:mt-12">
+                        <div className="rounded-2xl bg-[var(--color-primary-600)] px-5 py-8 sm:px-8 sm:py-10 text-center text-white">
+                            <h3 className="font-bold text-[1.25rem] sm:text-[1.5rem] lg:text-[1.8rem] mb-3">
                                 Siap Mulai Proyek Anda?
                             </h3>
-                            <p className="text-white/80 text-[0.97rem] mb-7 max-w-xl mx-auto">
+                            <p className="text-white/80 text-[0.92rem] sm:text-[0.97rem] mb-5 sm:mb-7 max-w-xl mx-auto">
                                 Konsultasikan kebutuhan branding, signage, atau konstruksi visual bisnis Anda bersama tim CV Karya Indah.
                             </p>
-                            <div className="flex flex-wrap justify-center gap-3">
+                            <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3">
                                 <a
                                     href="https://wa.me/628975836972?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[0.9rem] font-bold text-[var(--color-primary-700)] transition hover:bg-white/90"
+                                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-[0.88rem] sm:text-[0.9rem] font-bold text-[var(--color-primary-700)] transition hover:bg-white/90"
                                 >
                                     Hubungi via WhatsApp
                                 </a>
                                 <button
                                     onClick={(e) => onNavigate(e, "/kontak")}
-                                    className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-[0.9rem] font-bold text-white transition hover:bg-white/10"
+                                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-6 py-3 text-[0.88rem] sm:text-[0.9rem] font-bold text-white transition hover:bg-white/10"
                                 >
                                     Form Kontak
                                 </button>
@@ -187,7 +187,7 @@ function ClientLogoCard({ client }) {
                 <img
                     src={client.logo}
                     alt={client.shortName}
-                    className={`${client.logoClass ?? "max-h-14"} max-w-[160px] object-contain`}
+                    className={`${client.logoClass ?? "max-h-10"} max-w-[140px] object-contain`}
                     onError={(e) => {
                         e.currentTarget.style.display = "none";
                         e.currentTarget.nextSibling.style.display = "flex";

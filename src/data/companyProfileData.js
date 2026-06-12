@@ -189,19 +189,19 @@ export const logoPartners = [
     { shortName: "Pertamina",   logo: "/slider/pertamina.png",         initials: "PT" },
     { shortName: "Telkom",      logo: "/slider/telkom.png",           initials: "TK" },
     // Baris 2
-    { shortName: "BRI",         logo: "/slider/BRI.png",              initials: "BR", logoClass: "max-h-[52px]" },
+    { shortName: "BRI",         logo: "/slider/BRI.png",              initials: "BR", logoClass: "max-h-[38px]" },
     { shortName: "Bank Mandiri",logo: "/slider/Mandiri.png",          initials: "MD" },
-    { shortName: "BNI",         logo: "/slider/BNI.png",              initials: "BN", logoClass: "max-h-[52px]" },
-    { shortName: "PLN",         logo: "/slider/PLN.png",              initials: "PN", logoClass: "max-h-[60px]" },
+    { shortName: "BNI",         logo: "/slider/BNI.png",              initials: "BN", logoClass: "max-h-[38px]" },
+    { shortName: "PLN",         logo: "/slider/PLN.png",              initials: "PN", logoClass: "max-h-[44px]" },
     { shortName: "Garuda",      logo: "/slider/Garuda.png",           initials: "GA" },
     { shortName: "Indomaret",   logo: "/slider/Indomaret.png",        initials: "IM" },
     // Baris 3
     { shortName: "Alfamart",    logo: "/slider/alfamaret.png",        initials: "AF" },
     { shortName: "Indofood",    logo: "/slider/indofood.png",         initials: "IF" },
-    { shortName: "Sido Muncul", logo: "/slider/sidomuncul.png",       initials: "SM", logoClass: "max-h-[52px]" },
-    { shortName: "Astra",       logo: "/slider/astra.png",            initials: "AS", logoClass: "max-h-[52px]" },
-    { shortName: "Kalbe Farma", logo: "/slider/kalbe%20farma.png",    initials: "KF", logoClass: "max-h-[52px]" },
-    { shortName: "Kimia Farma", logo: "/slider/kimia%20farma.png",    initials: "KM", logoClass: "max-h-[52px]" },
+    { shortName: "Sido Muncul", logo: "/slider/sidomuncul.png",       initials: "SM", logoClass: "max-h-[38px]" },
+    { shortName: "Astra",       logo: "/slider/astra.png",            initials: "AS", logoClass: "max-h-[38px]" },
+    { shortName: "Kalbe Farma", logo: "/slider/kalbe%20farma.png",    initials: "KF", logoClass: "max-h-[38px]" },
+    { shortName: "Kimia Farma", logo: "/slider/kimia%20farma.png",    initials: "KM", logoClass: "max-h-[38px]" },
 ];
 
 export const reviews = [
