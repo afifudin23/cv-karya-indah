@@ -1,110 +1,147 @@
-import SectionShell from "../ui/SectionShell";
+import { FiPenTool, FiGrid, FiPrinter, FiTool } from "react-icons/fi";
 import ClientLocationsMap from "../ui/ClientLocationsMap";
-import { RevealStagger } from "../ui/Reveal";
-import { FiBriefcase, FiMapPin } from "react-icons/fi";
+import { Reveal, RevealStagger } from "../ui/Reveal";
 
-function getIconLabel(icon) {
-    switch (icon) {
-        case "exterior":
-            return "EG";
-        case "interior":
-            return "IG";
-        case "printer":
-            return "DP";
-        case "tools":
-            return "KS";
-        default:
-            return "KI";
-    }
-}
+const iconMap = {
+    exterior: FiPenTool,
+    interior: FiGrid,
+    printer:  FiPrinter,
+    tools:    FiTool,
+};
 
 export default function ServicesSection({ servicesData, coverageLocations = [] }) {
     return (
-        <SectionShell
-            id="layanan"
-            tone="light"
-            paddingClassName="pb-20 pt-28 sm:pt-32"
-            eyebrow="Layanan"
-            title="Layanan Utama"
-            intro="Empat kategori layanan utama kami disusun agar lebih rapi, mudah dipindai, dan tetap mencerminkan karakter premium CV Karya Indah."
-            sectionClassName="border-y border-[rgba(196,223,235,0.86)] bg-[linear-gradient(180deg,#f9fcfe_0%,#eef5fa_50%,#f7fbfd_100%)]"
-        >
-            <RevealStagger as="div" className="grid gap-0 sm:gap-6 lg:grid-cols-2" stagger={90}>
-                {servicesData.map((service) => (
-                    <article
-                        key={service.title}
-                        className="group relative overflow-visible border-b border-[rgba(15,23,42,0.1)] py-7 last:border-b-0 sm:overflow-hidden sm:rounded-[2.3rem] sm:border sm:border-[rgba(186,214,228,0.85)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(244,249,252,0.97))] sm:p-7 sm:shadow-[0_24px_60px_rgba(72,155,214,0.1)] sm:backdrop-blur-md sm:transition sm:duration-300 sm:hover:-translate-y-1 sm:hover:border-[rgba(0,194,255,0.28)] sm:hover:shadow-[0_30px_72px_rgba(72,155,214,0.16)]"
-                    >
-                        <div className="pointer-events-none absolute inset-x-10 top-0 hidden h-24 bg-[radial-gradient(circle,rgba(0,194,255,0.12)_0%,rgba(0,194,255,0)_72%)] blur-2xl sm:block" />
-                        <div className="pointer-events-none absolute right-0 top-0 hidden h-36 w-36 translate-x-8 -translate-y-8 rounded-full bg-[radial-gradient(circle,rgba(88,182,197,0.12)_0%,rgba(88,182,197,0)_72%)] blur-2xl sm:block" />
+        <section id="layanan">
 
-                        <div className="relative z-10">
-                            <div className="flex items-start justify-between gap-4">
-                                <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(14,165,233,0.1)] text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-primary-700)] sm:h-14 sm:w-14 sm:rounded-[1.2rem] sm:border sm:border-[rgba(14,165,233,0.16)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,1),rgba(241,248,252,0.96))] sm:text-sm sm:shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_12px_28px_rgba(72,155,214,0.08)]">
-                                    {getIconLabel(service.icon)}
-                                </div>
-                                <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--color-primary-900)] sm:rounded-full sm:border sm:border-[rgba(14,165,233,0.18)] sm:bg-[rgba(240,248,252,0.96)] sm:px-3 sm:py-2 sm:shadow-[inset_0_1px_0_rgba(255,255,255,0.88)]">
-                                    {service.icon}
-                                </span>
-                            </div>
-
-                            <h3 className="mt-5 font-display text-[1.55rem] uppercase leading-[0.98] text-[var(--color-text-strong)] sm:content-title-size sm:mt-6 sm:leading-[0.94]">
-                                {service.title}
-                            </h3>
-
-                            <div className="mt-4 overflow-hidden rounded-[1.2rem] bg-transparent sm:mt-5 sm:rounded-[1.7rem] sm:border sm:border-[rgba(190,219,231,0.88)] sm:bg-white sm:shadow-[0_18px_44px_rgba(72,155,214,0.1)]">
-                                <div className="relative aspect-[16/9] max-h-[250px] w-full overflow-hidden">
-                                    <img
-                                        src={service.image}
-                                        alt={service.imageAlt || service.title}
-                                        className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                                        loading="lazy"
-                                        referrerPolicy="no-referrer"
-                                    />
-                                    <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(11,30,45,0.08))] sm:block" />
-                                </div>
-                            </div>
-
-                            <p className="descriptive-copy mt-4 max-w-2xl text-[0.94rem] leading-7 text-[var(--color-text-secondary)] sm:text-[1.04rem] sm:leading-8">
-                                {service.description}
-                            </p>
-
-                            <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-primary-900)] sm:hidden">
-                                {service.items.join(" • ")}
-                            </p>
-
-                            <div className="mt-6 hidden flex-wrap gap-3 sm:flex">
-                                {service.items.map((item) => (
-                                    <span
-                                        key={item}
-                                        className="rounded-full border border-[rgba(14,165,233,0.18)] bg-[linear-gradient(180deg,rgba(248,252,254,0.98),rgba(236,245,250,0.96))] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--color-primary-900)] shadow-[0_10px_24px_rgba(72,155,214,0.08)]"
-                                    >
-                                        {item}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </article>
-                ))}
-            </RevealStagger>
-
-            {coverageLocations.length ? (
-                <div className="mt-10 sm:mt-12 sm:overflow-hidden sm:rounded-[2.6rem] sm:border sm:border-[rgba(186,214,228,0.88)] sm:bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(241,248,252,0.96))] sm:p-7 sm:shadow-[0_28px_70px_rgba(72,155,214,0.1)] lg:p-8">
-                    <div className="grid gap-4 border-b border-[rgba(14,165,233,0.12)] pb-6 sm:gap-5 sm:pb-7">
-                        <div>
-                            <p className="label-size uppercase tracking-[0.3em] text-[var(--color-primary-700)]">
-                                Peta Lokasi
-                            </p>
-                            <h3 className="mt-3 font-display text-[1.55rem] uppercase leading-[0.98] text-[var(--color-text-strong)] sm:content-title-size sm:mt-4 sm:leading-[0.94]">
-                                Pelanggan Kami Berada di Berbagai Provinsi
-                            </h3>
-                        </div>
+            {/* ── Hero full-bleed ── */}
+            <div className="relative flex items-center justify-center overflow-hidden pt-[var(--header-height)] min-h-[100svh]">
+                <img
+                    src="/jasa_layanan_prof.jpg"
+                    alt="Layanan CV Karya Indah"
+                    className="absolute inset-0 h-full w-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-black/60" />
+                <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 text-center text-white sm:px-12">
+                    <h1 className="font-bold text-[2.4rem] leading-tight sm:text-[3.5rem]">
+                        Solusi Visual Bisnis<br />Terlengkap
+                    </h1>
+                    <p className="mx-auto mt-5 max-w-2xl text-[1rem] leading-relaxed text-white/80">
+                        Dari signage eksterior, interior branded, cetak digital, hingga konstruksi visual —
+                        semua dikerjakan dalam satu ekosistem kerja yang presisi dan profesional.
+                    </p>
+                    <div className="mt-7 flex flex-wrap justify-center gap-2">
+                        {["Exterior Goods", "Interior Goods", "Digital Printing", "Konstruksi"].map((p) => (
+                            <span
+                                key={p}
+                                className="rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm"
+                            >
+                                {p}
+                            </span>
+                        ))}
                     </div>
-                    <div className="mt-6 sm:mt-6">
-                        <ClientLocationsMap locations={coverageLocations} />
+                </div>
+            </div>
+
+            {/* ── Services Grid ── */}
+            <div className="bg-slate-50 py-20 sm:py-24">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                    <Reveal as="div" className="mx-auto max-w-2xl text-center mb-14">
+                        <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
+                            Layanan
+                        </p>
+                        <h2 className="font-bold text-[2rem] sm:text-[2.5rem] leading-tight text-gray-900">
+                            Layanan Utama Kami
+                        </h2>
+                        <p className="mt-4 text-[0.97rem] leading-relaxed text-gray-500">
+                            Empat kategori layanan untuk mendukung kebutuhan branding, signage, interior, dan konstruksi visual bisnis Anda.
+                        </p>
+                    </Reveal>
+
+                    <RevealStagger as="div" className="grid gap-7 lg:grid-cols-2" stagger={90}>
+                        {servicesData.map((service) => {
+                            const Icon = iconMap[service.icon] ?? FiTool;
+                            return (
+                                <article
+                                    key={service.title}
+                                    className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                                >
+                                    {/* Image */}
+                                    <div className="aspect-[16/9] overflow-hidden">
+                                        <img
+                                            src={service.image}
+                                            alt={service.imageAlt || service.title}
+                                            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                                            loading="lazy"
+                                        />
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="flex flex-1 flex-col p-7">
+
+                                        {/* Icon + Title */}
+                                        <div className="mb-4 flex items-center gap-3">
+                                            <div className="shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-primary-50)]">
+                                                <Icon className="text-[1.2rem] text-[var(--color-primary-600)] stroke-[1.5]" />
+                                            </div>
+                                            <h3 className="font-bold text-[1.25rem] text-gray-900 leading-snug">
+                                                {service.title}
+                                            </h3>
+                                        </div>
+
+                                        {/* Description */}
+                                        <p className="mb-5 text-[0.95rem] leading-7 text-gray-500">
+                                            {service.description}
+                                        </p>
+
+                                        {/* Highlight callout */}
+                                        <div className="mb-5 flex items-start gap-3 rounded-xl bg-[var(--color-primary-50)] px-4 py-3">
+                                            <span className="mt-[5px] h-2 w-2 shrink-0 rounded-full bg-[var(--color-primary-500)]" />
+                                            <p className="text-[0.85rem] font-medium leading-relaxed text-[var(--color-primary-700)]">
+                                                {service.highlight}
+                                            </p>
+                                        </div>
+
+                                        {/* Item pills */}
+                                        <div className="mt-auto flex flex-wrap gap-2">
+                                            {service.items.map((item) => (
+                                                <span
+                                                    key={item}
+                                                    className="rounded-full bg-slate-100 px-3 py-1 text-[0.72rem] font-semibold text-gray-600"
+                                                >
+                                                    {item}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </article>
+                            );
+                        })}
+                    </RevealStagger>
+                </div>
+            </div>
+
+            {/* ── Coverage map ── */}
+            {coverageLocations.length ? (
+                <div className="bg-white py-20 sm:py-24">
+                    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <Reveal as="div" className="mb-10">
+                            <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
+                                Peta Jangkauan
+                            </p>
+                            <h3 className="font-bold text-[2rem] sm:text-[2.4rem] text-gray-900">
+                                Pelanggan Kami di Berbagai Provinsi
+                            </h3>
+                        </Reveal>
+                        <Reveal as="div" delay={60}>
+                            <div className="rounded-2xl border border-gray-100 bg-slate-50 p-6 lg:p-8">
+                                <ClientLocationsMap locations={coverageLocations} />
+                            </div>
+                        </Reveal>
                     </div>
                 </div>
             ) : null}
-        </SectionShell>
+
+        </section>
     );
 }

@@ -1,26 +1,27 @@
 import SectionShell from '../ui/SectionShell'
+import { RevealStagger } from '../ui/Reveal'
 
 export default function WorkspacesSection({ workspaces }) {
   return (
     <SectionShell
       tone="light"
-      eyebrow="Office & Workshop"
+      eyebrow="Fasilitas"
       title="Fasilitas Kerja"
-      intro="Bagian ini mengikuti daftar ruang dan workshop yang muncul di PDF, lalu dikemas sebagai grid informasi agar tetap ringan dilihat."
+      intro="Ruang kantor, area koordinasi, dan workshop yang dimiliki CV Karya Indah untuk mendukung kesiapan produksi dan operasional setiap proyek."
     >
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <RevealStagger as="div" className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" stagger={60}>
         {workspaces.map((space, index) => (
           <div
             key={space}
-            className="rounded-[1.6rem] border border-black/5 bg-white p-5 shadow-[0_12px_30px_rgba(5,20,27,0.05)]"
+            className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
           >
-            <div className="label-size mb-4 uppercase tracking-[0.3em] text-[var(--teal-deep)]">
+            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-blue-100 bg-blue-50 text-[0.8rem] font-bold text-[var(--color-primary-700)]">
               {String(index + 1).padStart(2, '0')}
             </div>
-            <h3 className="font-display text-2xl uppercase text-[var(--ink-strong)]">{space}</h3>
+            <h3 className="font-bold text-[1.05rem] leading-snug text-gray-900">{space}</h3>
           </div>
         ))}
-      </div>
+      </RevealStagger>
     </SectionShell>
   )
 }

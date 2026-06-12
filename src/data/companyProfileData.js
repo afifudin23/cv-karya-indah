@@ -10,8 +10,8 @@ export const companyData = {
     phones: ["(0283) 356838", "(0283) 358024"],
     email: "karya.indah.tg@gmail.com",
     director: "Sunarto Wijaya",
-    vision: "To Be One Stop Advertising Service",
-    mission: "Memberikan kepuasan kepada klien melalui mutu dan kecepatan layanan.",
+    vision: "To Be One Stop Advertising Service — menjadi mitra terpercaya yang menyediakan solusi periklanan dan konstruksi visual secara menyeluruh, dari perencanaan hingga instalasi.",
+    mission: "Memberikan kepuasan kepada klien melalui mutu dan kecepatan layanan — dengan produk berkualitas tinggi, pengerjaan terstruktur, dan komunikasi yang responsif di setiap tahap proyek.",
     businessType: "Jasa Periklanan & Konstruksi",
     bank: {
         name: "Bank Central Asia Cabang Tegal",
@@ -152,24 +152,56 @@ export const inventories = {
 export const clients = [
     {
         name: "PT. YAMAHA INDONESIA MOTOR MANUFACTURING",
+        shortName: "Yamaha Indonesia",
+        logo: "/slider/yamaha.png",
         address: "Jl. DR. KRT Radjiman Widyodiningrat (Jl. Raya Bekasi Km. 23) Pulogadung, Jakarta Timur 13920",
         coordinates: { lat: -6.193056, lon: 106.9275 },
     },
     {
         name: "PT. AKUR PRATAMA",
+        shortName: "Yogya Group",
+        logo: "/slider/yogya.png",
         address: "Jl. Terusan Buah Batu No. 12, Batununggal, Kec. Bandung Kidul, Kota Bandung, Jawa Barat 40266",
         coordinates: { lat: -6.94975, lon: 107.6341 },
     },
     {
         name: "PT. SAYAP MAS UTAMA",
+        shortName: "Wings Group",
+        logo: "/slider/wings.png",
         address: "Kawasan Perluasan Utara PT. JIEP Jl. Tipar Cakung Kav F 5-7 Jakarta 13910",
         coordinates: { lat: -6.167778, lon: 106.926667 },
     },
     {
         name: "PT. TONG TJI TEA INDONESIA",
+        shortName: "Tong Tji Tea",
+        logo: "/slider/tongtji.png",
         address: "Jl. Raya Tegal-Pemalang Padaharja-Tegal",
         coordinates: { lat: -6.8429, lon: 109.0945 },
     },
+];
+
+export const logoPartners = [
+    // Baris 1
+    { shortName: "Yamaha",      logo: "/slider/yamaha.png",           initials: "YM" },
+    { shortName: "Yogya Group", logo: "/slider/yogya.png",            initials: "YG" },
+    { shortName: "Wings Group", logo: "/slider/wings.png",            initials: "WG" },
+    { shortName: "Tong Tji",    logo: "/slider/tongtji.png",          initials: "TT" },
+    { shortName: "Pertamina",   logo: "/slider/pertamina.png",         initials: "PT" },
+    { shortName: "Telkom",      logo: "/slider/telkom.png",           initials: "TK" },
+    // Baris 2
+    { shortName: "BRI",         logo: "/slider/BRI.png",              initials: "BR", logoClass: "max-h-[52px]" },
+    { shortName: "Bank Mandiri",logo: "/slider/Mandiri.png",          initials: "MD" },
+    { shortName: "BNI",         logo: "/slider/BNI.png",              initials: "BN", logoClass: "max-h-[52px]" },
+    { shortName: "PLN",         logo: "/slider/PLN.png",              initials: "PN", logoClass: "max-h-[60px]" },
+    { shortName: "Garuda",      logo: "/slider/Garuda.png",           initials: "GA" },
+    { shortName: "Indomaret",   logo: "/slider/Indomaret.png",        initials: "IM" },
+    // Baris 3
+    { shortName: "Alfamart",    logo: "/slider/alfamaret.png",        initials: "AF" },
+    { shortName: "Indofood",    logo: "/slider/indofood.png",         initials: "IF" },
+    { shortName: "Sido Muncul", logo: "/slider/sidomuncul.png",       initials: "SM", logoClass: "max-h-[52px]" },
+    { shortName: "Astra",       logo: "/slider/astra.png",            initials: "AS", logoClass: "max-h-[52px]" },
+    { shortName: "Kalbe Farma", logo: "/slider/kalbe%20farma.png",    initials: "KF", logoClass: "max-h-[52px]" },
+    { shortName: "Kimia Farma", logo: "/slider/kimia%20farma.png",    initials: "KM", logoClass: "max-h-[52px]" },
 ];
 
 export const reviews = [

@@ -513,10 +513,11 @@ export default function ClientLocationsMap({ locations = [] }) {
                 </div>
             </div>
 
-            <div className="rounded-[1.9rem] border border-white/10 bg-[linear-gradient(180deg,#263343_0%,#1f2b39_100%)] p-5 shadow-[0_26px_64px_rgba(17,43,57,0.18)] sm:p-6">
-                <div>
-                    <p className="label-size uppercase tracking-[0.3em] text-white/90">Provinsi</p>
-                    <div ref={provinceMenuRef} className="relative mt-3 w-full">
+            <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+                <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
+                    Filter Provinsi
+                </p>
+                <div ref={provinceMenuRef} className="relative w-full">
                         <button
                             type="button"
                             onClick={() => {
@@ -585,7 +586,7 @@ export default function ClientLocationsMap({ locations = [] }) {
                                             }
                                         }}
                                         placeholder="Cari provinsi (opsional)"
-                                        className="w-full rounded-[0.95rem] border border-[rgba(15,23,42,0.12)] bg-[rgba(244,248,251,0.9)] px-3.5 py-2.5 text-[0.92rem] font-medium text-[var(--color-text-strong)] outline-none transition placeholder:text-slate-400 focus:border-[rgba(0,194,255,0.35)] focus:bg-white"
+                                        className="w-full rounded-xl border border-gray-200 bg-slate-50 px-3.5 py-2.5 text-[0.92rem] font-medium text-gray-800 outline-none transition placeholder:text-slate-400 focus:border-[var(--color-primary-300)] focus:bg-white"
                                         aria-label="Cari provinsi"
                                     />
                                 </div>
@@ -611,9 +612,9 @@ export default function ClientLocationsMap({ locations = [] }) {
                                                     }}
                                                     className={`flex w-full items-center justify-between px-4 py-3 text-left text-[0.95rem] font-medium transition ${
                                                         isActive
-                                                            ? "bg-[rgba(38,51,67,0.12)] text-slate-900"
-                                                            : "text-slate-700 hover:bg-[rgba(14,165,233,0.06)]"
-                                                    } ${index === activeProvinceIndex ? "ring-1 ring-[rgba(0,194,255,0.28)]" : ""}`}
+                                                            ? "bg-[var(--color-primary-50)] text-[var(--color-primary-800)]"
+                                                            : "text-slate-700 hover:bg-[var(--color-primary-50)]"
+                                                    } ${index === activeProvinceIndex ? "ring-1 ring-[var(--color-primary-300)]" : ""}`}
                                                 >
                                                     <span className="truncate">{province}</span>
                                                 </button>
@@ -628,10 +629,8 @@ export default function ClientLocationsMap({ locations = [] }) {
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
-
-            <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">
+            <div className="grid gap-4 sm:grid-cols-2">
                 {filteredLocations.map((location, index) => (
                     <article
                         key={location.id}
@@ -644,31 +643,32 @@ export default function ClientLocationsMap({ locations = [] }) {
                                 triggerMarkerClick(location);
                             }
                         }}
-                        className="group relative cursor-pointer overflow-hidden rounded-[1.45rem] border border-[var(--color-border-soft)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(244,248,251,0.96))] p-5 shadow-[0_18px_42px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:border-[rgba(0,194,255,0.22)] hover:shadow-[0_24px_52px_rgba(15,23,42,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(0,194,255,0.35)] sm:rounded-[1.65rem] sm:p-6"
+                        className="group cursor-pointer rounded-2xl bg-[var(--color-primary-50)] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-300)]"
                     >
-                        <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,rgba(0,194,255,0),rgba(0,194,255,0.75),rgba(0,194,255,0))]" />
-
-                        <div className="flex items-start justify-between gap-4">
-                            <div className="inline-flex h-10 w-10 items-center justify-center rounded-[1rem] border border-[rgba(14,165,233,0.18)] bg-[rgba(14,165,233,0.08)] text-[var(--color-primary-900)] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
+                        {/* Top row: icon + number */}
+                        <div className="mb-5 flex items-start justify-between">
+                            <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[var(--color-primary-600)] shadow-sm">
                                 <FiBriefcase className="text-[1.05rem]" />
                             </div>
-                            <span className="inline-flex min-w-[2.6rem] items-center justify-center rounded-full border border-[rgba(15,23,42,0.12)] bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-strong)] shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
+                            <span className="text-[0.72rem] font-bold tabular-nums text-gray-400">
                                 {String(index + 1).padStart(2, "0")}
                             </span>
                         </div>
 
-                        <p className="mt-4 text-[10px] uppercase tracking-[0.28em] text-[var(--color-primary-700)]">
+                        {/* Province label */}
+                        <p className="mb-1 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-primary-600)]">
                             {location.province}
                         </p>
-                        <h3 className="mt-3 font-display text-[1.25rem] uppercase leading-[1] text-[var(--color-text-strong)] sm:text-[1.45rem]">
+
+                        {/* Company name */}
+                        <h3 className="font-bold text-[1.05rem] leading-snug text-gray-900 mb-4">
                             {location.companyName}
                         </h3>
 
-                        <div className="mt-4 h-px w-full bg-[linear-gradient(90deg,rgba(0,194,255,0.26),rgba(15,23,42,0.08),rgba(0,194,255,0))]" />
-
-                        <div className="mt-4 flex items-start gap-3">
-                            <FiMapPin className="mt-1 shrink-0 text-[0.95rem] text-[var(--color-primary-700)]" />
-                            <p className="text-[0.92rem] leading-7 text-[var(--color-text-secondary)]">
+                        {/* Location */}
+                        <div className="flex items-center gap-2">
+                            <FiMapPin className="shrink-0 text-[0.9rem] text-[var(--color-primary-500)]" />
+                            <p className="text-[0.88rem] text-gray-500">
                                 {location.city}, {location.province}
                             </p>
                         </div>

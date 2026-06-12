@@ -18,14 +18,16 @@ export default function OfficeWorkshopSection({
       title="Lingkungan Kerja"
       intro="Ruang kantor, area koordinasi, dan workshop ditampilkan sebagai bagian dari alur kerja CV Karya Indah agar klien dapat melihat kesiapan fasilitas, ritme produksi, dan dukungan operasional yang dimiliki perusahaan."
     >
-      <ShowcaseGallery
-        items={officeWorkshopShowcaseItems}
-        showcaseEyebrow="Office & Workshop Showcase"
-        showcaseIntro="Dokumentasi area kerja dan workshop ditampilkan dengan pendekatan visual yang sama agar suasananya tetap rapi, modern, dan mudah dipindai."
-        counterLabel="Area"
-        metaLabel="Area No."
-        imageClassName="max-h-[310px] sm:max-h-[400px] lg:max-h-[310px] xl:max-h-[350px]"
-      />
+      <div className="mx-auto max-w-4xl">
+        <ShowcaseGallery
+          items={officeWorkshopShowcaseItems}
+          showcaseEyebrow="Office & Workshop Showcase"
+          showcaseIntro="Dokumentasi area kerja dan workshop ditampilkan dengan pendekatan visual yang sama agar suasananya tetap rapi, modern, dan mudah dipindai."
+          counterLabel="Area"
+          metaLabel="Area No."
+          imageClassName="max-h-[310px] sm:max-h-[400px] lg:max-h-[310px] xl:max-h-[350px]"
+        />
+      </div>
     </SectionShell>
   )
 }

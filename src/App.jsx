@@ -71,8 +71,8 @@ export default function App() {
             case "/pelanggan":
                 return (
                     <>
-                        <ReviewsSection />
                         <ClientsSection clients={clients} />
+                        <ReviewsSection />
                     </>
                 );
             case "/kontak":
@@ -81,7 +81,7 @@ export default function App() {
             default:
                 return (
                     <>
-                        <HeroSection companyData={companyData} heroImage={heroImage} />
+                        <HeroSection companyData={companyData} onNavigate={handleNavigate} />
                         <OfficeWorkshopSection id="office-workshop-home" />
                     </>
                 );

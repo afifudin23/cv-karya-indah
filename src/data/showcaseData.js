@@ -224,7 +224,7 @@ const baseOfficeWorkshopGallery = [
     category: 'Office Exterior',
     subtitle: 'Area depan kantor yang menjadi wajah pertama perusahaan',
     note:
-      'Tampilan depan kantor menegaskan identitas CV Karya Indah sekaligus memberi kesan rapi dan profesional sejak titik pertama kunjungan.',
+      'Bagian depan kantor CV Karya Indah dirancang agar klien langsung mengenali identitas perusahaan — bersih, teratur, dan mencerminkan standar kerja yang kami jaga sejak hari pertama berdiri.',
     meta: ['Front office', 'Identitas perusahaan', 'Area kedatangan'],
     images: [
       '/Office & Workshop/TAMPAK DEPAN KI/Picture34.jpg',

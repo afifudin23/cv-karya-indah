@@ -1,273 +1,258 @@
 import { useState } from "react";
-import { FiMail, FiMapPin, FiPhone, FiSend } from "react-icons/fi";
-import ContactItem from "../ui/ContactItem";
-import InfoPanel from "../ui/InfoPanel";
-import InfoRow from "../ui/InfoRow";
+import { FiMail, FiMapPin, FiPhone, FiCreditCard, FiSend, FiMessageSquare } from "react-icons/fi";
 import { servicesData } from "../../data/companyProfileData";
 import { openWhatsAppContact } from "../../lib/openWhatsAppContact";
-import SectionShell from "../ui/SectionShell";
 import { Reveal, RevealStagger } from "../ui/Reveal";
-
-function handleGlowMove(event) {
-    const rect = event.currentTarget.getBoundingClientRect();
-    event.currentTarget.style.setProperty("--glow-x", `${event.clientX - rect.left}px`);
-    event.currentTarget.style.setProperty("--glow-y", `${event.clientY - rect.top}px`);
-    event.currentTarget.style.setProperty("--glow-opacity", "1");
-}
-
-function handleGlowLeave(event) {
-    event.currentTarget.style.setProperty("--glow-opacity", "0");
-}
 
 export default function ContactSection({ companyData }) {
     const mapsLink = "https://maps.app.goo.gl/gHhTQ7mLCE498mMo6";
     const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(companyData.address)}&output=embed`;
+
     const [formData, setFormData] = useState({
         name: "",
         company: "",
         service: servicesData[0]?.title || "",
         message: "",
     });
-    const [submitState, setSubmitState] = useState({
-        status: "idle",
-        message: "",
-    });
+    const [submitState, setSubmitState] = useState({ status: "idle", message: "" });
 
-    const serviceOptions = [...servicesData.map((service) => service.title), "Lainnya"];
+    const serviceOptions = [...servicesData.map((s) => s.title), "Lainnya"];
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormData((current) => ({
-            ...current,
-            [name]: value,
-        }));
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((cur) => ({ ...cur, [name]: value }));
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        setSubmitState({
-            status: "loading",
-            message: "Mengarahkan ke WhatsApp...",
-        });
-
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setSubmitState({ status: "loading", message: "Mengarahkan ke WhatsApp..." });
         const popup = openWhatsAppContact(formData);
         if (!popup) {
-            setSubmitState({
-                status: "error",
-                message: "Gagal membuka WhatsApp. Aktifkan pop-up, lalu coba lagi.",
-            });
+            setSubmitState({ status: "error", message: "Gagal membuka WhatsApp. Aktifkan pop-up, lalu coba lagi." });
             return;
         }
-
-        setSubmitState({
-            status: "success",
-            message: "WhatsApp terbuka. Silakan tekan Send untuk mengirim pesan.",
-        });
-        setFormData({
-            name: "",
-            company: "",
-            service: servicesData[0]?.title || "",
-            message: "",
-        });
+        setSubmitState({ status: "success", message: "WhatsApp terbuka. Tekan Send untuk mengirim pesan." });
+        setFormData({ name: "", company: "", service: servicesData[0]?.title || "", message: "" });
     };
 
-    const fieldClassName =
-        "w-full rounded-[1.15rem] border border-[rgba(190,219,231,0.92)] bg-white/88 px-4 py-3.5 text-[0.98rem] text-slate-800 shadow-[0_10px_24px_rgba(72,155,214,0.06)] outline-none transition placeholder:text-slate-400 focus:border-[var(--teal)] focus:bg-white focus:ring-2 focus:ring-[rgba(88,182,197,0.14)]";
+    const inputClass =
+        "w-full rounded-xl border border-[var(--color-primary-200)] bg-white px-4 py-3 text-[0.95rem] text-gray-800 outline-none transition placeholder:text-gray-400 focus:border-[var(--color-primary-400)] focus:ring-2 focus:ring-[var(--color-primary-100)]";
+
+    const infoCards = [
+        { icon: FiMapPin,    label: "Kunjungi Kami",  value: companyData.address },
+        { icon: FiPhone,     label: "Telepon",         value: companyData.phones.join("  /  ") },
+        { icon: FiMail,      label: "Email",           value: companyData.email },
+        { icon: FiCreditCard,label: "Rekening Bank",   value: companyData.bank.name, sub: `${companyData.bank.account} · a/n ${companyData.bank.holder}` },
+    ];
 
     return (
-        <SectionShell
-            id="kontak"
-            paddingClassName="pb-20 pt-28 sm:pt-32"
-            eyebrow="Kontak"
-            title="Hubungi Kami"
-            intro="Sampaikan kebutuhan proyek, konsultasi layanan, atau permintaan penawaran melalui form kontak agar tim CV Karya Indah dapat merespons lebih cepat dan terarah."
-        >
-            <Reveal as="div" className="space-y-8" delay={60}>
-                <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:auto-rows-fr">
-                    <div
-                        onMouseMove={handleGlowMove}
-                        onMouseLeave={handleGlowLeave}
-                        style={{
-                            "--glow-x": "50%",
-                            "--glow-y": "50%",
-                            "--glow-opacity": "0",
-                        }}
-                        className="relative h-full overflow-visible rounded-none border-0 bg-transparent p-0 text-[var(--color-text-strong)] shadow-none sm:overflow-hidden sm:rounded-[2rem] sm:border sm:border-white/15 sm:bg-[linear-gradient(180deg,rgba(9,28,45,0.98),rgba(14,40,61,0.96))] sm:p-8 sm:text-white sm:shadow-[0_30px_72px_rgba(17,43,57,0.24)]"
-                    >
-                        <div
-                            className="pointer-events-none absolute inset-0 hidden opacity-[var(--glow-opacity)] transition-opacity duration-300 sm:block"
-                            style={{
-                                background:
-                                    "radial-gradient(240px circle at var(--glow-x) var(--glow-y), rgba(255,255,255,0.16), rgba(255,255,255,0.08) 24%, rgba(255,255,255,0.03) 46%, rgba(255,255,255,0) 72%)",
-                            }}
-                        />
-                        <div
-                            className="pointer-events-none absolute inset-x-0 top-0 hidden h-px sm:block"
-                            style={{
-                                background:
-                                    "linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,0.52),rgba(255,255,255,0))",
-                            }}
-                        />
-                        <div className="pointer-events-none absolute right-0 top-0 hidden h-44 w-44 translate-x-10 -translate-y-10 rounded-full bg-[radial-gradient(circle,rgba(0,194,255,0.2)_0%,rgba(0,194,255,0)_72%)] sm:block" />
-                        <div className="pointer-events-none absolute bottom-0 right-6 hidden text-[5rem] font-semibold leading-none text-white/[0.05] sm:block sm:text-[6.5rem]">
-                            KI
-                        </div>
+        <section id="kontak" className="bg-white pt-[var(--header-height)]">
 
-                        <div className="relative">
-                            <p className="label-size mb-4 uppercase tracking-[0.32em] text-[var(--color-primary-700)] sm:text-cyan-100/82">
-                                Contact Detail
-                            </p>
-                            <h3 className="font-display text-4xl uppercase text-[var(--color-text-strong)] sm:text-white">
-                                CV. Karya Indah
-                            </h3>
-                            <p className="descriptive-copy mt-4 max-w-xl leading-8 text-slate-600 sm:text-slate-300">
-                                Siap membantu kebutuhan jasa periklanan, interior, eksterior, konstruksi visual, dan digital
-                                printing untuk bisnis maupun institusi.
-                            </p>
+            {/* ── Form ── */}
+            <div className="py-20 sm:py-24">
+                <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
 
-                            <div className="mt-7 sm:mt-8 sm:rounded-[1.6rem] sm:border sm:border-white/10 sm:bg-white/8 sm:p-5 sm:backdrop-blur-sm">
-                                <RevealStagger as="div" className="space-y-0 text-slate-200 sm:space-y-4" stagger={65}>
-                                    <ContactItem label="Alamat" value={companyData.address} />
-                                    <ContactItem label="Telepon" value={companyData.phones.join(" / ")} />
-                                    <ContactItem label="Email" value={companyData.email} />
-                                </RevealStagger>
+                    {/* Header */}
+                    <Reveal as="div" className="mb-12 text-center">
+                        <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
+                            Konsultasi Gratis
+                        </p>
+                        <h1 className="font-bold text-[2.2rem] sm:text-[3rem] leading-tight text-[var(--color-primary-600)]">
+                            Jadwalkan Konsultasi<br />Proyek Anda
+                        </h1>
+                        <p className="mt-4 text-[0.97rem] leading-relaxed text-gray-500 max-w-xl mx-auto">
+                            Isi formulir di bawah untuk mendapatkan gambaran awal dan rekomendasi layanan dari tim CV Karya Indah.
+                        </p>
+                    </Reveal>
+
+                    {/* Form card */}
+                    <Reveal as="div" delay={80}>
+                        <form className="space-y-5" onSubmit={handleSubmit}>
+
+                            <div className="grid gap-5 sm:grid-cols-2">
+                                <label className="space-y-1.5">
+                                    <span className="text-[0.85rem] font-semibold text-gray-700">
+                                        Nama Lengkap <span className="text-rose-500">*</span>
+                                    </span>
+                                    <input
+                                        className={inputClass}
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        placeholder="Contoh: Budi Santoso"
+                                        required
+                                    />
+                                </label>
+                                <label className="space-y-1.5">
+                                    <span className="text-[0.85rem] font-semibold text-gray-700">
+                                        Nama Perusahaan <span className="text-rose-500">*</span>
+                                    </span>
+                                    <input
+                                        className={inputClass}
+                                        type="text"
+                                        name="company"
+                                        value={formData.company}
+                                        onChange={handleChange}
+                                        placeholder="Contoh: PT. Maju Bersama"
+                                        required
+                                    />
+                                </label>
                             </div>
-                        </div>
-                    </div>
 
-                    <InfoPanel title="Informasi Bank">
-                        <InfoRow label="Bank" value={companyData.bank.name} />
-                        <InfoRow label="Nomor Rekening" value={companyData.bank.account} />
-                        <InfoRow label="Atas Nama" value={companyData.bank.holder} />
-                    </InfoPanel>
-                </div>
-
-                <div className="overflow-visible rounded-none border-0 bg-transparent p-0 shadow-none sm:overflow-hidden sm:rounded-[2.3rem] sm:border sm:border-[rgba(196,223,235,0.86)] sm:bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.95))] sm:p-8 sm:shadow-[0_28px_70px_rgba(72,155,214,0.12)]">
-                    <div className="mb-6 flex items-center gap-4">
-                        <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />
-                        <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">Form Kontak</p>
-                    </div>
-
-                    <form className="space-y-4" onSubmit={handleSubmit}>
-                        <div className="grid gap-4 sm:grid-cols-2">
-                            <label className="space-y-2">
-                                <span className="label-size font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
-                                    Nama
+                            <label className="space-y-1.5 block">
+                                <span className="text-[0.85rem] font-semibold text-gray-700">
+                                    Layanan yang Dibutuhkan <span className="text-rose-500">*</span>
                                 </span>
-                                <input
-                                    className={fieldClassName}
-                                    type="text"
-                                    name="name"
-                                    value={formData.name}
+                                <select
+                                    className={inputClass}
+                                    name="service"
+                                    value={formData.service}
                                     onChange={handleChange}
-                                    placeholder="Nama lengkap"
+                                    required
+                                >
+                                    {serviceOptions.map((s) => <option key={s} value={s}>{s}</option>)}
+                                </select>
+                            </label>
+
+                            <label className="space-y-1.5 block">
+                                <span className="text-[0.85rem] font-semibold text-gray-700">Kebutuhan Proyek</span>
+                                <textarea
+                                    className={`${inputClass} min-h-[180px] resize-y`}
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    placeholder="Ceritakan kebutuhan proyek, lokasi pekerjaan, atau target visual yang ingin dicapai..."
                                     required
                                 />
                             </label>
 
-                            <label className="space-y-2">
-                                <span className="label-size font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
-                                    Perusahaan
-                                </span>
-                                <input
-                                    className={fieldClassName}
-                                    type="text"
-                                    name="company"
-                                    value={formData.company}
-                                    onChange={handleChange}
-                                    placeholder="Nama perusahaan"
-                                    required
-                                />
-                            </label>
-                        </div>
-
-                        <label className="space-y-2">
-                            <span className="label-size font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
-                                Layanan yang dibutuhkan
-                            </span>
-                            <select
-                                className={fieldClassName}
-                                name="service"
-                                value={formData.service}
-                                onChange={handleChange}
-                                required
-                            >
-                                {serviceOptions.map((service) => (
-                                    <option key={service} value={service}>
-                                        {service}
-                                    </option>
-                                ))}
-                            </select>
-                        </label>
-
-                        <label className="space-y-2">
-                            <span className="label-size font-semibold uppercase tracking-[0.22em] text-[var(--teal-deep)]">
-                                Pesan
-                            </span>
-                            <textarea
-                                className={`${fieldClassName} min-h-[180px] resize-y`}
-                                name="message"
-                                value={formData.message}
-                                onChange={handleChange}
-                                placeholder="Ceritakan kebutuhan proyek, lokasi pekerjaan, atau target visual yang ingin dicapai."
-                                required
-                            />
-                        </label>
-
-                        <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
-                            {/* <div
-                                className={`rounded-[1.2rem] border px-4 py-3 text-sm leading-6 ${
+                            {submitState.status !== "idle" && (
+                                <div className={`rounded-xl border px-4 py-3 text-[0.87rem] ${
                                     submitState.status === "success"
                                         ? "border-emerald-200 bg-emerald-50 text-emerald-700"
                                         : submitState.status === "error"
-                                          ? "border-rose-200 bg-rose-50 text-rose-700"
-                                          : "border-[rgba(190,219,231,0.92)] bg-white/76 text-slate-500"
-                                }`}
-                            >
-                                {submitState.message}
-                            </div> */}
+                                        ? "border-rose-200 bg-rose-50 text-rose-700"
+                                        : "border-gray-200 bg-gray-50 text-gray-500"
+                                }`}>
+                                    {submitState.message}
+                                </div>
+                            )}
 
-                            <button
-                                type="submit"
-                                disabled={submitState.status === "loading"}
-                                className="inline-flex items-center justify-center gap-2 rounded-full border border-[rgba(88,182,197,0.45)] bg-[var(--hero)] px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-[0_18px_36px_rgba(17,43,57,0.18)] transition hover:border-[rgba(88,182,197,0.8)] hover:bg-[#173f50] disabled:cursor-not-allowed disabled:opacity-70"
-                            >
-                                <FiSend className="text-base" />
-                                {submitState.status === "loading" ? "Mengirim..." : "Kirim Pesan"}
-                            </button>
-                        </div>
-                    </form>
+                            <div className="grid gap-3 pt-1 sm:grid-cols-2">
+                                <a
+                                    href="https://wa.me/628975836972?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[var(--color-primary-50)] border border-[var(--color-primary-200)] px-6 py-3.5 text-[0.95rem] font-semibold text-[var(--color-primary-700)] transition hover:bg-[var(--color-primary-100)]"
+                                >
+                                    <FiMessageSquare className="text-[1rem]" />
+                                    Tanyakan Langsung
+                                </a>
+                                <button
+                                    type="submit"
+                                    disabled={submitState.status === "loading"}
+                                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--color-primary-600)] px-6 py-3.5 text-[0.95rem] font-semibold text-white transition hover:bg-[var(--color-primary-700)] disabled:opacity-60"
+                                >
+                                    <FiSend className="text-[0.9rem]" />
+                                    {submitState.status === "loading" ? "Mengirim..." : "Kirim Pesan"}
+                                </button>
+                            </div>
+
+                        </form>
+                    </Reveal>
                 </div>
+            </div>
 
-                <div className="overflow-visible rounded-none border-0 bg-transparent p-0 shadow-none sm:overflow-hidden sm:rounded-[2.3rem] sm:border sm:border-[rgba(196,223,235,0.86)] sm:bg-[linear-gradient(180deg,rgba(247,252,254,0.98),rgba(238,246,250,0.95))] sm:p-6 sm:shadow-[0_28px_70px_rgba(72,155,214,0.12)]">
-                    <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                        <div className="flex items-center gap-4">
-                            <span className="h-[3px] w-14 rounded-full bg-[var(--teal)]" />
-                            <p className="label-size uppercase tracking-[0.3em] text-[var(--teal-deep)]">Peta Lokasi</p>
+            {/* ── Map ── */}
+            <div className="bg-slate-50 py-16 sm:py-20">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <Reveal as="div" className="mb-6 flex items-center justify-between">
+                        <div>
+                            <p className="mb-1 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
+                                Lokasi
+                            </p>
+                            <h2 className="font-bold text-[1.4rem] text-gray-900">Peta Lokasi Kami</h2>
                         </div>
-
                         <a
                             href={mapsLink}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center justify-center rounded-full border border-[rgba(88,182,197,0.35)] bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--teal-deep)] transition hover:border-[var(--teal)] hover:bg-[rgba(88,182,197,0.08)]"
+                            className="text-[0.85rem] font-semibold text-[var(--color-primary-600)] hover:underline"
                         >
-                            Buka di Google Maps
+                            Buka di Google Maps →
                         </a>
-                    </div>
-
-                    <div className="overflow-hidden rounded-[1.7rem] border border-[rgba(205,225,236,0.94)] bg-white shadow-[0_18px_42px_rgba(72,155,214,0.08)]">
-                        <iframe
-                            title="Peta lokasi CV Karya Indah"
-                            src={mapsEmbedUrl}
-                            className="h-[320px] w-full border-0 sm:h-[380px] lg:h-[420px]"
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                        />
-                    </div>
+                    </Reveal>
+                    <Reveal as="div" delay={60}>
+                        <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
+                            <iframe
+                                title="Peta lokasi CV Karya Indah"
+                                src={mapsEmbedUrl}
+                                className="h-[360px] w-full border-0 sm:h-[440px]"
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            />
+                        </div>
+                    </Reveal>
                 </div>
-            </Reveal>
-        </SectionShell>
+            </div>
+
+            {/* ── Info cards (Solvera style) ── */}
+            <div className="bg-white py-20 sm:py-24">
+                <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                    <RevealStagger as="div" className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4" stagger={70}>
+
+                        <div className="flex flex-col items-center text-center px-4">
+                            <FiMail className="mb-5 text-[3rem] text-[var(--color-primary-600)]" />
+                            <h3 className="mb-3 font-bold text-[1.3rem] text-[var(--color-primary-600)]">Pertanyaan</h3>
+                            <p className="mb-4 text-[0.92rem] leading-relaxed text-gray-500">
+                                Ada pertanyaan tentang layanan atau produk kami? Tim kami siap membantu Anda.
+                            </p>
+                            <a href={`mailto:${companyData.email}`} className="text-[0.92rem] font-semibold text-gray-800 underline underline-offset-4 hover:text-[var(--color-primary-600)]">
+                                {companyData.email}
+                            </a>
+                        </div>
+
+                        <div className="flex flex-col items-center text-center px-4">
+                            <FiPhone className="mb-5 text-[3rem] text-[var(--color-primary-600)]" />
+                            <h3 className="mb-3 font-bold text-[1.3rem] text-[var(--color-primary-600)]">Dukungan</h3>
+                            <p className="mb-4 text-[0.92rem] leading-relaxed text-gray-500">
+                                Butuh diskusi langsung mengenai proyek? Hubungi tim kami melalui telepon.
+                            </p>
+                            <a href={`tel:${companyData.phones[0]}`} className="text-[0.92rem] font-semibold text-gray-800 underline underline-offset-4 hover:text-[var(--color-primary-600)]">
+                                {companyData.phones.join("  /  ")}
+                            </a>
+                        </div>
+
+                        <div className="flex flex-col items-center text-center px-4">
+                            <FiMapPin className="mb-5 text-[3rem] text-[var(--color-primary-600)]" />
+                            <h3 className="mb-3 font-bold text-[1.3rem] text-[var(--color-primary-600)]">Kunjungi Kami</h3>
+                            <p className="mb-4 text-[0.92rem] leading-relaxed text-gray-500">
+                                Ingin bertemu langsung dengan tim kami? Kunjungi kantor kami di bawah ini.
+                            </p>
+                            <p className="text-[0.92rem] font-semibold leading-relaxed text-gray-800">
+                                {companyData.address}
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col items-center text-center px-4">
+                            <FiCreditCard className="mb-5 text-[3rem] text-[var(--color-primary-600)]" />
+                            <h3 className="mb-3 font-bold text-[1.3rem] text-[var(--color-primary-600)]">Rekening Bank</h3>
+                            <p className="mb-4 text-[0.92rem] leading-relaxed text-gray-500">
+                                Untuk pembayaran dan transaksi proyek, gunakan rekening resmi perusahaan.
+                            </p>
+                            <p className="text-[0.92rem] font-semibold leading-relaxed text-gray-800">
+                                {companyData.bank.name}<br />
+                                <span className="text-[0.82rem] font-normal text-gray-500">
+                                    {companyData.bank.account} · a/n {companyData.bank.holder}
+                                </span>
+                            </p>
+                        </div>
+
+                    </RevealStagger>
+                </div>
+            </div>
+
+        </section>
     );
 }

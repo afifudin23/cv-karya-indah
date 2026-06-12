@@ -16,14 +16,16 @@ export default function InventorySection({
       title="Mesin & Kendaraan"
       intro="Inventaris mesin dan kendaraan ditampilkan ulang dalam format visual agar kesiapan produksi dan dukungan operasional CV Karya Indah terasa lebih nyata, rapi, dan profesional."
     >
-      <ShowcaseGallery
-        items={inventoryShowcaseItems}
-        showcaseEyebrow="Inventory Showcase"
-        showcaseIntro="Mesin produksi dan armada operasional ditampilkan dengan pendekatan visual yang sama agar inventaris perusahaan lebih mudah dipindai."
-        counterLabel="Inventaris"
-        metaLabel="Asset No."
-        imageClassName="max-h-[300px] sm:max-h-[380px] lg:max-h-[300px] xl:max-h-[340px]"
-      />
+      <div className="mx-auto max-w-4xl">
+        <ShowcaseGallery
+          items={inventoryShowcaseItems}
+          showcaseEyebrow="Inventory Showcase"
+          showcaseIntro="Mesin produksi dan armada operasional ditampilkan dengan pendekatan visual yang sama agar inventaris perusahaan lebih mudah dipindai."
+          counterLabel="Inventaris"
+          metaLabel="Asset No."
+          imageClassName="max-h-[300px] sm:max-h-[380px] lg:max-h-[300px] xl:max-h-[340px]"
+        />
+      </div>
     </SectionShell>
   )
 }
