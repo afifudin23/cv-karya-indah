@@ -1,18 +1,17 @@
-function createSeriesItems({ images, ...shared }) {
+﻿function createSeriesItems({ images, ...shared }) {
   return images.map((image) => ({
     ...shared,
     image,
-  }))
+  }));
 }
 
 const baseProductionGallery = [
   {
-    image: '/produksi/produksi.jpeg',
+    image: '/produksi/produksi.png',
     title: 'Shopsign Yamaha',
     category: 'Exterior Branding',
     subtitle: 'Fasad dealer dengan identitas merek yang kuat',
-    note:
-      'Fasad dealer dengan branding besar dan penataan identitas visual yang tegas, rapi, dan langsung terbaca dari area depan bangunan.',
+    note: 'Fasad dealer dengan branding besar dan penataan identitas visual yang tegas, rapi, dan langsung terbaca dari area depan bangunan.',
     meta: ['Branding fasad', 'Dealer otomotif', 'Visual besar'],
   },
   {
@@ -20,8 +19,7 @@ const baseProductionGallery = [
     title: 'Showroom Suzuki',
     category: 'Showroom Facade',
     subtitle: 'Finishing showroom dengan garis visual modern',
-    note:
-      'Finishing fasad showroom dengan garis bentuk modern, komposisi panel yang bersih, dan identitas merek yang tetap dominan.',
+    note: 'Finishing fasad showroom dengan garis bentuk modern, komposisi panel yang bersih, dan identitas merek yang tetap dominan.',
     meta: ['Showroom facade', 'Panel ACP', 'Brand clean'],
   },
   {
@@ -29,8 +27,7 @@ const baseProductionGallery = [
     title: 'Piaggio & Vespa',
     category: 'Night Signage',
     subtitle: 'Signage malam dengan nuansa premium',
-    note:
-      'Signage malam hari dengan fokus pada pencahayaan logo dan tampilan premium sehingga identitas brand tetap kuat saat malam.',
+    note: 'Signage malam hari dengan fokus pada pencahayaan logo dan tampilan premium sehingga identitas brand tetap kuat saat malam.',
     meta: ['Night signage', 'Lighting logo', 'Premium look'],
   },
   {
@@ -38,8 +35,7 @@ const baseProductionGallery = [
     title: 'Dealer Chery',
     category: 'Polesign & Facade',
     subtitle: 'Kombinasi polesign dan fasad utama',
-    note:
-      'Kombinasi polesign dan fasad utama yang kuat untuk meningkatkan visibilitas merek dari jarak jauh, terutama pada malam hari.',
+    note: 'Kombinasi polesign dan fasad utama yang kuat untuk meningkatkan visibilitas merek dari jarak jauh, terutama pada malam hari.',
     meta: ['Polesign', 'Night visibility', 'Dealer branding'],
   },
   {
@@ -47,8 +43,7 @@ const baseProductionGallery = [
     title: 'Toko Obat Wali',
     category: 'Retail Front Sign',
     subtitle: 'Front signage retail yang mudah dikenali',
-    note:
-      'Front signage retail dengan komposisi tipografi besar dan fasad yang mencolok supaya toko mudah dikenali dari arah jalan utama.',
+    note: 'Front signage retail dengan komposisi tipografi besar dan fasad yang mencolok supaya toko mudah dikenali dari arah jalan utama.',
     meta: ['Retail sign', 'Tipografi besar', 'Street visibility'],
   },
   {
@@ -56,8 +51,7 @@ const baseProductionGallery = [
     title: 'Polesign BSI',
     category: 'Directional Sign',
     subtitle: 'Penanda lokasi dan petunjuk arah',
-    note:
-      'Contoh polesign yang berfungsi untuk identitas lokasi dan petunjuk arah dengan komposisi visual yang tetap bersih dan jelas.',
+    note: 'Contoh polesign yang berfungsi untuk identitas lokasi dan petunjuk arah dengan komposisi visual yang tetap bersih dan jelas.',
     meta: ['Directional sign', 'Outdoor sign', 'Lokasi & arah'],
   },
   {
@@ -65,8 +59,7 @@ const baseProductionGallery = [
     title: 'Premiere Hotel Tegal',
     category: 'Hospitality Polesign',
     subtitle: 'Polesign hotel yang tegas dan mudah dikenali',
-    note:
-      'Polesign area hotel yang dirancang untuk memperjelas identitas properti sekaligus membantu pengunjung menemukan akses masuk dengan lebih cepat.',
+    note: 'Polesign area hotel yang dirancang untuk memperjelas identitas properti sekaligus membantu pengunjung menemukan akses masuk dengan lebih cepat.',
     meta: ['Hospitality sign', 'Akses masuk', 'Outdoor branding'],
   },
   {
@@ -74,351 +67,310 @@ const baseProductionGallery = [
     title: 'Billboard Tong Tji',
     category: 'Outdoor Billboard',
     subtitle: 'Media promosi outdoor dengan skala besar',
-    note:
-      'Billboard Tong Tji dengan visual produk yang dominan untuk memperkuat awareness merek dan menarik perhatian dari jalur lalu lintas utama.',
+    note: 'Billboard Tong Tji dengan visual produk yang dominan untuk memperkuat awareness merek dan menarik perhatian dari jalur lalu lintas utama.',
     meta: ['Billboard', 'Brand campaign', 'Outdoor media'],
   },
   {
-    image: '/STAND JOB FAIR WINGS/Picture21.jpg',
+    image: '/produksi/produksi9.jpg',
     title: 'Stand Job Fair Wings',
     category: 'Event Booth Interior',
     subtitle: 'Booth promosi karier dengan tampilan interaktif',
-    note:
-      'Area booth Wings untuk job fair dengan komposisi branding merah yang kuat, display produk, dan informasi interaktif bagi pengunjung.',
+    note: 'Area booth Wings untuk job fair dengan komposisi branding merah yang kuat, display produk, dan informasi interaktif bagi pengunjung.',
     meta: ['Job fair', 'Interactive booth', 'Brand activation'],
   },
   {
-    image: '/RAK APPAREL YAMAHA/Picture18.jpg',
+    image: '/produksi/produksi10.jpg',
     title: 'Rak Apparel Yamaha',
     category: 'Retail Display',
     subtitle: 'Display apparel dengan pencahayaan dekoratif',
-    note:
-      'Rak display apparel Yamaha dengan permainan lighting hangat dan dingin untuk memperkuat tampilan produk sekaligus identitas visual merek.',
+    note: 'Rak display apparel Yamaha dengan permainan lighting hangat dan dingin untuk memperkuat tampilan produk sekaligus identitas visual merek.',
     meta: ['Retail display', 'Lighting', 'Apparel rack'],
   },
   {
-    image: '/BACKWALL CSO YOGYA MALL/Picture20.jpg',
+    image: '/produksi/produksi11.jpg',
     title: 'Backwall CSO Yogya Mall',
     category: 'Mall Interior',
     subtitle: 'Backwall fitting room dengan tampilan rapi',
-    note:
-      'Pengerjaan backwall dan area fitting room di Yogya Mall dengan pendekatan interior yang bersih, modern, dan fungsional untuk area retail.',
+    note: 'Pengerjaan backwall dan area fitting room di Yogya Mall dengan pendekatan interior yang bersih, modern, dan fungsional untuk area retail.',
     meta: ['Backwall', 'Fitting room', 'Mall interior'],
   },
   {
-    image: '/COUNTER KASSA YOGYA MALL/Picture22.jpg',
+    image: '/produksi/produksi12.jpg',
     title: 'Counter Kassa Yogya Mall',
     category: 'Retail Counter',
     subtitle: 'Counter transaksi untuk area komersial',
-    note:
-      'Area counter kassa dengan penyusunan modular yang fungsional untuk mendukung alur transaksi dan kenyamanan pada area retail modern.',
+    note: 'Area counter kassa dengan penyusunan modular yang fungsional untuk mendukung alur transaksi dan kenyamanan pada area retail modern.',
     meta: ['Counter kassa', 'Retail area', 'Functional build'],
   },
   {
-    image: '/INTERIOR DEALER SUZUKI/Picture31.jpg',
+    image: '/produksi/produksi13.jpg',
     title: 'Interior Dealer Suzuki',
     category: 'Dealer Interior',
     subtitle: 'Area front desk dealer yang rapi dan profesional',
-    note:
-      'Area interior dealer Suzuki pada bagian front desk dengan tata elemen yang bersih dan representatif untuk kebutuhan pelayanan pelanggan di showroom.',
+    note: 'Area interior dealer Suzuki pada bagian front desk dengan tata elemen yang bersih dan representatif untuk kebutuhan pelayanan pelanggan di showroom.',
     meta: ['Dealer interior', 'Front desk', 'Customer service'],
   },
   {
-    image: '/INTERIOR TOKO EMAS/Picture30.jpg',
+    image: '/produksi/produksi14.jpg',
     title: 'Interior Toko Emas',
     category: 'Luxury Interior',
     subtitle: 'Interior toko dengan nuansa elegan dan terang',
-    note:
-      'Interior toko emas dengan perpaduan material hangat, pencahayaan merata, dan display counter yang tertata untuk mendukung kesan premium.',
+    note: 'Interior toko emas dengan perpaduan material hangat, pencahayaan merata, dan display counter yang tertata untuk mendukung kesan premium.',
     meta: ['Luxury store', 'Interior fit-out', 'Display counter'],
   },
   {
-    image: '/ISLAND COUNTER KOSMETIK/Picture29.jpg',
+    image: '/produksi/produksi15.jpg',
     title: 'Island Counter Kosmetik',
     category: 'Retail Island Display',
     subtitle: 'Display island untuk area kosmetik modern',
-    note:
-      'Island counter kosmetik dengan tata display terbuka, pencahayaan terang, dan elemen branding yang dirancang menarik untuk area retail modern.',
+    note: 'Island counter kosmetik dengan tata display terbuka, pencahayaan terang, dan elemen branding yang dirancang menarik untuk area retail modern.',
     meta: ['Cosmetic island', 'Retail display', 'Brand visibility'],
   },
   {
-    image: '/LETTER STAINLESS BACKLIGHT/Picture33.jpg',
+    image: '/produksi/produksi16.jpg',
     title: 'Letter Stainless Backlight',
     category: 'Backlit Letter Sign',
     subtitle: 'Sign lettering dengan efek cahaya elegan',
-    note:
-      'Aplikasi letter stainless backlight untuk storefront yang menghadirkan tampilan identitas merek lebih mewah, bersih, dan kuat saat malam hari.',
+    note: 'Aplikasi letter stainless backlight untuk storefront yang menghadirkan tampilan identitas merek lebih mewah, bersih, dan kuat saat malam hari.',
     meta: ['Backlight letter', 'Storefront sign', 'Night branding'],
   },
   {
-    image: '/NEONBOX INDOOR/Picture32.jpg',
+    image: '/produksi/produksi17.jpg',
     title: 'Neonbox Indoor',
     category: 'Indoor Light Sign',
     subtitle: 'Sign indoor dengan pencahayaan fokus',
-    note:
-      'Neonbox indoor dengan bentuk ringkas dan cahaya yang menonjol untuk membantu identitas brand tampil jelas di area interior.',
+    note: 'Neonbox indoor dengan bentuk ringkas dan cahaya yang menonjol untuk membantu identitas brand tampil jelas di area interior.',
     meta: ['Neonbox', 'Indoor sign', 'Light branding'],
   },
   ...createSeriesItems({
     title: 'Stand Wings PRJ',
     category: 'Exhibition Structure',
     subtitle: 'Pengerjaan struktur booth untuk event skala besar',
-    note:
-      'Dokumentasi pembangunan stand Wings di Pekan Raya Jakarta yang menampilkan pekerjaan struktur utama sebagai dasar visual booth pameran.',
+    note: 'Dokumentasi pembangunan stand Wings di Pekan Raya Jakarta yang menampilkan pekerjaan struktur utama sebagai dasar visual booth pameran.',
     meta: ['Booth event', 'Struktur stand', 'PRJ Jakarta'],
     images: [
-      '/STAND WINGS PRJ (PEKAN RAYA JAKARTA)/1.jpg',
-      '/STAND WINGS PRJ (PEKAN RAYA JAKARTA)/2.jpg',
-      '/STAND WINGS PRJ (PEKAN RAYA JAKARTA)/3.jpg',
-      '/STAND WINGS PRJ (PEKAN RAYA JAKARTA)/4.jpg',
-      '/STAND WINGS PRJ (PEKAN RAYA JAKARTA)/5.jpg',
-      '/STAND WINGS PRJ (PEKAN RAYA JAKARTA)/6.jpg',
+      '/produksi/produksi18.jpg',
+      '/produksi/produksi19.jpg',
+      '/produksi/produksi20.jpg',
+      '/produksi/produksi21.jpg',
+      '/produksi/produksi22.jpg',
+      '/produksi/produksi23.jpg',
     ],
   }),
   ...createSeriesItems({
     title: 'Showroom Yamaha',
     category: 'Showroom Interior',
     subtitle: 'Interior area customer dan display showroom',
-    note:
-      'Dokumentasi interior showroom Yamaha pada area customer service dan penempatan identitas brand di dalam ruang secara sederhana namun jelas.',
+    note: 'Dokumentasi interior showroom Yamaha pada area customer service dan penempatan identitas brand di dalam ruang secara sederhana namun jelas.',
     meta: ['Showroom', 'Interior branding', 'Customer area'],
-    images: [
-      '/SHOWROOM YAMAHA/Picture11.jpg',
-      '/SHOWROOM YAMAHA/Picture12.jpg',
-      '/SHOWROOM YAMAHA/Picture13.jpg',
-    ],
+    images: ['/produksi/produksi24.jpg', '/produksi/produksi25.jpg', '/produksi/produksi26.jpg'],
   }),
   ...createSeriesItems({
     title: 'Showroom Chery',
     category: 'Dealer Interior',
     subtitle: 'Interior showroom dengan visual produk premium',
-    note:
-      'Area showroom Chery dengan tata ruang modern, pencahayaan bersih, dan presentasi kendaraan yang terasa premium di area display utama.',
+    note: 'Area showroom Chery dengan tata ruang modern, pencahayaan bersih, dan presentasi kendaraan yang terasa premium di area display utama.',
     meta: ['Dealer interior', 'Vehicle display', 'Premium layout'],
     images: [
-      '/SHOWROOM CHERY/Picture14.jpg',
-      '/SHOWROOM CHERY/Picture15.jpg',
-      '/SHOWROOM CHERY/Picture16.jpg',
-      '/SHOWROOM CHERY/Picture17.jpg',
+      '/produksi/produksi27.jpg',
+      '/produksi/produksi28.jpg',
+      '/produksi/produksi29.jpg',
+      '/produksi/produksi30.jpg',
     ],
   }),
   ...createSeriesItems({
     title: 'Island Counter Yo! Active',
     category: 'Island Display',
     subtitle: 'Counter island untuk branding retail di mall',
-    note:
-      'Island counter Yo! Active yang dirancang sebagai titik display mandiri di area mall dengan bentuk kompak dan identitas brand yang tetap menonjol.',
+    note: 'Island counter Yo! Active yang dirancang sebagai titik display mandiri di area mall dengan bentuk kompak dan identitas brand yang tetap menonjol.',
     meta: ['Island counter', 'Mall display', 'Retail branding'],
     images: [
-      '/ISLAND COUNTER YO! ACTIVE YOGYA MALL/Picture24.jpg',
-      '/ISLAND COUNTER YO! ACTIVE YOGYA MALL/Picture26.jpg',
-      '/ISLAND COUNTER YO! ACTIVE YOGYA MALL/Picture27.jpg',
-      '/ISLAND COUNTER YO! ACTIVE YOGYA MALL/Picture28.jpg',
+      '/produksi/produksi31.jpg',
+      '/produksi/produksi32.jpg',
+      '/produksi/produksi33.jpg',
+      '/produksi/produksi34.jpg',
     ],
   }),
-]
+];
 
 const baseOfficeWorkshopGallery = [
   ...createSeriesItems({
     title: 'Tampak Depan',
     category: 'Office Exterior',
     subtitle: 'Area depan kantor yang menjadi wajah pertama perusahaan',
-    note:
-      'Bagian depan kantor CV Karya Indah dirancang agar klien langsung mengenali identitas perusahaan — bersih, teratur, dan mencerminkan standar kerja yang kami jaga sejak hari pertama berdiri.',
+    note: 'Bagian depan kantor CV Karya Indah dirancang agar klien langsung mengenali identitas perusahaan — bersih, teratur, dan mencerminkan standar kerja yang kami jaga sejak hari pertama berdiri.',
     meta: ['Front office', 'Identitas perusahaan', 'Area kedatangan'],
-    images: [
-      '/Office & Workshop/TAMPAK DEPAN KI/Picture34.jpg',
-      '/Office & Workshop/TAMPAK DEPAN KI/Picture35.jpg',
-    ],
+    images: ['/office_workshop/picture34.png', '/office_workshop/picture35.png'],
   }),
   {
-    image: '/Office & Workshop/RECEPTIONIST/Picture36.jpg',
+    image: '/office_workshop/picture36.png',
     title: 'Receptionist',
     category: 'Front Office',
     subtitle: 'Area penerima tamu yang rapi dan representatif',
-    note:
-      'Receptionist disiapkan sebagai titik sambut yang nyaman untuk tamu, klien, dan partner kerja sebelum masuk ke area diskusi maupun produksi.',
+    note: 'Receptionist disiapkan sebagai titik sambut yang nyaman untuk tamu, klien, dan partner kerja sebelum masuk ke area diskusi maupun produksi.',
     meta: ['Penerima tamu', 'Front desk', 'Area sambut'],
   },
   {
-    image: '/Office & Workshop/RUANG MEETING/Picture37.jpg',
+    image: '/office_workshop/picture37.png',
     title: 'Ruang Meeting',
     category: 'Meeting Space',
     subtitle: 'Ruang diskusi untuk koordinasi proyek dan presentasi',
-    note:
-      'Ruang meeting mendukung kebutuhan presentasi, konsultasi, dan pembahasan proyek agar komunikasi dengan klien maupun tim berjalan lebih fokus.',
+    note: 'Ruang meeting mendukung kebutuhan presentasi, konsultasi, dan pembahasan proyek agar komunikasi dengan klien maupun tim berjalan lebih fokus.',
     meta: ['Koordinasi proyek', 'Presentasi', 'Diskusi klien'],
   },
   ...createSeriesItems({
     title: 'Ruang Admin',
     category: 'Administrative Area',
     subtitle: 'Pusat administrasi operasional yang tertata rapi',
-    note:
-      'Area admin membantu kelancaran dokumentasi proyek, pengelolaan dokumen, serta koordinasi internal agar proses kerja tetap terstruktur.',
+    note: 'Area admin membantu kelancaran dokumentasi proyek, pengelolaan dokumen, serta koordinasi internal agar proses kerja tetap terstruktur.',
     meta: ['Administrasi', 'Dokumen kerja', 'Operasional harian'],
-    images: [
-      '/Office & Workshop/RUANG ADMIN/Picture38.jpg',
-      '/Office & Workshop/RUANG ADMIN/Picture39.jpg',
-    ],
+    images: ['/office_workshop/picture38.png', '/office_workshop/picture39.png'],
   }),
   {
-    image: '/Office & Workshop/RUANG DIGITAL PRINTING/Picture40.jpg',
+    image: '/office_workshop/picture40.png',
     title: 'Ruang Digital Printing',
     category: 'Production Support',
     subtitle: 'Area digital printing untuk kebutuhan visual promosi',
-    note:
-      'Ruang digital printing menjadi bagian penting untuk pengerjaan media cetak visual dengan alur kerja yang lebih cepat, rapi, dan terkontrol.',
+    note: 'Ruang digital printing menjadi bagian penting untuk pengerjaan media cetak visual dengan alur kerja yang lebih cepat, rapi, dan terkontrol.',
     meta: ['Digital printing', 'Support produksi', 'Output visual'],
   },
   {
-    image: '/Office & Workshop/RUANG DESIGN/Picture41.jpg',
+    image: '/office_workshop/picture41.png',
     title: 'Ruang Design',
     category: 'Creative Workspace',
     subtitle: 'Ruang kerja visual untuk konsep dan final artwork',
-    note:
-      'Area design dipakai untuk pengembangan konsep visual, penyusunan artwork, serta sinkronisasi desain sebelum masuk tahap produksi.',
+    note: 'Area design dipakai untuk pengembangan konsep visual, penyusunan artwork, serta sinkronisasi desain sebelum masuk tahap produksi.',
     meta: ['Artwork', 'Konsep visual', 'Creative room'],
   },
   {
-    image: '/Office & Workshop/RUANG SABLON/Picture42.jpg',
+    image: '/office_workshop/picture42.png',
     title: 'Ruang Sablon',
     category: 'Screen Printing Area',
     subtitle: 'Area sablon yang mendukung proses produksi awal perusahaan',
-    note:
-      'Ruang sablon merepresentasikan akar awal layanan CV Karya Indah dan tetap menjadi bagian penting untuk pengerjaan kebutuhan screen printing tertentu.',
+    note: 'Ruang sablon merepresentasikan akar awal layanan CV Karya Indah dan tetap menjadi bagian penting untuk pengerjaan kebutuhan screen printing tertentu.',
     meta: ['Screen printing', 'Produksi awal', 'Teknik sablon'],
   },
   {
-    image: '/Office & Workshop/WORKSHOP W.S/Picture45.jpg',
+    image: '/office_workshop/picture45.png',
     title: 'Workshop Utama',
     category: 'Main Workshop',
     subtitle: 'Area kerja inti untuk pengerjaan struktural dan finishing',
-    note:
-      'Workshop utama mendukung berbagai kebutuhan pengerjaan konstruksi visual, perakitan komponen, dan proses finishing sebelum instalasi lapangan.',
+    note: 'Workshop utama mendukung berbagai kebutuhan pengerjaan konstruksi visual, perakitan komponen, dan proses finishing sebelum instalasi lapangan.',
     meta: ['Workshop utama', 'Perakitan', 'Finishing proyek'],
   },
   {
-    image: '/Office & Workshop/WORKSHOP CAT/Picture47.jpg',
+    image: '/office_workshop/picture47.png',
     title: 'Workshop Cat',
     category: 'Finishing Area',
     subtitle: 'Area pengecatan untuk hasil visual yang lebih presisi',
-    note:
-      'Workshop cat dipakai untuk menyempurnakan tampilan akhir elemen branding agar warna, lapisan, dan kualitas finishing lebih terjaga.',
+    note: 'Workshop cat dipakai untuk menyempurnakan tampilan akhir elemen branding agar warna, lapisan, dan kualitas finishing lebih terjaga.',
     meta: ['Pengecatan', 'Finishing', 'Quality control'],
   },
   {
-    image: '/Office & Workshop/WORKSHOP LAS/Picture48.jpg',
+    image: '/office_workshop/picture48.png',
     title: 'Workshop Las',
     category: 'Metal Fabrication',
     subtitle: 'Area pengelasan untuk kebutuhan struktur dan rangka',
-    note:
-      'Workshop las menjadi titik penting untuk pengerjaan struktur logam, rangka signage, dan kebutuhan fabrikasi lain yang mendukung proyek lapangan.',
+    note: 'Workshop las menjadi titik penting untuk pengerjaan struktur logam, rangka signage, dan kebutuhan fabrikasi lain yang mendukung proyek lapangan.',
     meta: ['Pengelasan', 'Rangka besi', 'Fabrikasi'],
   },
   {
-    image: '/Office & Workshop/WORKSHOP KAYU/Picture50.jpg',
+    image: '/office_workshop/picture50.png',
     title: 'Workshop Kayu',
     category: 'Woodworking Area',
     subtitle: 'Pengerjaan elemen berbasis kayu untuk display dan interior',
-    note:
-      'Workshop kayu dipakai untuk kebutuhan display, interior, dan elemen custom dengan pengerjaan yang rapi sesuai spesifikasi proyek.',
+    note: 'Workshop kayu dipakai untuk kebutuhan display, interior, dan elemen custom dengan pengerjaan yang rapi sesuai spesifikasi proyek.',
     meta: ['Woodworking', 'Display custom', 'Interior build'],
   },
   {
-    image: '/Office & Workshop/WORKSHOP KACA/Picture51.jpg',
+    image: '/office_workshop/picture51.png',
     title: 'Workshop Kaca',
     category: 'Glass Handling',
     subtitle: 'Penanganan elemen kaca untuk kebutuhan visual dan interior',
-    note:
-      'Workshop kaca mendukung pengerjaan komponen yang membutuhkan material kaca sebagai bagian dari visual branding maupun interior komersial.',
+    note: 'Workshop kaca mendukung pengerjaan komponen yang membutuhkan material kaca sebagai bagian dari visual branding maupun interior komersial.',
     meta: ['Material kaca', 'Interior support', 'Visual detail'],
   },
   {
-    image: '/Office & Workshop/GUDANG MATERIAL/Picture52.jpg',
+    image: '/office_workshop/picture52.png',
     title: 'Gudang Material',
     category: 'Material Storage',
     subtitle: 'Penyimpanan bahan kerja untuk menjaga alur produksi',
-    note:
-      'Gudang material membantu pengelolaan bahan baku agar stok lebih tertata dan proses pengerjaan proyek berjalan lebih efisien.',
+    note: 'Gudang material membantu pengelolaan bahan baku agar stok lebih tertata dan proses pengerjaan proyek berjalan lebih efisien.',
     meta: ['Stok bahan', 'Penyimpanan', 'Alur produksi'],
   },
   {
-    image: '/Office & Workshop/GUDANG BARANG JADI/Picture53.jpg',
+    image: '/office_workshop/picture53.png',
     title: 'Gudang Barang Jadi',
     category: 'Finished Goods Storage',
     subtitle: 'Area simpan hasil produksi sebelum pengiriman atau instalasi',
-    note:
-      'Gudang barang jadi dipakai untuk menata hasil produksi yang sudah selesai sebelum masuk proses distribusi, pengiriman, atau pemasangan di lokasi.',
+    note: 'Gudang barang jadi dipakai untuk menata hasil produksi yang sudah selesai sebelum masuk proses distribusi, pengiriman, atau pemasangan di lokasi.',
     meta: ['Barang jadi', 'Persiapan kirim', 'Ready to install'],
   },
-]
+];
 
 const baseInventoryShowcase = [
   ...createSeriesItems({
     title: 'Inventaris Mesin',
     category: 'Production Equipment',
     subtitle: 'Peralatan inti untuk mendukung proses produksi visual',
-    note:
-      'Dokumentasi inventaris mesin menampilkan kesiapan perangkat produksi CV Karya Indah untuk kebutuhan digital printing, finishing, dan pengerjaan signage yang lebih presisi.',
+    note: 'Dokumentasi inventaris mesin menampilkan kesiapan perangkat produksi CV Karya Indah untuk kebutuhan digital printing, finishing, dan pengerjaan signage yang lebih presisi.',
     meta: ['Digital printing', 'Finishing tools', 'Support signage'],
     images: [
-      '/Inventaris Mesin/Picture54.jpg',
-      '/Inventaris Mesin/Picture55.jpg',
-      '/Inventaris Mesin/Picture56.jpg',
-      '/Inventaris Mesin/Picture57.jpg',
-      '/Inventaris Mesin/Picture58.jpg',
-      '/Inventaris Mesin/Picture59.jpg',
+      '/inventaris_mesin/picture54.png',
+      '/inventaris_mesin/picture55.png',
+      '/inventaris_mesin/picture56.png',
+      '/inventaris_mesin/picture57.png',
+      '/inventaris_mesin/picture58.png',
+      '/inventaris_mesin/picture59.png',
     ],
   }),
   ...createSeriesItems({
     title: 'Inventaris Kendaraan',
     category: 'Operational Fleet',
     subtitle: 'Armada operasional untuk distribusi dan instalasi proyek',
-    note:
-      'Inventaris kendaraan memperlihatkan dukungan mobilitas lapangan yang membantu pengiriman material, distribusi hasil produksi, dan kebutuhan instalasi proyek secara lebih efisien.',
+    note: 'Inventaris kendaraan memperlihatkan dukungan mobilitas lapangan yang membantu pengiriman material, distribusi hasil produksi, dan kebutuhan instalasi proyek secara lebih efisien.',
     meta: ['Armada operasional', 'Distribusi proyek', 'Instalasi lapangan'],
     images: [
-      '/Iventaris Kendaraan/Picture60.jpg',
-      '/Iventaris Kendaraan/Picture61.jpg',
-      '/Iventaris Kendaraan/Picture62.jpg',
-      '/Iventaris Kendaraan/Picture63.jpg',
-      '/Iventaris Kendaraan/Picture64.jpg',
-      '/Iventaris Kendaraan/Picture65.jpg',
+      '/inventaris_kendaraan/picture60.png',
+      '/inventaris_kendaraan/picture61.png',
+      '/inventaris_kendaraan/picture62.png',
+      '/inventaris_kendaraan/picture63.png',
+      '/inventaris_kendaraan/picture64.png',
+      '/inventaris_kendaraan/picture65.png',
     ],
   }),
-]
+];
 
 const baseReviewShowcase = createSeriesItems({
   title: 'Review Pelanggan',
   category: 'Google Review',
   subtitle: 'Tangkapan kepercayaan yang dibangun dari hasil kerja nyata',
-  note:
-    'Dokumentasi review pelanggan ditampilkan sebagai bukti kepuasan klien terhadap kualitas hasil, ketepatan pengerjaan, dan komunikasi layanan CV Karya Indah yang terus dijaga.',
+  note: 'Dokumentasi review pelanggan ditampilkan sebagai bukti kepuasan klien terhadap kualitas hasil, ketepatan pengerjaan, dan komunikasi layanan CV Karya Indah yang terus dijaga.',
   meta: ['Google review', 'Kepercayaan klien', 'Masukan layanan'],
   images: [
-    '/Review Pelanggan/1.png',
-    '/Review Pelanggan/2.png',
-    '/Review Pelanggan/3.png',
-    '/Review Pelanggan/4.png',
-    '/Review Pelanggan/5.png',
-    '/Review Pelanggan/6.png',
-    '/Review Pelanggan/7.png',
-    '/Review Pelanggan/8.png',
-    '/Review Pelanggan/9.png',
-    '/Review Pelanggan/10.png',
-    '/Review Pelanggan/11.png',
-    '/Review Pelanggan/12.png',
+    '/review_pelanggan/1.png',
+    '/review_pelanggan/2.png',
+    '/review_pelanggan/3.png',
+    '/review_pelanggan/4.png',
+    '/review_pelanggan/5.png',
+    '/review_pelanggan/6.png',
+    '/review_pelanggan/7.png',
+    '/review_pelanggan/8.png',
+    '/review_pelanggan/9.png',
+    '/review_pelanggan/10.png',
+    '/review_pelanggan/11.png',
+    '/review_pelanggan/12.png',
   ],
-})
+});
 
 function withIds(items) {
   return items.map((item, index) => ({
     ...item,
     id: String(index + 1).padStart(2, '0'),
-  }))
+  }));
 }
 
-export const productionShowcaseItems = withIds(baseProductionGallery)
-export const officeWorkshopShowcaseItems = withIds(baseOfficeWorkshopGallery)
-export const inventoryShowcaseItems = withIds(baseInventoryShowcase)
-export const reviewShowcaseItems = withIds(baseReviewShowcase)
+export const productionShowcaseItems = withIds(baseProductionGallery);
+export const officeWorkshopShowcaseItems = withIds(baseOfficeWorkshopGallery);
+export const inventoryShowcaseItems = withIds(baseInventoryShowcase);
+export const reviewShowcaseItems = withIds(baseReviewShowcase);

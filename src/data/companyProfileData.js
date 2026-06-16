@@ -13,11 +13,11 @@ export const companyData = {
     vision: "To Be One Stop Advertising Service — menjadi mitra terpercaya yang menyediakan solusi periklanan dan konstruksi visual secara menyeluruh, dari perencanaan hingga instalasi.",
     mission: "Memberikan kepuasan kepada klien melalui mutu dan kecepatan layanan — dengan produk berkualitas tinggi, pengerjaan terstruktur, dan komunikasi yang responsif di setiap tahap proyek.",
     businessType: "Jasa Periklanan & Konstruksi",
-    bank: {
-        name: "Bank Central Asia Cabang Tegal",
-        account: "047-057-0008",
-        holder: "CV. Karya Indah",
-    },
+    // bank: {
+    //     name: "Bank Central Asia Cabang Tegal",
+    //     account: "047-057-0008",
+    //     holder: "CV. Karya Indah",
+    // },
     legalities: [
         { label: "Akta Pendirian", value: "No. 48 Tanggal 11 Desember 1992" },
         { label: "Tanda Daftar Perusahaan", value: "110452201203" },
@@ -73,7 +73,7 @@ export const servicesData = [
             "Media promosi",
         ],
         icon: "printer",
-        image: "/layanan/digital-printing.jpeg",
+        image: "/layanan/digital_printing.jpeg",
         imageAlt: "Printing press machine inside a workshop",
         highlight: "Hasil cetak tajam, cepat, dan sesuai kebutuhan promosi bisnis.",
         cta: "Lihat detail layanan",

@@ -42,7 +42,7 @@ export default function ContactSection({ companyData }) {
         { icon: FiMapPin,    label: "Kunjungi Kami",  value: companyData.address },
         { icon: FiPhone,     label: "Telepon",         value: companyData.phones.join("  /  ") },
         { icon: FiMail,      label: "Email",           value: companyData.email },
-        { icon: FiCreditCard,label: "Rekening Bank",   value: companyData.bank.name, sub: `${companyData.bank.account} · a/n ${companyData.bank.holder}` },
+        // { icon: FiCreditCard,label: "Rekening Bank",   value: companyData.bank?.name, sub: `${companyData.bank?.account} · a/n ${companyData.bank?.holder}` },
     ];
 
     return (
@@ -197,57 +197,79 @@ export default function ContactSection({ companyData }) {
                 </div>
             </div>
 
-            {/* ── Info cards (Solvera style) ── */}
-            <div className="bg-white py-20 sm:py-24">
-                <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                    <RevealStagger as="div" className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4" stagger={70}>
+            {/* ── Info cards ── */}
+            <div className="bg-slate-50 py-14 sm:py-16">
+                <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+                    <Reveal as="div" className="mb-10 text-center">
+                        <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
+                            Hubungi Kami
+                        </p>
+                        <h2 className="font-bold text-[2rem] sm:text-[2.4rem] leading-tight text-gray-900">Cara Menghubungi Kami</h2>
+                        <p className="mt-3 mx-auto max-w-xl text-[0.97rem] text-gray-500">
+                            Kami siap merespons setiap pertanyaan dan kebutuhan proyek Anda.
+                        </p>
+                    </Reveal>
 
-                        <div className="flex flex-col items-center text-center px-4">
-                            <FiMail className="mb-5 text-[3rem] text-[var(--color-primary-600)]" />
-                            <h3 className="mb-3 font-bold text-[1.3rem] text-[var(--color-primary-600)]">Pertanyaan</h3>
-                            <p className="mb-4 text-[0.92rem] leading-relaxed text-gray-500">
-                                Ada pertanyaan tentang layanan atau produk kami? Tim kami siap membantu Anda.
+                    <RevealStagger as="div" className="grid gap-5 sm:grid-cols-3" stagger={70}>
+
+                        <div className="rounded-2xl bg-white border border-gray-100 p-7 shadow-sm transition duration-300 hover:-translate-y-1">
+                            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary-50)]">
+                                <FiMail className="text-[1.4rem] text-[var(--color-primary-600)] stroke-[1.5]" />
+                            </div>
+                            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)] mb-1">Email</p>
+                            <h3 className="font-bold text-[1.05rem] text-gray-900 mb-2">Pertanyaan</h3>
+                            <p className="text-[0.87rem] leading-6 text-gray-500 mb-4">
+                                Ada pertanyaan tentang layanan atau produk kami? Tim kami siap membantu.
                             </p>
-                            <a href={`mailto:${companyData.email}`} className="text-[0.92rem] font-semibold text-gray-800 underline underline-offset-4 hover:text-[var(--color-primary-600)]">
+                            <a href={`mailto:${companyData.email}`} className="text-[0.87rem] font-semibold text-[var(--color-primary-600)] hover:underline underline-offset-4">
                                 {companyData.email}
                             </a>
                         </div>
 
-                        <div className="flex flex-col items-center text-center px-4">
-                            <FiPhone className="mb-5 text-[3rem] text-[var(--color-primary-600)]" />
-                            <h3 className="mb-3 font-bold text-[1.3rem] text-[var(--color-primary-600)]">Dukungan</h3>
-                            <p className="mb-4 text-[0.92rem] leading-relaxed text-gray-500">
-                                Butuh diskusi langsung mengenai proyek? Hubungi tim kami melalui telepon.
+                        <div className="rounded-2xl bg-white border border-gray-100 p-7 shadow-sm transition duration-300 hover:-translate-y-1">
+                            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary-50)]">
+                                <FiPhone className="text-[1.4rem] text-[var(--color-primary-600)] stroke-[1.5]" />
+                            </div>
+                            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)] mb-1">Telepon</p>
+                            <h3 className="font-bold text-[1.05rem] text-gray-900 mb-2">Dukungan</h3>
+                            <p className="text-[0.87rem] leading-6 text-gray-500 mb-4">
+                                Butuh diskusi langsung mengenai proyek? Hubungi tim kami via telepon.
                             </p>
-                            <a href={`tel:${companyData.phones[0]}`} className="text-[0.92rem] font-semibold text-gray-800 underline underline-offset-4 hover:text-[var(--color-primary-600)]">
+                            <a href={`tel:${companyData.phones[0]}`} className="text-[0.87rem] font-semibold text-[var(--color-primary-600)] hover:underline underline-offset-4">
                                 {companyData.phones.join("  /  ")}
                             </a>
                         </div>
 
-                        <div className="flex flex-col items-center text-center px-4">
-                            <FiMapPin className="mb-5 text-[3rem] text-[var(--color-primary-600)]" />
-                            <h3 className="mb-3 font-bold text-[1.3rem] text-[var(--color-primary-600)]">Kunjungi Kami</h3>
-                            <p className="mb-4 text-[0.92rem] leading-relaxed text-gray-500">
-                                Ingin bertemu langsung dengan tim kami? Kunjungi kantor kami di bawah ini.
+                        <div className="rounded-2xl bg-white border border-gray-100 p-7 shadow-sm transition duration-300 hover:-translate-y-1">
+                            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary-50)]">
+                                <FiMapPin className="text-[1.4rem] text-[var(--color-primary-600)] stroke-[1.5]" />
+                            </div>
+                            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)] mb-1">Alamat</p>
+                            <h3 className="font-bold text-[1.05rem] text-gray-900 mb-2">Kunjungi Kami</h3>
+                            <p className="text-[0.87rem] leading-6 text-gray-500 mb-4">
+                                Ingin bertemu langsung dengan tim kami? Kami menerima kunjungan di kantor.
                             </p>
-                            <p className="text-[0.92rem] font-semibold leading-relaxed text-gray-800">
+                            <a href="https://maps.app.goo.gl/gHhTQ7mLCE498mMo6" target="_blank" rel="noreferrer" className="text-[0.87rem] font-semibold text-[var(--color-primary-600)] hover:underline underline-offset-4">
                                 {companyData.address}
-                            </p>
+                            </a>
                         </div>
 
-                        <div className="flex flex-col items-center text-center px-4">
-                            <FiCreditCard className="mb-5 text-[3rem] text-[var(--color-primary-600)]" />
-                            <h3 className="mb-3 font-bold text-[1.3rem] text-[var(--color-primary-600)]">Rekening Bank</h3>
-                            <p className="mb-4 text-[0.92rem] leading-relaxed text-gray-500">
+                        {/* Rekening Bank — hidden
+                        <div className="rounded-2xl bg-white border border-gray-100 p-7 shadow-sm transition duration-300 hover:-translate-y-1">
+                            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary-50)]">
+                                <FiCreditCard className="text-[1.4rem] text-[var(--color-primary-600)] stroke-[1.5]" />
+                            </div>
+                            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)] mb-1">Pembayaran</p>
+                            <h3 className="font-bold text-[1.05rem] text-gray-900 mb-2">Rekening Bank</h3>
+                            <p className="text-[0.87rem] leading-6 text-gray-500 mb-4">
                                 Untuk pembayaran dan transaksi proyek, gunakan rekening resmi perusahaan.
                             </p>
-                            <p className="text-[0.92rem] font-semibold leading-relaxed text-gray-800">
-                                {companyData.bank.name}<br />
-                                <span className="text-[0.82rem] font-normal text-gray-500">
-                                    {companyData.bank.account} · a/n {companyData.bank.holder}
-                                </span>
+                            <p className="text-[0.87rem] font-semibold text-gray-800">
+                                {companyData.bank?.name}<br />
+                                <span className="font-normal text-gray-500">{companyData.bank?.account} · a/n {companyData.bank?.holder}</span>
                             </p>
                         </div>
+                        */}
 
                     </RevealStagger>
                 </div>

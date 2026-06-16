@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import PageHeroSlider from '../ui/PageHeroSlider';
+
 import {
   FiCalendar,
   FiUser,
@@ -21,6 +23,11 @@ import {
 import ImageViewer from '../ui/ImageViewer';
 import { Reveal, RevealStagger } from '../ui/Reveal';
 
+const heroImages = [
+  '/office_workshop/picture53.png',
+  '/inventaris_mesin/picture56.png',
+  '/inventaris_mesin/picture57.png',
+];
 const profileHighlights = [
   {
     icon: FiCalendar,
@@ -64,7 +71,7 @@ const servicePillars = ['Advertising', 'Signage', 'Interior', 'Konstruksi'];
 const legalityItems = [
   {
     id: '01',
-    image: '/legalitas1.jpeg',
+    image: '/legalitas/legalitas1.jpeg',
     eyebrow: 'OSS RBA',
     title: 'Sertifikat Standar',
     subtitle: 'Perizinan berusaha berbasis risiko',
@@ -74,7 +81,7 @@ const legalityItems = [
   },
   {
     id: '02',
-    image: '/legalitas2.jpeg',
+    image: '/legalitas/legalitas2.jpeg',
     eyebrow: 'Perpajakan',
     title: 'Surat Keterangan Terdaftar Pajak',
     subtitle: 'Administrasi NPWP badan usaha',
@@ -84,7 +91,7 @@ const legalityItems = [
   },
   {
     id: '03',
-    image: '/legalitas3.jpeg',
+    image: '/legalitas/legalitas3.jpeg',
     eyebrow: 'Lampiran OSS',
     title: 'Lampiran KBLI dan Persyaratan',
     subtitle: 'Ruang lingkup izin usaha',
@@ -126,11 +133,7 @@ export default function ProfileSection({ companyData }) {
     <section id="profil">
       {/* ── Hero full-bleed ── */}
       <div className="relative flex items-center justify-center overflow-hidden pt-[var(--header-height)] min-h-[100svh]">
-        <img
-          src="/hero_product.webp"
-          alt="CV Karya Indah"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+        <PageHeroSlider images={heroImages} />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 text-center text-white sm:px-12">
           <h1 className="font-bold text-[2.4rem] leading-tight sm:text-[3.5rem]">
@@ -261,9 +264,9 @@ export default function ProfileSection({ companyData }) {
       </div>
 
       {/* ── Informasi Perusahaan ── */}
-      <div className="bg-slate-50 py-20 sm:py-24">
+      <div className="bg-slate-50 py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal as="div" className="mb-10">
+          <Reveal as="div" className="mb-8 text-center">
             <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
               Detail Perusahaan
             </p>
@@ -345,36 +348,39 @@ export default function ProfileSection({ companyData }) {
       </div>
 
       {/* ── Struktur Organisasi ── */}
-      {/* 
-            <div className="bg-white py-20 sm:py-24">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <Reveal as="div" className="mb-10">
-                        <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
-                            Organisasi
-                        </p>
-                        <h2 className="font-bold text-[2rem] sm:text-[2.4rem] leading-tight text-gray-900">
-                            Struktur Organisasi
-                        </h2>
-                        <p className="mt-3 max-w-xl text-[0.97rem] text-gray-500">
-                            Susunan jabatan dan pembagian peran yang memastikan koordinasi berjalan efektif di setiap lini.
-                        </p>
-                    </Reveal>
+      <div className="bg-slate-50 py-14 sm:py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <Reveal as="div" className="mb-8 text-center">
+            <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
+              Organisasi
+            </p>
+            <h2 className="font-bold text-[2rem] sm:text-[2.4rem] leading-tight text-gray-900">Struktur Organisasi</h2>
+            <p className="mt-3 mx-auto max-w-xl text-[0.97rem] text-gray-500">
+              Susunan jabatan dan pembagian peran yang memastikan koordinasi berjalan efektif di setiap lini.
+            </p>
+          </Reveal>
 
-                    <Reveal as="div" className="flex justify-center overflow-hidden rounded-2xl border border-gray-100 bg-slate-50 p-6" delay={60}>
-                        <img
-                            src="/struktur.jpeg"
-                            alt="Struktur organisasi CV Karya Indah"
-                            onClick={() => setLightboxImage({ src: "/struktur.jpeg", alt: "Struktur organisasi CV Karya Indah" })}
-                            className="h-auto max-h-[500px] w-auto cursor-zoom-in rounded-xl object-contain transition hover:opacity-90"
-                        />
-                    </Reveal>
-                    <p className="mt-4 text-center text-[0.78rem] text-gray-400">Klik gambar untuk memperbesar</p>
-                </div>
+          <Reveal as="div" delay={60}>
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <button
+                type="button"
+                onClick={() => setLightboxImage({ src: '/legalitas/struktur.jpeg', alt: 'Struktur organisasi CV Karya Indah' })}
+                className="flex w-full justify-center overflow-hidden rounded-xl bg-slate-50 p-4 transition hover:shadow-md"
+              >
+                <img
+                  src="/legalitas/struktur.jpeg"
+                  alt="Struktur organisasi CV Karya Indah"
+                  className="h-auto max-h-[480px] w-auto rounded-lg object-contain cursor-zoom-in"
+                />
+              </button>
+              <p className="mt-3 text-center text-[0.75rem] text-gray-400">Klik gambar untuk memperbesar</p>
             </div>
-            */}
+          </Reveal>
+        </div>
+      </div>
 
       {/* ── Legalitas Showcase ── */}
-      <div className="bg-white py-20 sm:py-24">
+      <div className="bg-white py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal as="div" delay={60}>
             <LegalitiesShowcase items={legalityItems} onOpenImage={setLightboxImage} />
@@ -403,13 +409,15 @@ function LegalitiesShowcase({ items, onOpenImage }) {
 
   return (
     <div>
-      <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
-        Dokumen Legal
-      </p>
-      <h2 className="mb-2 font-bold text-[2rem] sm:text-[2.4rem] leading-tight text-gray-900">Legalitas Perusahaan</h2>
-      <p className="mb-10 text-[0.97rem] text-gray-500">
-        Dokumen legal utama yang mendasari operasional dan kepercayaan mitra kerja.
-      </p>
+      <div className="mb-8 text-center">
+        <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
+          Dokumen Legal
+        </p>
+        <h2 className="mb-2 font-bold text-[2rem] sm:text-[2.4rem] leading-tight text-gray-900">Legalitas Perusahaan</h2>
+        <p className="text-[0.97rem] text-gray-500">
+          Dokumen legal utama yang mendasari operasional dan kepercayaan mitra kerja.
+        </p>
+      </div>
 
       <div className="grid gap-6 xl:grid-cols-2 xl:items-start">
         {/* Image preview */}

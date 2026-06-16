@@ -1,6 +1,13 @@
 import { FiPenTool, FiGrid, FiPrinter, FiTool } from "react-icons/fi";
+import PageHeroSlider from "../ui/PageHeroSlider";
 import ClientLocationsMap from "../ui/ClientLocationsMap";
 import { Reveal, RevealStagger } from "../ui/Reveal";
+
+const heroImages = [
+  '/office_workshop/picture37.png',
+  '/office_workshop/picture38.png',
+  '/office_workshop/picture39.png',
+];
 
 const iconMap = {
     exterior: FiPenTool,
@@ -15,11 +22,7 @@ export default function ServicesSection({ servicesData, coverageLocations = [] }
 
             {/* ── Hero full-bleed ── */}
             <div className="relative flex items-center justify-center overflow-hidden pt-[var(--header-height)] min-h-[100svh]">
-                <img
-                    src="/jasa_layanan_prof.jpg"
-                    alt="Layanan CV Karya Indah"
-                    className="absolute inset-0 h-full w-full object-cover object-center"
-                />
+                <PageHeroSlider images={heroImages} />
                 <div className="absolute inset-0 bg-black/60" />
                 <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 text-center text-white sm:px-12">
                     <h1 className="font-bold text-[2.4rem] leading-tight sm:text-[3.5rem]">
