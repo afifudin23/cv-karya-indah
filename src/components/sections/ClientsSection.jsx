@@ -3,10 +3,7 @@ import PageHeroSlider from '../ui/PageHeroSlider';
 import { FiBriefcase, FiMapPin, FiUsers, FiAward, FiMessageSquare } from 'react-icons/fi';
 import { Reveal, RevealStagger } from '../ui/Reveal';
 
-const heroImages = [
-  '/produksi/produksi.png',
-  '/produksi/produksi2.jpeg',
-];
+const heroImages = ['/office_workshop/picture54.png'];
 
 function ClientLogo({ client }) {
   const [failed, setFailed] = useState(false);
@@ -67,7 +64,7 @@ export default function ClientsSection({ clients }) {
               <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
                 Pelanggan
               </p>
-              <h2 className="font-bold text-[2rem] sm:text-[2.5rem] leading-tight text-gray-900">Pelanggan Kami</h2>
+              <h2 className="font-bold text-[2rem] sm:text-[2.5rem] leading-tight text-gray-900">Pelanggan Setia Kami</h2>
               <p className="mt-4 text-[0.97rem] leading-relaxed text-gray-500">
                 Kami telah bekerja sama dengan berbagai klien dari beragam sektor. Daftar ini mencerminkan relasi kerja
                 yang terus dijaga melalui kualitas hasil dan pelayanan yang konsisten.

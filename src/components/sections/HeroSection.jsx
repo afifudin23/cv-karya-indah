@@ -5,9 +5,11 @@ import PageHeroSlider from '../ui/PageHeroSlider';
 
 const heroImages = [
   '/office_workshop/picture34.png',
-  '/office_workshop/picture35.png',
-  '/office_workshop/picture52.png',
-  '/office_workshop/picture53.png',
+  '/office_workshop/picture40.png',
+  '/office_workshop/picture48.png',
+  '/office_workshop/picture50.png',
+  '/produksi/produksi19.png',
+  '/produksi/produksi20.png',
 ];
 
 const advantages = [
@@ -46,12 +48,12 @@ const stats = [
 
 export default function HeroSection({ companyData, onNavigate }) {
   return (
-    <section id="beranda" className="relative overflow-hidden pt-[var(--header-height)]">
+    <section id="beranda" className="relative overflow-hidden">
       {/* ── Hero Slider ── */}
-      <div className="relative w-full aspect-[16/9] max-h-[calc(100svh-var(--header-height))] overflow-hidden">
+      <div className="relative flex items-center justify-center overflow-hidden pt-[var(--header-height)] min-h-[100svh]">
         <PageHeroSlider images={heroImages} />
         <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-20">
           <HeroContent companyData={companyData} onNavigate={onNavigate} />
         </div>
       </div>

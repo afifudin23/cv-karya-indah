@@ -23,11 +23,7 @@ import {
 import ImageViewer from '../ui/ImageViewer';
 import { Reveal, RevealStagger } from '../ui/Reveal';
 
-const heroImages = [
-  '/office_workshop/picture53.png',
-  '/inventaris_mesin/picture56.png',
-  '/inventaris_mesin/picture57.png',
-];
+const heroImages = ['/office_workshop/picture35.png'];
 const profileHighlights = [
   {
     icon: FiCalendar,
@@ -99,6 +95,36 @@ const legalityItems = [
       'Lampiran yang merangkum kode KBLI, klasifikasi risiko, serta persyaratan dan kewajiban usaha terkait sertifikat standar.',
     meta: ['Lampiran NIB', 'KBLI 41019', 'Persyaratan usaha'],
   },
+  {
+    id: '04',
+    image: '/legalitas/legalitas4.jpg',
+    eyebrow: 'SBU',
+    title: 'Sertifikat Badan Usaha (1)',
+    subtitle: 'Klasifikasi dan kualifikasi jasa konstruksi',
+    summary:
+      'Sertifikat Badan Usaha (SBU) yang menegaskan klasifikasi, kualifikasi, serta kompetensi CV Karya Indah dalam bidang jasa konstruksi dan visual.',
+    meta: ['Jasa Konstruksi', 'Kualifikasi Usaha', 'SBU Halaman 1'],
+  },
+  {
+    id: '05',
+    image: '/legalitas/legalitas5.jpg',
+    eyebrow: 'SBU',
+    title: 'Sertifikat Badan Usaha (2)',
+    subtitle: 'Ruang lingkup layanan konstruksi',
+    summary:
+      'Halaman lanjutan SBU yang memuat detail sub-klasifikasi layanan, lingkup pekerjaan, serta batas nilai proyek yang diizinkan.',
+    meta: ['Sub-klasifikasi', 'Lingkup pekerjaan', 'SBU Halaman 2'],
+  },
+  {
+    id: '06',
+    image: '/legalitas/legalitas6.jpg',
+    eyebrow: 'SBU',
+    title: 'Sertifikat Badan Usaha (3)',
+    subtitle: 'Pengesahan dan masa berlaku',
+    summary:
+      'Bagian penutup SBU yang memuat pengesahan resmi, masa berlaku sertifikat, serta identitas lembaga penerbit sertifikasi.',
+    meta: ['Pengesahan resmi', 'Masa berlaku', 'SBU Halaman 3'],
+  },
 ];
 
 export default function ProfileSection({ companyData }) {
@@ -137,7 +163,7 @@ export default function ProfileSection({ companyData }) {
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 text-center text-white sm:px-12">
           <h1 className="font-bold text-[2.4rem] leading-tight sm:text-[3.5rem]">
-            Mitra Visual Bisnis
+            Mitra Bisnis
             <br />
             Anda Sejak 1992
           </h1>
@@ -347,38 +373,6 @@ export default function ProfileSection({ companyData }) {
         </div>
       </div>
 
-      {/* ── Struktur Organisasi ── */}
-      <div className="bg-slate-50 py-14 sm:py-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <Reveal as="div" className="mb-8 text-center">
-            <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
-              Organisasi
-            </p>
-            <h2 className="font-bold text-[2rem] sm:text-[2.4rem] leading-tight text-gray-900">Struktur Organisasi</h2>
-            <p className="mt-3 mx-auto max-w-xl text-[0.97rem] text-gray-500">
-              Susunan jabatan dan pembagian peran yang memastikan koordinasi berjalan efektif di setiap lini.
-            </p>
-          </Reveal>
-
-          <Reveal as="div" delay={60}>
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <button
-                type="button"
-                onClick={() => setLightboxImage({ src: '/legalitas/struktur.jpeg', alt: 'Struktur organisasi CV Karya Indah' })}
-                className="flex w-full justify-center overflow-hidden rounded-xl bg-slate-50 p-4 transition hover:shadow-md"
-              >
-                <img
-                  src="/legalitas/struktur.jpeg"
-                  alt="Struktur organisasi CV Karya Indah"
-                  className="h-auto max-h-[480px] w-auto rounded-lg object-contain cursor-zoom-in"
-                />
-              </button>
-              <p className="mt-3 text-center text-[0.75rem] text-gray-400">Klik gambar untuk memperbesar</p>
-            </div>
-          </Reveal>
-        </div>
-      </div>
-
       {/* ── Legalitas Showcase ── */}
       <div className="bg-white py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -413,15 +407,17 @@ function LegalitiesShowcase({ items, onOpenImage }) {
         <p className="mb-3 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-600)]">
           Dokumen Legal
         </p>
-        <h2 className="mb-2 font-bold text-[2rem] sm:text-[2.4rem] leading-tight text-gray-900">Legalitas Perusahaan</h2>
+        <h2 className="mb-2 font-bold text-[2rem] sm:text-[2.4rem] leading-tight text-gray-900">
+          Legalitas Perusahaan
+        </h2>
         <p className="text-[0.97rem] text-gray-500">
           Dokumen legal utama yang mendasari operasional dan kepercayaan mitra kerja.
         </p>
       </div>
 
-      <div className="grid gap-6 xl:grid-cols-2 xl:items-start">
+      <div className="grid gap-6 xl:grid-cols-2 xl:items-stretch">
         {/* Image preview */}
-        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+        <div className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
           <div className="mb-4 flex items-center justify-between">
             <p className="text-[0.85rem] font-semibold text-gray-700">{activeItem.title}</p>
             <div className="flex items-center gap-2">
@@ -446,12 +442,12 @@ function LegalitiesShowcase({ items, onOpenImage }) {
           <button
             type="button"
             onClick={() => onOpenImage({ items: lightboxItems, index: activeIndex })}
-            className="flex w-full justify-center overflow-hidden rounded-xl border border-gray-100 bg-slate-50 p-4 transition hover:shadow-md"
+            className="flex flex-1 w-full justify-center overflow-hidden rounded-xl border border-gray-100 bg-slate-50 p-4 transition hover:shadow-md"
           >
             <img
               src={activeItem.image}
               alt={activeItem.title}
-              className="h-auto max-h-[400px] w-auto rounded-lg object-contain"
+              className="w-auto max-w-full rounded-lg object-contain"
             />
           </button>
           <p className="mt-3 text-center text-[0.75rem] text-gray-400">Klik gambar untuk memperbesar</p>

@@ -15,7 +15,7 @@ const baseProductionGallery = [
     meta: ['Branding fasad', 'Dealer otomotif', 'Visual besar'],
   },
   {
-    image: '/produksi/produksi2.jpeg',
+    image: '/produksi/produksi2.png',
     title: 'Showroom Suzuki',
     category: 'Showroom Facade',
     subtitle: 'Finishing showroom dengan garis visual modern',
@@ -23,7 +23,7 @@ const baseProductionGallery = [
     meta: ['Showroom facade', 'Panel ACP', 'Brand clean'],
   },
   {
-    image: '/produksi/produksi3.jpeg',
+    image: '/produksi/produksi3.png',
     title: 'Piaggio & Vespa',
     category: 'Night Signage',
     subtitle: 'Signage malam dengan nuansa premium',
@@ -31,7 +31,7 @@ const baseProductionGallery = [
     meta: ['Night signage', 'Lighting logo', 'Premium look'],
   },
   {
-    image: '/produksi/produksi4.jpeg',
+    image: '/produksi/produksi4.png',
     title: 'Dealer Chery',
     category: 'Polesign & Facade',
     subtitle: 'Kombinasi polesign dan fasad utama',
@@ -39,7 +39,7 @@ const baseProductionGallery = [
     meta: ['Polesign', 'Night visibility', 'Dealer branding'],
   },
   {
-    image: '/produksi/produksi5.jpeg',
+    image: '/produksi/produksi5.png',
     title: 'Toko Obat Wali',
     category: 'Retail Front Sign',
     subtitle: 'Front signage retail yang mudah dikenali',
@@ -47,7 +47,7 @@ const baseProductionGallery = [
     meta: ['Retail sign', 'Tipografi besar', 'Street visibility'],
   },
   {
-    image: '/produksi/produksi6.jpeg',
+    image: '/produksi/produksi6.png',
     title: 'Polesign BSI',
     category: 'Directional Sign',
     subtitle: 'Penanda lokasi dan petunjuk arah',
@@ -55,7 +55,7 @@ const baseProductionGallery = [
     meta: ['Directional sign', 'Outdoor sign', 'Lokasi & arah'],
   },
   {
-    image: '/produksi/produksi7.jpeg',
+    image: '/produksi/produksi7.png',
     title: 'Premiere Hotel Tegal',
     category: 'Hospitality Polesign',
     subtitle: 'Polesign hotel yang tegas dan mudah dikenali',
@@ -63,7 +63,7 @@ const baseProductionGallery = [
     meta: ['Hospitality sign', 'Akses masuk', 'Outdoor branding'],
   },
   {
-    image: '/produksi/produksi8.jpeg',
+    image: '/produksi/produksi8.png',
     title: 'Billboard Tong Tji',
     category: 'Outdoor Billboard',
     subtitle: 'Media promosi outdoor dengan skala besar',
@@ -71,7 +71,7 @@ const baseProductionGallery = [
     meta: ['Billboard', 'Brand campaign', 'Outdoor media'],
   },
   {
-    image: '/produksi/produksi9.jpg',
+    image: '/produksi/produksi9.png',
     title: 'Stand Job Fair Wings',
     category: 'Event Booth Interior',
     subtitle: 'Booth promosi karier dengan tampilan interaktif',
@@ -79,7 +79,7 @@ const baseProductionGallery = [
     meta: ['Job fair', 'Interactive booth', 'Brand activation'],
   },
   {
-    image: '/produksi/produksi10.jpg',
+    image: '/produksi/produksi10.png',
     title: 'Rak Apparel Yamaha',
     category: 'Retail Display',
     subtitle: 'Display apparel dengan pencahayaan dekoratif',
@@ -87,7 +87,7 @@ const baseProductionGallery = [
     meta: ['Retail display', 'Lighting', 'Apparel rack'],
   },
   {
-    image: '/produksi/produksi11.jpg',
+    image: '/produksi/produksi11.png',
     title: 'Backwall CSO Yogya Mall',
     category: 'Mall Interior',
     subtitle: 'Backwall fitting room dengan tampilan rapi',
@@ -218,14 +218,6 @@ const baseOfficeWorkshopGallery = [
     note: 'Ruang meeting mendukung kebutuhan presentasi, konsultasi, dan pembahasan proyek agar komunikasi dengan klien maupun tim berjalan lebih fokus.',
     meta: ['Koordinasi proyek', 'Presentasi', 'Diskusi klien'],
   },
-  ...createSeriesItems({
-    title: 'Ruang Admin',
-    category: 'Administrative Area',
-    subtitle: 'Pusat administrasi operasional yang tertata rapi',
-    note: 'Area admin membantu kelancaran dokumentasi proyek, pengelolaan dokumen, serta koordinasi internal agar proses kerja tetap terstruktur.',
-    meta: ['Administrasi', 'Dokumen kerja', 'Operasional harian'],
-    images: ['/office_workshop/picture38.png', '/office_workshop/picture39.png'],
-  }),
   {
     image: '/office_workshop/picture40.png',
     title: 'Ruang Digital Printing',
@@ -233,14 +225,6 @@ const baseOfficeWorkshopGallery = [
     subtitle: 'Area digital printing untuk kebutuhan visual promosi',
     note: 'Ruang digital printing menjadi bagian penting untuk pengerjaan media cetak visual dengan alur kerja yang lebih cepat, rapi, dan terkontrol.',
     meta: ['Digital printing', 'Support produksi', 'Output visual'],
-  },
-  {
-    image: '/office_workshop/picture41.png',
-    title: 'Ruang Design',
-    category: 'Creative Workspace',
-    subtitle: 'Ruang kerja visual untuk konsep dan final artwork',
-    note: 'Area design dipakai untuk pengembangan konsep visual, penyusunan artwork, serta sinkronisasi desain sebelum masuk tahap produksi.',
-    meta: ['Artwork', 'Konsep visual', 'Creative room'],
   },
   {
     image: '/office_workshop/picture42.png',

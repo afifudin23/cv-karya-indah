@@ -4,7 +4,8 @@ export default function PageHeroSlider({ images: heroImages }) {
   const [current, setCurrent] = useState(0);
   const [animated, setAnimated] = useState(true);
   const total = heroImages.length;
-  const images = [...heroImages, heroImages[0]];
+  const isMultiple = total > 1;
+  const images = isMultiple ? [...heroImages, heroImages[0]] : heroImages;
   const timerRef = useRef(null);
   const isMovingRef = useRef(false);
 
@@ -20,9 +21,10 @@ export default function PageHeroSlider({ images: heroImages }) {
   }, [advance]);
 
   useEffect(() => {
+    if (!isMultiple) return;
     startTimer();
     return () => clearInterval(timerRef.current);
-  }, [startTimer]);
+  }, [startTimer, isMultiple]);
 
   const handleTransitionEnd = () => {
     isMovingRef.current = false;
@@ -43,7 +45,7 @@ export default function PageHeroSlider({ images: heroImages }) {
     <>
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className={`flex h-full ease-in-out ${animated ? 'transition-transform duration-[3000ms]' : ''}`}
+          className={`flex h-full ease-in-out ${animated ? 'transition-transform duration-[2000ms]' : ''}`}
           style={{ transform: `translateX(-${current * 100}%)` }}
           onTransitionEnd={handleTransitionEnd}
         >
@@ -60,7 +62,7 @@ export default function PageHeroSlider({ images: heroImages }) {
       </div>
 
       {/* Dot indicators */}
-      <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center gap-2">
+      {isMultiple && <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center gap-2">
         {heroImages.map((_, i) => (
           <button
             key={i}
@@ -74,7 +76,7 @@ export default function PageHeroSlider({ images: heroImages }) {
             }`}
           />
         ))}
-      </div>
+      </div>}
     </>
   );
 }
