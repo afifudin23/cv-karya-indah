@@ -9,11 +9,11 @@ function ClientLogo({ client }) {
   const [failed, setFailed] = useState(false);
   if (client.logo && !failed) {
     return (
-      <div className="flex h-11 w-[88px] items-center justify-start">
+      <div className="flex h-14 w-[120px] items-center justify-start">
         <img
           src={client.logo}
           alt={client.shortName}
-          className="max-h-[36px] max-w-[80px] object-contain"
+          className="max-h-[52px] max-w-[80px] object-contain"
           onError={() => setFailed(true)}
         />
       </div>
@@ -57,7 +57,7 @@ export default function ClientsSection({ clients }) {
       </div>
 
       {/* ── Content ── */}
-      <div className="bg-slate-50 py-20 sm:py-24">
+      <div className="bg-slate-50 pt-20 pb-12 sm:pt-24 sm:pb-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal as="div">
             <div className="mb-12 sm:mb-16 mx-auto max-w-2xl text-center">
@@ -101,7 +101,7 @@ export default function ClientsSection({ clients }) {
               ))}
             </RevealStagger>
 
-            <div className="mt-16 grid gap-10 sm:grid-cols-3">
+            <div className="mt-10 grid gap-10 sm:grid-cols-3">
               <div className="flex flex-col items-center text-center px-4">
                 <FiAward className="mb-5 text-[3rem] text-[var(--color-primary-600)]" />
                 <h3 className="mb-3 font-bold text-[1.3rem] text-[var(--color-primary-600)]">Komitmen Kualitas</h3>

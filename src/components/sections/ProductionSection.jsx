@@ -3,7 +3,7 @@ import PageHeroSlider from '../ui/PageHeroSlider';
 import { productionShowcaseItems } from '../../data/showcaseData';
 import { Reveal } from '../ui/Reveal';
 
-const heroImages = ['/produksi/produksi35.png'];
+const heroImages = ['/produksi/produksi32.png'];
 
 export default function ProductionSection() {
   return (

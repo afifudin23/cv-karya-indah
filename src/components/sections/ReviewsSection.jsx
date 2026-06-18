@@ -5,7 +5,7 @@ import { reviewShowcaseItems } from '../../data/showcaseData'
 export default function ReviewsSection({
   id = 'review-pelanggan',
   tone = 'muted',
-  paddingClassName = 'pb-20 pt-28 sm:pt-32',
+  paddingClassName = 'pb-20 pt-16 sm:pt-14',
 }) {
   return (
     <SectionShell
