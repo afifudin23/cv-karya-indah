@@ -71,7 +71,7 @@ export default function App() {
             case "/pelanggan":
                 return (
                     <>
-                        <ClientsSection clients={clients} />
+                        <ClientsSection />
                         <ReviewsSection />
                     </>
                 );

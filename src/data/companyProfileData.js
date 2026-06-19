@@ -276,7 +276,6 @@ export const logoPartners = [
     { shortName: "Bank BNI",        logo: "/slider/BNI.png",             initials: "BN", logoClass: "max-h-[38px]" },
     { shortName: "Univ. BSI",       logo: "/slider/bsi.png",             initials: "BS", logoClass: "max-h-14" },
     { shortName: "Vespa Piaggio",   logo: "/slider/vespa.png",           initials: "VP" },
-    { shortName: "Djarum",          logo: "/slider/djarum.png",          initials: "DJ" },
     { shortName: "Bajaj",           logo: "/slider/bajaj.png",           initials: "BJ" },
     { shortName: "HINO Truck",      logo: "/slider/hino.png",            initials: "HN" },
     // Baris 3
@@ -285,7 +284,6 @@ export const logoPartners = [
     { shortName: "Passion Berlian", logo: "/slider/passion_berlian.png", initials: "PB", logoClass: "max-h-14" },
     { shortName: "Yo! Active",      logo: "/slider/yo_active.png",       initials: "YA", logoClass: "max-h-14" },
     { shortName: "Telkom",          logo: "/slider/telkom.png",          initials: "TL", logoClass: "max-h-14" },
-    { shortName: "Bank Mandiri",    logo: "/slider/Mandiri.png",         initials: "MD" },
 ];
 
 export const reviews = [

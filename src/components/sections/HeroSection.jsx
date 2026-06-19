@@ -86,7 +86,7 @@ export default function HeroSection({ companyData, onNavigate }) {
               <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-slate-50 sm:w-32" />
               <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-slate-50 sm:w-32" />
               <div className={`${row.track} gap-5 py-1`} style={{ animationDuration: row.speed }}>
-                {[...row.items, ...row.items].map((partner, i) => (
+                {[...row.items, ...row.items, ...row.items, ...row.items].map((partner, i) => (
                   <ClientLogoCard key={i} client={partner} />
                 ))}
               </div>
@@ -94,11 +94,6 @@ export default function HeroSection({ companyData, onNavigate }) {
           ))}
         </div>
 
-        <Reveal as="div" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10 text-center" delay={80}>
-          <button onClick={(e) => onNavigate(e, '/pelanggan')} className="btn btn-primary">
-            Lihat Semua Pelanggan
-          </button>
-        </Reveal>
       </div>
 
       {/* ── Mengapa Pilih Kami ── */}
