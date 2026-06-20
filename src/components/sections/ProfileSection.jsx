@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import PageHeroSlider from '../ui/PageHeroSlider';
 
 import {
@@ -157,7 +157,7 @@ export default function ProfileSection({ companyData }) {
 
   return (
     <section id="profil">
-      {/* ── Hero full-bleed ── */}
+      {/* â”€â”€ Hero full-bleed â”€â”€ */}
       <div className="relative flex items-center justify-center overflow-hidden pt-[var(--header-height)] min-h-[100svh]">
         <PageHeroSlider images={heroImages} />
         <div className="absolute inset-0 bg-black/60" />
@@ -184,7 +184,7 @@ export default function ProfileSection({ companyData }) {
         </div>
       </div>
 
-      {/* ── Highlight cards ── */}
+      {/* â”€â”€ Highlight cards â”€â”€ */}
       <div className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <RevealStagger as="div" className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4" stagger={70}>
@@ -210,7 +210,7 @@ export default function ProfileSection({ companyData }) {
         </div>
       </div>
 
-      {/* ── Siapa Kami ── */}
+      {/* â”€â”€ Siapa Kami â”€â”€ */}
       <div className="bg-slate-50 py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-14 lg:grid-cols-2 lg:items-stretch">
@@ -247,7 +247,7 @@ export default function ProfileSection({ companyData }) {
         </div>
       </div>
 
-      {/* ── Visi & Misi ── */}
+      {/* â”€â”€ Visi & Misi â”€â”€ */}
       <div className="bg-white py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal as="div" className="mx-auto max-w-2xl text-center mb-14">
@@ -289,7 +289,7 @@ export default function ProfileSection({ companyData }) {
         </div>
       </div>
 
-      {/* ── Informasi Perusahaan ── */}
+      {/* â”€â”€ Informasi Perusahaan â”€â”€ */}
       <div className="bg-slate-50 py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal as="div" className="mb-8 text-center">
@@ -300,7 +300,7 @@ export default function ProfileSection({ companyData }) {
           </Reveal>
 
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
-            {/* Data Perusahaan — icon cards */}
+            {/* Data Perusahaan â€” icon cards */}
             <RevealStagger as="div" stagger={50}>
               <p className="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-gray-400">
                 Data Perusahaan
@@ -354,7 +354,7 @@ export default function ProfileSection({ companyData }) {
                 </div>
               </RevealStagger>
 
-              {/* K3 — solid teal card */}
+              {/* K3 â€” solid teal card */}
               <Reveal as="div" delay={80}>
                 <div className="rounded-2xl bg-[var(--color-primary-600)] p-7 text-white">
                   <FiShield className="mb-4 text-[2rem] stroke-[1.4] opacity-90" />
@@ -373,7 +373,7 @@ export default function ProfileSection({ companyData }) {
         </div>
       </div>
 
-      {/* ── Legalitas Showcase ── */}
+      {/* â”€â”€ Legalitas Showcase â”€â”€ */}
       <div className="bg-white py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal as="div" delay={60}>
@@ -383,7 +383,7 @@ export default function ProfileSection({ companyData }) {
       </div>
 
       <ImageViewer
-        key={lightboxImage?.src ?? 'lightbox'}
+        key={lightboxImage ? `lightbox-${lightboxImage.index}` : 'closed'}
         image={lightboxImage}
         onClose={() => setLightboxImage(null)}
       />
@@ -514,3 +514,4 @@ function LegalitiesShowcase({ items, onOpenImage }) {
     </div>
   );
 }
+

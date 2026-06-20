@@ -1,4 +1,4 @@
-export default function Footer({ companyData, navItems, onNavigate }) {
+﻿export default function Footer({ companyData, navItems, onNavigate }) {
   const services = ['Exterior Goods', 'Interior Goods', 'Digital Printing', 'Konstruksi']
 
   return (
@@ -68,3 +68,4 @@ export default function Footer({ companyData, navItems, onNavigate }) {
     </footer>
   )
 }
+

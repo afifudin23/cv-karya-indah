@@ -1,4 +1,4 @@
-import SectionShell from '../ui/SectionShell'
+﻿import SectionShell from '../ui/SectionShell'
 import ShowcaseGallery from '../ui/ShowcaseGallery'
 import { officeWorkshopShowcaseItems } from '../../data/showcaseData'
 
@@ -31,3 +31,4 @@ export default function OfficeWorkshopSection({
     </SectionShell>
   )
 }
+

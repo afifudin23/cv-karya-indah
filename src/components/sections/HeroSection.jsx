@@ -1,4 +1,4 @@
-import { FiAward, FiLayers, FiTool, FiUsers } from 'react-icons/fi';
+﻿import { FiAward, FiLayers, FiTool, FiUsers } from 'react-icons/fi';
 import { Reveal, RevealStagger } from '../ui/Reveal';
 import { logoPartners } from '../../data/companyProfileData';
 import PageHeroSlider from '../ui/PageHeroSlider';
@@ -23,7 +23,7 @@ const advantages = [
     icon: FiLayers,
     title: 'Layanan Menyeluruh',
     description:
-      'Mulai dari exterior goods, interior goods, hingga dukungan konstruksi — semua ditangani dalam satu ekosistem kerja yang saling terhubung.',
+      'Mulai dari exterior goods, interior goods, hingga dukungan konstruksi â€” semua ditangani dalam satu ekosistem kerja yang saling terhubung.',
   },
   {
     icon: FiTool,
@@ -49,7 +49,7 @@ const stats = [
 export default function HeroSection({ companyData, onNavigate }) {
   return (
     <section id="beranda" className="relative overflow-hidden">
-      {/* ── Hero Slider ── */}
+      {/* â”€â”€ Hero Slider â”€â”€ */}
       <div className="relative flex items-center justify-center overflow-hidden pt-[var(--header-height)] min-h-[100svh]">
         <PageHeroSlider images={heroImages} />
         <div className="absolute inset-0 bg-black/55" />
@@ -58,7 +58,7 @@ export default function HeroSection({ companyData, onNavigate }) {
         </div>
       </div>
 
-      {/* ── Dipercaya oleh Perusahaan ── */}
+      {/* â”€â”€ Dipercaya oleh Perusahaan â”€â”€ */}
       <div className="bg-slate-50 py-12 sm:py-16 lg:py-20 overflow-hidden">
         <Reveal as="div" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-10">
@@ -96,7 +96,7 @@ export default function HeroSection({ companyData, onNavigate }) {
 
       </div>
 
-      {/* ── Mengapa Pilih Kami ── */}
+      {/* â”€â”€ Mengapa Pilih Kami â”€â”€ */}
       <div className="bg-white px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-7xl">
           <Reveal as="div">
@@ -144,7 +144,7 @@ export default function HeroSection({ companyData, onNavigate }) {
               </p>
               <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3">
                 <a
-                  href="https://wa.me/628975836972?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
+                  href="https://wa.me/6282258661995?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-[0.88rem] sm:text-[0.9rem] font-bold text-[var(--color-primary-700)] transition hover:bg-white/90"
@@ -179,7 +179,7 @@ function HeroContent({ companyData, onNavigate }) {
       </p>
       <div className="motion-rise-in flex flex-wrap justify-center mt-7 gap-3 sm:mt-9 sm:gap-4">
         <a
-          href="https://wa.me/628975836972?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
+          href="https://wa.me/6282258661995?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center rounded-lg bg-[var(--color-primary-600)] font-semibold text-white transition hover:bg-[var(--color-primary-700)] px-6 py-3 text-[0.95rem] sm:px-8 sm:py-3.5 sm:text-[1rem]"
@@ -221,3 +221,4 @@ function ClientLogoCard({ client }) {
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-import PageHeroSlider from '../ui/PageHeroSlider';
+﻿import PageHeroSlider from '../ui/PageHeroSlider';
 import { FiUsers, FiAward, FiMessageSquare } from 'react-icons/fi';
 import { Reveal } from '../ui/Reveal';
 import { logoPartners } from '../../data/companyProfileData';
@@ -33,7 +33,7 @@ function LogoCard({ client }) {
 export default function ClientsSection() {
   return (
     <section id="pelanggan">
-      {/* ── Hero full-bleed ── */}
+      {/* â”€â”€ Hero full-bleed â”€â”€ */}
       <div className="relative flex items-center justify-center overflow-hidden pt-[var(--header-height)] min-h-[100svh]">
         <PageHeroSlider images={heroImages} />
         <div className="absolute inset-0 bg-black/60" />
@@ -44,7 +44,7 @@ export default function ClientsSection() {
             Mempercayai Kami
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-[1rem] leading-relaxed text-white/80">
-            Dari perusahaan manufaktur nasional hingga ritel terkemuka — kami bangga menjadi mitra visual branding
+            Dari perusahaan manufaktur nasional hingga ritel terkemuka â€” kami bangga menjadi mitra visual branding
             berbagai institusi di Indonesia.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-2">
@@ -60,7 +60,7 @@ export default function ClientsSection() {
         </div>
       </div>
 
-      {/* ── Logo Marquee ── */}
+      {/* â”€â”€ Logo Marquee â”€â”€ */}
       <div className="bg-slate-50 pt-20 pb-12 sm:pt-24 sm:pb-14 overflow-hidden">
         <Reveal as="div" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 sm:mb-12 mx-auto max-w-2xl text-center">
@@ -69,7 +69,7 @@ export default function ClientsSection() {
             </p>
             <h2 className="font-bold text-[2rem] sm:text-[2.5rem] leading-tight text-gray-900">Pelanggan Setia Kami</h2>
             <p className="mt-4 text-[0.97rem] leading-relaxed text-gray-500">
-              Kami telah bekerja sama dengan berbagai klien dari beragam sektor — mulai dari industri otomotif,
+              Kami telah bekerja sama dengan berbagai klien dari beragam sektor â€” mulai dari industri otomotif,
               perbankan, ritel, hingga FMCG di seluruh Indonesia.
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function ClientsSection() {
                 Ingin bermitra dengan kami? Konsultasikan kebutuhan proyek Anda langsung bersama tim CV Karya Indah.
               </p>
               <a
-                href="https://wa.me/628975836972?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
+                href="https://wa.me/6282258661995?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[0.92rem] font-semibold text-gray-800 underline underline-offset-4 hover:text-[var(--color-primary-600)]"
@@ -136,3 +136,4 @@ export default function ClientsSection() {
     </section>
   );
 }
+

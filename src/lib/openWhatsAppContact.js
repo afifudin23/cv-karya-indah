@@ -1,4 +1,4 @@
-const WHATSAPP_PHONE = "628975836972";
+﻿const WHATSAPP_PHONE = "6282258661995";
 
 export function buildWhatsAppContactMessage(formData) {
   const lines = [
@@ -20,3 +20,4 @@ export function openWhatsAppContact(formData) {
   const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
   return window.open(url, "_blank", "noopener,noreferrer");
 }
+

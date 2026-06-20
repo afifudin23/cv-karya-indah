@@ -1,4 +1,4 @@
-export default function HighlightCard({ title, accent, children }) {
+﻿export default function HighlightCard({ title, accent, children }) {
   const accentClass =
     accent === 'ink'
       ? 'border-[var(--ink)] bg-slate-950 text-white'
@@ -11,3 +11,4 @@ export default function HighlightCard({ title, accent, children }) {
     </div>
   )
 }
+

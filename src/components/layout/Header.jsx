@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+﻿import { useEffect, useLayoutEffect, useRef } from "react";
 
 export default function Header({ isOpen, navItems, currentPath, onNavigate, onToggle, onClose }) {
     const headerBarRef = useRef(null);
@@ -93,7 +93,7 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
                         ))}
 
                         <a
-                            href="https://wa.me/628975836972?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
+                            href="https://wa.me/6282258661995?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary ml-4 text-[0.88rem]"
@@ -162,7 +162,7 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
 
                     <div className="pt-2 pb-1">
                         <a
-                            href="https://wa.me/628975836972?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
+                            href="https://wa.me/6282258661995?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary flex w-full justify-center"
@@ -175,3 +175,4 @@ export default function Header({ isOpen, navItems, currentPath, onNavigate, onTo
         </nav>
     );
 }
+

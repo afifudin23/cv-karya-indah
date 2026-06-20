@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 
 export default function ImageViewer({ image, onClose }) {
     const items = image?.items?.length ? image.items : image ? [image] : [];
@@ -286,3 +286,4 @@ function ImageViewerStage({ currentItem, hasNavigation, itemsLength, onClose, on
         </>
     );
 }
+

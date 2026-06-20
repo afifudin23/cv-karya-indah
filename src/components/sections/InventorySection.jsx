@@ -1,4 +1,4 @@
-import SectionShell from '../ui/SectionShell'
+﻿import SectionShell from '../ui/SectionShell'
 import ShowcaseGallery from '../ui/ShowcaseGallery'
 import { inventoryShowcaseItems } from '../../data/showcaseData'
 
@@ -29,3 +29,4 @@ export default function InventorySection({
     </SectionShell>
   )
 }
+

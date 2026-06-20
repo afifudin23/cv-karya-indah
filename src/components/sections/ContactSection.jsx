@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { FiMail, FiMapPin, FiPhone, FiCreditCard, FiSend, FiMessageSquare } from "react-icons/fi";
 import { servicesData } from "../../data/companyProfileData";
 import { openWhatsAppContact } from "../../lib/openWhatsAppContact";
@@ -42,13 +42,13 @@ export default function ContactSection({ companyData }) {
         { icon: FiMapPin,    label: "Kunjungi Kami",  value: companyData.address },
         { icon: FiPhone,     label: "Telepon",         value: companyData.phones.join("  /  ") },
         { icon: FiMail,      label: "Email",           value: companyData.email },
-        // { icon: FiCreditCard,label: "Rekening Bank",   value: companyData.bank?.name, sub: `${companyData.bank?.account} · a/n ${companyData.bank?.holder}` },
+        // { icon: FiCreditCard,label: "Rekening Bank",   value: companyData.bank?.name, sub: `${companyData.bank?.account} Â· a/n ${companyData.bank?.holder}` },
     ];
 
     return (
         <section id="kontak" className="bg-white pt-[var(--header-height)]">
 
-            {/* ── Form ── */}
+            {/* â”€â”€ Form â”€â”€ */}
             <div className="py-20 sm:py-24">
                 <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
 
@@ -141,7 +141,7 @@ export default function ContactSection({ companyData }) {
 
                             <div className="grid gap-3 pt-1 sm:grid-cols-2">
                                 <a
-                                    href="https://wa.me/628975836972?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
+                                    href="https://wa.me/6282258661995?text=Halo%20CV%20Karya%20Indah%2C%20saya%20ingin%20berkonsultasi."
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-[var(--color-primary-50)] border border-[var(--color-primary-200)] px-6 py-3.5 text-[0.95rem] font-semibold text-[var(--color-primary-700)] transition hover:bg-[var(--color-primary-100)]"
@@ -164,7 +164,7 @@ export default function ContactSection({ companyData }) {
                 </div>
             </div>
 
-            {/* ── Map ── */}
+            {/* â”€â”€ Map â”€â”€ */}
             <div className="bg-slate-50 py-16 sm:py-20">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <Reveal as="div" className="mb-6 flex items-center justify-between">
@@ -180,7 +180,7 @@ export default function ContactSection({ companyData }) {
                             rel="noreferrer"
                             className="text-[0.85rem] font-semibold text-[var(--color-primary-600)] hover:underline"
                         >
-                            Buka di Google Maps →
+                            Buka di Google Maps â†’
                         </a>
                     </Reveal>
                     <Reveal as="div" delay={60}>
@@ -197,7 +197,7 @@ export default function ContactSection({ companyData }) {
                 </div>
             </div>
 
-            {/* ── Info cards ── */}
+            {/* â”€â”€ Info cards â”€â”€ */}
             <div className="bg-slate-50 py-14 sm:py-16">
                 <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
                     <Reveal as="div" className="mb-10 text-center">
@@ -254,7 +254,7 @@ export default function ContactSection({ companyData }) {
                             </a>
                         </div>
 
-                        {/* Rekening Bank — hidden
+                        {/* Rekening Bank â€” hidden
                         <div className="rounded-2xl bg-white border border-gray-100 p-7 shadow-sm transition duration-300 hover:-translate-y-1">
                             <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary-50)]">
                                 <FiCreditCard className="text-[1.4rem] text-[var(--color-primary-600)] stroke-[1.5]" />
@@ -266,7 +266,7 @@ export default function ContactSection({ companyData }) {
                             </p>
                             <p className="text-[0.87rem] font-semibold text-gray-800">
                                 {companyData.bank?.name}<br />
-                                <span className="font-normal text-gray-500">{companyData.bank?.account} · a/n {companyData.bank?.holder}</span>
+                                <span className="font-normal text-gray-500">{companyData.bank?.account} Â· a/n {companyData.bank?.holder}</span>
                             </p>
                         </div>
                         */}
@@ -278,3 +278,4 @@ export default function ContactSection({ companyData }) {
         </section>
     );
 }
+

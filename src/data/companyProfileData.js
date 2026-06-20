@@ -1,4 +1,4 @@
-export const companyData = {
+﻿export const companyData = {
     name: "CV. KARYA INDAH",
     tagline: "Jasa Periklanan & Konstruksi",
     slogan: "One Stop Advertising",
@@ -10,8 +10,8 @@ export const companyData = {
     phones: ["(0283) 356838", "(0283) 358024"],
     email: "karya.indah.tg@gmail.com",
     director: "Sunarto Wijaya",
-    vision: "To Be One Stop Advertising Service — menjadi mitra terpercaya yang menyediakan solusi periklanan dan konstruksi visual secara menyeluruh, dari perencanaan hingga instalasi.",
-    mission: "Memberikan kepuasan kepada klien melalui mutu dan kecepatan layanan — dengan produk berkualitas tinggi, pengerjaan terstruktur, dan komunikasi yang responsif di setiap tahap proyek.",
+    vision: "To Be One Stop Advertising Service â€” menjadi mitra terpercaya yang menyediakan solusi periklanan dan konstruksi visual secara menyeluruh, dari perencanaan hingga instalasi.",
+    mission: "Memberikan kepuasan kepada klien melalui mutu dan kecepatan layanan â€” dengan produk berkualitas tinggi, pengerjaan terstruktur, dan komunikasi yang responsif di setiap tahap proyek.",
     businessType: "Jasa Periklanan & Konstruksi",
     // bank: {
     //     name: "Bank Central Asia Cabang Tegal",
@@ -293,3 +293,4 @@ export const reviews = [
 
 export const heroImage = "/test444.png";
 // 'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80'
+

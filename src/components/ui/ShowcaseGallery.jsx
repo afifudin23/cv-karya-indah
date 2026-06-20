@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { FiArrowLeft, FiArrowRight, FiMaximize2 } from 'react-icons/fi'
 import ImageViewer from './ImageViewer'
@@ -33,7 +33,7 @@ export default function ShowcaseGallery({
     <>
       <Reveal as="div" className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
 
-        {/* ── Header ── */}
+        {/* â”€â”€ Header â”€â”€ */}
         <div className="flex flex-wrap items-start justify-between gap-3 border-b border-gray-100 px-6 py-5 sm:px-8">
           <div className="max-w-2xl">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--color-primary-600)]">
@@ -46,7 +46,7 @@ export default function ShowcaseGallery({
           </span>
         </div>
 
-        {/* ── Main Image ── */}
+        {/* â”€â”€ Main Image â”€â”€ */}
         <div className="relative overflow-hidden bg-gray-100">
           <img
             src={activeItem.image}
@@ -86,7 +86,7 @@ export default function ShowcaseGallery({
           </button>
         </div>
 
-        {/* ── Info Panel ── */}
+        {/* â”€â”€ Info Panel â”€â”€ */}
         <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
           {/* Left: text */}
           <div>
@@ -127,7 +127,7 @@ export default function ShowcaseGallery({
           </div>
         </div>
 
-        {/* ── Thumbnail Dots + Strip ── */}
+        {/* â”€â”€ Thumbnail Dots + Strip â”€â”€ */}
         <div className="border-t border-gray-100 px-6 pb-6 pt-4 sm:px-8">
           {/* dot navigation */}
           <div className="mb-4 flex justify-center gap-2">
@@ -183,3 +183,4 @@ export default function ShowcaseGallery({
     </>
   )
 }
+

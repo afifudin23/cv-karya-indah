@@ -1,4 +1,4 @@
-export const projectLocations = [
+﻿export const projectLocations = [
   {
     id: 1,
     companyName: 'Bank Aceh Syariah',
@@ -880,3 +880,4 @@ export const projectLocations = [
     region: 'Jawa',
   },
 ];
+

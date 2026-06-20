@@ -1,4 +1,4 @@
-import { FiPenTool, FiGrid, FiPrinter, FiTool } from 'react-icons/fi';
+﻿import { FiPenTool, FiGrid, FiPrinter, FiTool } from 'react-icons/fi';
 import PageHeroSlider from '../ui/PageHeroSlider';
 import ClientLocationsMap from '../ui/ClientLocationsMap';
 import { Reveal, RevealStagger } from '../ui/Reveal';
@@ -15,14 +15,14 @@ const iconMap = {
 export default function ServicesSection({ servicesData, coverageLocations = [] }) {
   return (
     <section id="layanan">
-      {/* ── Hero full-bleed ── */}
+      {/* â”€â”€ Hero full-bleed â”€â”€ */}
       <div className="relative flex items-center justify-center overflow-hidden pt-[var(--header-height)] min-h-[100svh]">
         <PageHeroSlider images={heroImages} />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 text-center text-white sm:px-12">
           <h1 className="font-bold text-[2.4rem] leading-tight sm:text-[3.5rem]">Solusi Bisnis Terlengkap</h1>
           <p className="mx-auto mt-5 max-w-2xl text-[1rem] leading-relaxed text-white/80">
-            Dari signage eksterior, interior branded, cetak digital, hingga konstruksi visual — semua dikerjakan dalam
+            Dari signage eksterior, interior branded, cetak digital, hingga konstruksi visual â€” semua dikerjakan dalam
             satu ekosistem kerja yang presisi dan profesional.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-2">
@@ -38,7 +38,7 @@ export default function ServicesSection({ servicesData, coverageLocations = [] }
         </div>
       </div>
 
-      {/* ── Services Grid ── */}
+      {/* â”€â”€ Services Grid â”€â”€ */}
       <div className="bg-slate-50 py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal as="div" className="mx-auto max-w-2xl text-center mb-14">
@@ -110,7 +110,7 @@ export default function ServicesSection({ servicesData, coverageLocations = [] }
         </div>
       </div>
 
-      {/* ── Coverage map ── */}
+      {/* â”€â”€ Coverage map â”€â”€ */}
       {coverageLocations.length ? (
         <div className="bg-white py-20 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -133,3 +133,4 @@ export default function ServicesSection({ servicesData, coverageLocations = [] }
     </section>
   );
 }
+

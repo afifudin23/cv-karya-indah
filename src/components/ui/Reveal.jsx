@@ -1,4 +1,4 @@
-import { useInView } from '../../lib/useInView'
+﻿import { useInView } from '../../lib/useInView'
 
 export function Reveal({
   as: Component = 'div',
@@ -66,3 +66,4 @@ export function RevealStagger({
     </Component>
   )
 }
+

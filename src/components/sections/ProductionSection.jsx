@@ -1,4 +1,4 @@
-import ShowcaseGallery from '../ui/ShowcaseGallery';
+﻿import ShowcaseGallery from '../ui/ShowcaseGallery';
 import PageHeroSlider from '../ui/PageHeroSlider';
 import { productionShowcaseItems } from '../../data/showcaseData';
 import { Reveal } from '../ui/Reveal';
@@ -8,7 +8,7 @@ const heroImages = ['/produksi/produksi32.png'];
 export default function ProductionSection() {
   return (
     <section id="produksi">
-      {/* ── Hero full-bleed ── */}
+      {/* â”€â”€ Hero full-bleed â”€â”€ */}
       <div className="relative flex items-center justify-center overflow-hidden pt-[var(--header-height)] min-h-[100svh]">
         <PageHeroSlider images={heroImages} />
         <div className="absolute inset-0 bg-black/60" />
@@ -35,7 +35,7 @@ export default function ProductionSection() {
         </div>
       </div>
 
-      {/* ── Content ── */}
+      {/* â”€â”€ Content â”€â”€ */}
       <div className="bg-slate-50 py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal as="div">
@@ -45,7 +45,7 @@ export default function ProductionSection() {
               </p>
               <h2 className="font-bold text-[2rem] sm:text-[2.5rem] leading-tight text-gray-900">Hasil Produksi</h2>
               <p className="mt-4 text-[0.97rem] leading-relaxed text-gray-500">
-                Dokumentasi proyek produksi yang telah kami kerjakan — mulai dari signage, interior, cetak digital,
+                Dokumentasi proyek produksi yang telah kami kerjakan â€” mulai dari signage, interior, cetak digital,
                 hingga konstruksi visual skala besar.
               </p>
             </div>
@@ -67,3 +67,4 @@ export default function ProductionSection() {
     </section>
   );
 }
+

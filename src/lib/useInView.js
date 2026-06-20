@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+﻿import { useEffect, useRef, useState } from 'react'
 
 function prefersReducedMotion() {
   if (typeof window === 'undefined') return false
@@ -53,3 +53,4 @@ export function useInView({
 
   return [ref, inView]
 }
+

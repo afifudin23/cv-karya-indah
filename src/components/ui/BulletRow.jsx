@@ -1,4 +1,4 @@
-export default function BulletRow({ value }) {
+﻿export default function BulletRow({ value }) {
   return (
     <div className="flex gap-3 border-b border-slate-100 pb-3 last:border-b-0 last:pb-0">
       <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--teal)]" />
@@ -6,3 +6,4 @@ export default function BulletRow({ value }) {
     </div>
   )
 }
+

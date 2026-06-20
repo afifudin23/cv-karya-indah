@@ -1,4 +1,4 @@
-import SectionShell from '../ui/SectionShell'
+﻿import SectionShell from '../ui/SectionShell'
 import { RevealStagger } from '../ui/Reveal'
 
 export default function WorkspacesSection({ workspaces }) {
@@ -25,3 +25,4 @@ export default function WorkspacesSection({ workspaces }) {
     </SectionShell>
   )
 }
+
