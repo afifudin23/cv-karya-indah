@@ -103,14 +103,6 @@ const baseProductionGallery = [
     meta: ['Counter kassa', 'Retail area', 'Functional build'],
   },
   {
-    image: '/produksi/produksi13.png',
-    title: 'Interior Dealer Suzuki',
-    category: 'Dealer Interior',
-    subtitle: 'Area front desk dealer yang rapi dan profesional',
-    note: 'Area interior dealer Suzuki pada bagian front desk dengan tata elemen yang bersih dan representatif untuk kebutuhan pelayanan pelanggan di showroom.',
-    meta: ['Dealer interior', 'Front desk', 'Customer service'],
-  },
-  {
     image: '/produksi/produksi14.png',
     title: 'Interior Toko Emas Kencana',
     category: 'Luxury Interior',

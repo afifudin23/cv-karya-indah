@@ -22,7 +22,7 @@ export default function ServicesSection({ servicesData, coverageLocations = [] }
         <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 text-center text-white sm:px-12">
           <h1 className="font-bold text-[2.4rem] leading-tight sm:text-[3.5rem]">Solusi Bisnis Terlengkap</h1>
           <p className="mx-auto mt-5 max-w-2xl text-[1rem] leading-relaxed text-white/80">
-            Dari signage eksterior, interior branded, cetak digital, hingga konstruksi visual â€” semua dikerjakan dalam
+            Dari signage eksterior, interior branded, cetak digital, hingga konstruksi visual — semua dikerjakan dalam
             satu ekosistem kerja yang presisi dan profesional.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-2">

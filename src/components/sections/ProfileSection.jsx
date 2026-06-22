@@ -300,7 +300,7 @@ export default function ProfileSection({ companyData }) {
           </Reveal>
 
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
-            {/* Data Perusahaan â€” icon cards */}
+            {/* Data Perusahaan — icon cards */}
             <RevealStagger as="div" stagger={50}>
               <p className="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-gray-400">
                 Data Perusahaan
@@ -354,7 +354,7 @@ export default function ProfileSection({ companyData }) {
                 </div>
               </RevealStagger>
 
-              {/* K3 â€” solid teal card */}
+              {/* K3 — solid teal card */}
               <Reveal as="div" delay={80}>
                 <div className="rounded-2xl bg-[var(--color-primary-600)] p-7 text-white">
                   <FiShield className="mb-4 text-[2rem] stroke-[1.4] opacity-90" />

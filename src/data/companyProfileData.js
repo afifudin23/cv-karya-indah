@@ -10,8 +10,8 @@
     phones: ["(0283) 356838", "(0283) 358024"],
     email: "karya.indah.tg@gmail.com",
     director: "Sunarto Wijaya",
-    vision: "To Be One Stop Advertising Service â€” menjadi mitra terpercaya yang menyediakan solusi periklanan dan konstruksi visual secara menyeluruh, dari perencanaan hingga instalasi.",
-    mission: "Memberikan kepuasan kepada klien melalui mutu dan kecepatan layanan â€” dengan produk berkualitas tinggi, pengerjaan terstruktur, dan komunikasi yang responsif di setiap tahap proyek.",
+    vision: "To Be One Stop Advertising Service — menjadi mitra terpercaya yang menyediakan solusi periklanan dan konstruksi visual secara menyeluruh, dari perencanaan hingga instalasi.",
+    mission: "Memberikan kepuasan kepada klien melalui mutu dan kecepatan layanan — dengan produk berkualitas tinggi, pengerjaan terstruktur, dan komunikasi yang responsif di setiap tahap proyek.",
     businessType: "Jasa Periklanan & Konstruksi",
     // bank: {
     //     name: "Bank Central Asia Cabang Tegal",
@@ -283,7 +283,6 @@ export const logoPartners = [
     { shortName: "Toko Mas Kresno", logo: "/slider/kresno.png",          initials: "TK", logoClass: "max-h-14" },
     { shortName: "Passion Berlian", logo: "/slider/passion_berlian.png", initials: "PB", logoClass: "max-h-14" },
     { shortName: "Yo! Active",      logo: "/slider/yo_active.png",       initials: "YA", logoClass: "max-h-14" },
-    { shortName: "Telkom",          logo: "/slider/telkom.png",          initials: "TL", logoClass: "max-h-14" },
 ];
 
 export const reviews = [

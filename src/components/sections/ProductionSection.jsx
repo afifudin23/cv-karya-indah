@@ -45,7 +45,7 @@ export default function ProductionSection() {
               </p>
               <h2 className="font-bold text-[2rem] sm:text-[2.5rem] leading-tight text-gray-900">Hasil Produksi</h2>
               <p className="mt-4 text-[0.97rem] leading-relaxed text-gray-500">
-                Dokumentasi proyek produksi yang telah kami kerjakan â€” mulai dari signage, interior, cetak digital,
+                Dokumentasi proyek produksi yang telah kami kerjakan — mulai dari signage, interior, cetak digital,
                 hingga konstruksi visual skala besar.
               </p>
             </div>
