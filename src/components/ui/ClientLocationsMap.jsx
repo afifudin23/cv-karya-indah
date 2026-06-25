@@ -239,17 +239,6 @@ function ensureMapStyles() {
     }
 }
 
-function buildPopupMarkup(location) {
-    return `
-    <div class="coverage-map__popup-layout">
-      <p class="coverage-map__popup-eyebrow">Titik Referensi</p>
-      <p class="coverage-map__popup-title">${location.companyName}</p>
-      <p class="coverage-map__popup-copy">${location.city}, ${location.province}</p>
-      <span class="coverage-map__popup-tag">${location.projectType}</span>
-    </div>
-  `;
-}
-
 function createMarkerIcon(Leaflet) {
     return Leaflet.divIcon({
         className: "coverage-map-marker",
@@ -321,14 +310,7 @@ export default function ClientLocationsMap({ locations = [] }) {
                     const marker = Leaflet.marker([location.lat, location.lng], {
                         icon: markerIcon,
                         keyboard: false,
-                        title: location.companyName,
-                    })
-                        .bindPopup(buildPopupMarkup(location), {
-                            className: "coverage-map__popup",
-                            closeButton: false,
-                            offset: [0, -10],
-                        })
-                        .addTo(markerLayer);
+                    }).addTo(markerLayer);
 
                     markerIndexRef.current.set(location.id, marker);
                 });
@@ -402,7 +384,7 @@ export default function ClientLocationsMap({ locations = [] }) {
                     {status === "empty" && "Data titik referensi belum tersedia."}
                     {status === "error" && "Peta belum berhasil dimuat. Coba refresh halaman."}
                     {status === "ready" &&
-                        "Klik marker merah untuk melihat nama perusahaan, kota, provinsi, dan jenis layanan yang relevan."}
+                        "Setiap titik merah menandai sebaran perusahaan klien di Indonesia."}
                 </div>
             </div>
         </div>
